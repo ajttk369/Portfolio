@@ -1,0 +1,16 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="YJ favicon">
+  <rect width="64" height="64" rx="18" fill="#08111F"/>
+  <rect x="2" y="2" width="60" height="60" rx="16" stroke="#3B82F6" stroke-width="3" stroke-opacity=".72"/>
+  <circle cx="32" cy="32" r="21" fill="url(#g)"/>
+  <circle cx="32" cy="32" r="14" fill="#102A4C" stroke="#60A5FA" stroke-width="2"/>
+  <path d="M18.5 21L13.5 32L18.5 43" stroke="#93C5FD" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M45.5 21L50.5 32L45.5 43" stroke="#22D3EE" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M36 19L28 45" stroke="#EAF2FF" stroke-width="3.2" stroke-linecap="round"/>
+  <defs>
+    <radialGradient id="g" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(32 32) rotate(90) scale(21)">
+      <stop stop-color="#38BDF8"/>
+      <stop offset=".56" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </radialGradient>
+  </defs>
+</svg>
