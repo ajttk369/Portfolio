@@ -1247,6 +1247,257 @@
       box-shadow: 0 18px 44px rgba(37, 99, 235, .28)
     }
 
+    .project-media.has-visual::after,
+    .project-media:has(.project-visual)::after {
+      display: none
+    }
+
+    .project-visual {
+      position: absolute;
+      inset: 18px;
+      z-index: 1;
+      border-radius: 18px;
+      border: 1px solid rgba(147, 197, 253, .28);
+      background: rgba(8, 17, 31, .72);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, .26);
+      overflow: hidden
+    }
+
+    .visual-topbar {
+      height: 26px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 12px;
+      border-bottom: 1px solid rgba(147, 197, 253, .18);
+      background: rgba(255, 255, 255, .08)
+    }
+
+    .visual-topbar i {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(147, 197, 253, .8)
+    }
+
+    .visual-label {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #dbeafe;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      background: rgba(15, 23, 42, .72);
+      border: 1px solid rgba(147, 197, 253, .26)
+    }
+
+    .visual-cup .scan-frame {
+      position: absolute;
+      inset: 46px 32px 34px;
+      border: 1px solid rgba(34, 211, 238, .5);
+      border-radius: 16px;
+      background:
+        linear-gradient(90deg, rgba(34, 211, 238, .22), transparent 1px),
+        linear-gradient(0deg, rgba(34, 211, 238, .16), transparent 1px);
+      background-size: 22px 22px
+    }
+
+    .visual-cup .cup-shape {
+      position: absolute;
+      left: 50%;
+      bottom: 34px;
+      width: 58px;
+      height: 74px;
+      transform: translateX(-50%);
+      border-radius: 12px 12px 20px 20px;
+      background: linear-gradient(180deg, rgba(239, 246, 255, .96), rgba(125, 211, 252, .46));
+      clip-path: polygon(8% 0, 92% 0, 78% 100%, 22% 100%);
+      box-shadow: 0 16px 30px rgba(14, 165, 233, .28)
+    }
+
+    .visual-cup .detect-box {
+      position: absolute;
+      left: 50%;
+      bottom: 28px;
+      width: 78px;
+      height: 88px;
+      transform: translateX(-50%);
+      border: 2px solid rgba(34, 211, 238, .9);
+      border-radius: 12px
+    }
+
+    .visual-cup .detect-box::before {
+      content: "CUP 98%";
+      position: absolute;
+      left: -2px;
+      top: -24px;
+      padding: 3px 8px;
+      border-radius: 8px;
+      color: #04111f;
+      background: #67e8f9;
+      font-size: 10px;
+      font-weight: 800
+    }
+
+    .visual-cup .sensor-dot,
+    .visual-parking .sensor-dot,
+    .visual-ai .sensor-dot {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 18px rgba(56, 189, 248, .8)
+    }
+
+    .visual-cup .sensor-dot:nth-of-type(1) {
+      right: 28px;
+      top: 58px
+    }
+
+    .visual-cup .sensor-dot:nth-of-type(2) {
+      left: 28px;
+      bottom: 40px
+    }
+
+    .visual-parking {
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, .86), rgba(12, 74, 110, .72)),
+        linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px);
+      background-size: auto, 38px 38px
+    }
+
+    .parking-lot {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      top: 46px;
+      bottom: 38px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px
+    }
+
+    .parking-slot {
+      position: relative;
+      border: 1px solid rgba(191, 219, 254, .42);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .06)
+    }
+
+    .parking-slot.active {
+      background: rgba(34, 211, 238, .18);
+      border-color: rgba(34, 211, 238, .8)
+    }
+
+    .parking-slot::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 34px;
+      height: 18px;
+      transform: translate(-50%, -50%);
+      border-radius: 8px 8px 5px 5px;
+      background: rgba(226, 232, 240, .82)
+    }
+
+    .parking-slot.empty::after {
+      display: none
+    }
+
+    .nfc-card {
+      position: absolute;
+      right: 18px;
+      bottom: 14px;
+      width: 58px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #dbeafe, #7dd3fc);
+      box-shadow: 0 12px 22px rgba(14, 165, 233, .3)
+    }
+
+    .nfc-card::before {
+      content: "NFC";
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      color: #082f49;
+      font-size: 10px;
+      font-weight: 900
+    }
+
+    .visual-ai {
+      background: linear-gradient(135deg, rgba(15, 23, 42, .88), rgba(30, 64, 175, .62))
+    }
+
+    .expo-page {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      top: 42px;
+      bottom: 22px;
+      border-radius: 14px;
+      background: rgba(248, 250, 252, .92);
+      overflow: hidden
+    }
+
+    .expo-hero {
+      height: 58%;
+      background:
+        radial-gradient(circle at 72% 38%, rgba(59, 130, 246, .72), transparent 20%),
+        radial-gradient(circle at 28% 42%, rgba(6, 182, 212, .58), transparent 22%),
+        linear-gradient(135deg, #e0f2fe, #eef2ff)
+    }
+
+    .expo-lines {
+      padding: 12px
+    }
+
+    .expo-lines span {
+      display: block;
+      height: 7px;
+      margin-bottom: 7px;
+      border-radius: 999px;
+      background: #93c5fd
+    }
+
+    .expo-lines span:nth-child(1) {
+      width: 62%
+    }
+
+    .expo-lines span:nth-child(2) {
+      width: 42%;
+      background: #cbd5e1
+    }
+
+    .expo-node {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 18px rgba(56, 189, 248, .85)
+    }
+
+    .expo-node:nth-child(3) {
+      left: 32%;
+      top: 38%
+    }
+
+    .expo-node:nth-child(4) {
+      left: 62%;
+      top: 28%
+    }
+
+    .expo-node:nth-child(5) {
+      left: 72%;
+      top: 54%
+    }
+
     .project-body {
       padding: 32px 36px 36px
     }
@@ -1327,6 +1578,56 @@
       color: var(--text-sub);
       line-height: 1.75;
       margin-bottom: 22px
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px
+    }
+
+    .project-action {
+      padding: 7px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      background: rgba(37, 99, 235, .08);
+      font-size: 12px;
+      font-weight: 700
+    }
+
+    .project-action.video {
+      color: var(--accent3);
+      border-color: rgba(125, 211, 252, .28)
+    }
+
+    .project-site-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 9px 16px;
+      border-radius: 10px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: 1px solid rgba(147, 197, 253, .42);
+      box-shadow: 0 12px 26px rgba(37, 99, 235, .28);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .25s, box-shadow .25s
+    }
+
+    .project-site-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(37, 99, 235, .36)
+    }
+
+    .project-site-link::after {
+      content: "↗";
+      font-size: 13px
     }
 
     .tag-list {
@@ -1482,6 +1783,58 @@
       border: 0;
       object-fit: contain;
       background: #000
+    }
+
+    .youtube-thumb {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: hidden;
+      background: #000;
+      text-decoration: none
+    }
+
+    .youtube-thumb img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      opacity: .82;
+      transition: transform .35s, opacity .35s
+    }
+
+    .youtube-thumb:hover img {
+      transform: scale(1.04);
+      opacity: .72
+    }
+
+    .youtube-play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 62px;
+      height: 44px;
+      border-radius: 12px;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 0, 0, .92);
+      color: white;
+      font-size: 22px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, .24)
+    }
+
+    .youtube-label {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 16px;
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, .55)
     }
 
     .video-caption {
@@ -1687,6 +2040,10 @@
       flex-wrap: wrap
     }
 
+    .modal-links .btn {
+      min-width: 132px
+    }
+
     .modal-video {
       margin: 4px 0 26px;
       border: 1px solid var(--border);
@@ -1728,6 +2085,38 @@
     .modal-fact span {
       color: var(--text-sub);
       font-size: 12px
+    }
+
+    .modal-detail {
+      display: grid;
+      gap: 16px;
+      margin: 24px 0
+    }
+
+    .modal-detail-block {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(37, 99, 235, .06)
+    }
+
+    .modal-detail-block h4 {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: var(--text)
+    }
+
+    .modal-detail-block p,
+    .modal-detail-block li {
+      color: var(--text-sub);
+      font-size: 14px;
+      line-height: 1.7
+    }
+
+    .modal-detail-block ul {
+      display: grid;
+      gap: 6px;
+      padding-left: 18px
     }
 
     /* ── CONTACT ── */
@@ -2568,10 +2957,22 @@
       <button class="filter-btn" data-filter="Python">Python</button>
       <button class="filter-btn" data-filter="IoT">IoT</button>
       <button class="filter-btn" data-filter="NFC">NFC</button>
+      <button class="filter-btn" data-filter="Web">Web</button>
+      <button class="filter-btn" data-filter="AI">AI</button>
     </div>
     <div class="projects-grid reveal-stagger">
-      <div class="project-card" onclick="openModal('cup')" data-tags="Raspberry Pi,Python,Machine Learning,OpenCV">
-        <div class="project-media" data-visual="♻️"></div>
+      <div class="project-card" onclick="openModal('cup')" onkeydown="handleCardKey(event,'cup')" tabindex="0" role="button" aria-label="자동 인식 컵 수거기 자세히 보기" data-tags="Raspberry Pi,Python,Machine Learning,OpenCV">
+        <div class="project-media has-visual">
+          <div class="project-visual visual-cup" aria-hidden="true">
+            <div class="visual-topbar"><i></i><i></i><i></i></div>
+            <div class="scan-frame"></div>
+            <div class="cup-shape"></div>
+            <div class="detect-box"></div>
+            <span class="sensor-dot"></span>
+            <span class="sensor-dot"></span>
+            <span class="visual-label">VISION SYSTEM</span>
+          </div>
+        </div>
         <div class="project-arrow">→</div>
         <div class="project-body">
           <div class="project-num">01</div>
@@ -2580,10 +2981,28 @@
           <p>카메라로 컵을 인식하고 재질에 따라 분류하는 라즈베리파이 기반 프로젝트입니다.</p>
           <div class="tag-list"><span class="tag">Raspberry Pi</span><span class="tag">Python</span><span
               class="tag">Machine Learning</span><span class="tag">OpenCV</span></div>
+          <div class="project-actions">
+            <span class="project-action">자세히 보기</span>
+            <span class="project-action">구현 설명</span>
+          </div>
         </div>
       </div>
-      <div class="project-card" onclick="openModal('parking')" data-tags="Arduino,IoT,C++,Bluetooth,NFC">
-        <div class="project-media" data-visual="📡"></div>
+      <div class="project-card" onclick="openModal('parking')" onkeydown="handleCardKey(event,'parking')" tabindex="0" role="button" aria-label="스마트 무선 주차 시스템 자세히 보기" data-tags="Arduino,IoT,C++,Bluetooth,NFC">
+        <div class="project-media has-visual">
+          <div class="project-visual visual-parking" aria-hidden="true">
+            <div class="visual-topbar"><i></i><i></i><i></i></div>
+            <div class="parking-lot">
+              <span class="parking-slot active"></span>
+              <span class="parking-slot"></span>
+              <span class="parking-slot empty"></span>
+              <span class="parking-slot"></span>
+              <span class="parking-slot active empty"></span>
+              <span class="parking-slot"></span>
+            </div>
+            <span class="nfc-card"></span>
+            <span class="visual-label">SMART PARKING</span>
+          </div>
+        </div>
         <div class="project-arrow">→</div>
         <div class="project-body">
           <div class="project-num">02</div>
@@ -2592,6 +3011,37 @@
           <p>아두이노와 NFC를 활용해 주차 상태 확인 흐름을 구현한 프로젝트입니다.</p>
           <div class="tag-list"><span class="tag">Arduino</span><span class="tag">IoT</span><span
               class="tag">C++</span><span class="tag">Bluetooth</span><span class="tag">NFC</span></div>
+          <div class="project-actions">
+            <span class="project-action">자세히 보기</span>
+            <span class="project-action video">시연 영상</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card" onclick="openModal('aiExpo')" onkeydown="handleCardKey(event,'aiExpo')" tabindex="0" role="button" aria-label="AI 미래전시 홍보 사이트 자세히 보기" data-tags="Web,AI,HTML,CSS,JavaScript,Vercel">
+        <div class="project-media has-visual">
+          <div class="project-visual visual-ai" aria-hidden="true">
+            <div class="visual-topbar"><i></i><i></i><i></i></div>
+            <div class="expo-page">
+              <div class="expo-hero"></div>
+              <div class="expo-lines"><span></span><span></span></div>
+            </div>
+            <span class="expo-node"></span>
+            <span class="expo-node"></span>
+            <span class="expo-node"></span>
+            <span class="visual-label">AI EXPO WEB</span>
+          </div>
+        </div>
+        <div class="project-arrow">→</div>
+        <div class="project-body">
+          <div class="project-num">03</div>
+          <div class="project-meta"><span>2026</span><span>Web</span><span>AI Promotion</span><span>Live</span></div>
+          <h3>AI 미래전시 홍보 사이트</h3>
+          <p>AI 전시 홍보를 위한 웹 페이지로, 전시 정보와 콘텐츠를 한눈에 볼 수 있게 구성한 프로젝트입니다.</p>
+          <div class="tag-list"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Responsive</span><span class="tag">Vercel</span></div>
+          <div class="project-actions">
+            <span class="project-action">자세히 보기</span>
+            <a class="project-site-link" href="https://ai-expo-sooty.vercel.app/" target="_blank" rel="noopener" onclick="event.stopPropagation()" onkeydown="event.stopPropagation()">사이트 보기</a>
+          </div>
         </div>
       </div>
     </div>
@@ -2646,10 +3096,13 @@
     <div class="video-grid reveal-stagger">
       <div class="video-card">
         <div class="video-frame">
-          <video controls preload="metadata" playsinline poster="images/summer.png">
-            <source src="videos/hover.mp4" type="video/mp4">
-            브라우저가 video 태그를 지원하지 않습니다.
-          </video>
+          <a class="youtube-thumb" href="https://youtu.be/38RFvKLbVpo" target="_blank" rel="noopener"
+            aria-label="YouTube에서 Hover Motion Video 보기">
+            <img src="https://img.youtube.com/vi/38RFvKLbVpo/hqdefault.jpg" alt="Hover Motion Video 썸네일"
+              loading="lazy">
+            <span class="youtube-play">▶</span>
+            <span class="youtube-label">YouTube에서 보기</span>
+          </a>
         </div>
         <div class="video-caption">
           <h3>Hover Motion Video</h3>
@@ -2658,9 +3111,12 @@
       </div>
       <div class="video-card">
         <div class="video-frame">
-          <iframe src="https://www.youtube.com/embed/UUavcExpHok" title="아이돌 교차편집 영상" loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
+          <a class="youtube-thumb" href="https://youtu.be/UUavcExpHok" target="_blank" rel="noopener"
+            aria-label="YouTube에서 아이돌 교차편집 보기">
+            <img src="https://img.youtube.com/vi/UUavcExpHok/hqdefault.jpg" alt="아이돌 교차편집 썸네일" loading="lazy">
+            <span class="youtube-play">▶</span>
+            <span class="youtube-label">YouTube에서 보기</span>
+          </a>
         </div>
         <div class="video-caption">
           <h3>아이돌 교차편집</h3>
@@ -2688,8 +3144,7 @@
       <h2>연락 주세요</h2>
       <p>웹 제작, 디자인 작업, 협업 제안 모두 편하게 연락 주세요.<br>확인하는 대로 답장드리겠습니다.</p>
       <div class="contact-links">
-        <a href="mailto:email@example.com" class="contact-link">✉️ Email</a>
-        <a href="https://www.linkedin.com/in/아이디" target="_blank" class="contact-link">💼 LinkedIn</a>
+        <a href="resume.pdf" target="_blank" rel="noopener" class="contact-link">📄 이력서 보기</a>
         <a href="https://github.com/ajttk369" target="_blank" class="contact-link">🐙 GitHub</a>
       </div>
     </div>
@@ -2712,6 +3167,10 @@
         description: '라즈베리파이와 카메라 모듈을 사용해 컵을 인식하고, 재질에 따라 분류하는 자동 분리수거 프로젝트입니다. 인식 결과를 실제 동작으로 연결하는 흐름에 집중했습니다.',
         tags: ['Raspberry Pi', 'Python', 'Machine Learning', 'OpenCV', 'TensorFlow Lite'],
         facts: [['역할', '인식 로직 · 하드웨어 연동'], ['핵심 기능', '컵 인식 및 분류'], ['결과물', '작동 프로토타입']],
+        problem: '컵을 사람이 직접 구분하지 않아도 카메라 인식 결과로 분류 흐름을 만들 수 있는지 확인하는 프로젝트였습니다.',
+        role: '카메라 입력 처리, 컵 인식 흐름 구성, 하드웨어 동작 연결을 맡았습니다.',
+        features: ['카메라 모듈을 통한 컵 감지', '인식 결과에 따른 분류 흐름 구성', '라즈베리파이 기반 프로토타입 동작 확인'],
+        result: '인식 결과가 실제 동작으로 이어지는 프로토타입을 구현했습니다.',
         github: 'https://github.com/ajttk369'
       },
       parking: {
@@ -2720,17 +3179,39 @@
         description: '아두이노, 초음파 센서, NFC를 활용해 주차 상태를 확인하는 프로젝트입니다. 센서 입력과 무선 제어 흐름이 실제로 이어지도록 구성했습니다.',
         tags: ['Arduino', 'IoT', 'C++', 'Bluetooth', 'NFC', '초음파 센서'],
         facts: [['역할', '센서 제어 · 통신 연결'], ['핵심 기능', 'NFC 기반 상태 확인'], ['결과물', '주차 시스템 시연']],
+        problem: '주차 공간의 상태를 센서로 확인하고, NFC와 무선 흐름으로 사용자 확인 과정을 단순화하는 것이 목표였습니다.',
+        role: '센서 입력 처리, NFC 흐름 구성, 아두이노 제어 로직 구현을 담당했습니다.',
+        features: ['초음파 센서 기반 주차 상태 감지', 'NFC를 활용한 상태 확인 흐름', '시연 영상으로 동작 과정 정리'],
+        result: '센서 입력부터 상태 확인까지 이어지는 스마트 주차 시스템 시연을 완성했습니다.',
         github: 'https://github.com/ajttk369',
         video: 'videos/nfc.mp4'
+      },
+      aiExpo: {
+        title: 'AI 미래전시 홍보 사이트',
+        year: '2026',
+        description: 'AI 전시 홍보를 위한 웹 페이지입니다. 전시 소개, 핵심 콘텐츠, 방문자가 확인해야 할 정보를 한 화면 흐름 안에서 자연스럽게 볼 수 있도록 구성했습니다.',
+        tags: ['HTML', 'CSS', 'JavaScript', 'Responsive UI', 'Vercel', 'Codex'],
+        facts: [['역할', '페이지 구조 · UI 구현'], ['핵심 기능', '전시 홍보 콘텐츠 구성'], ['결과물', 'Vercel 배포 사이트']],
+        problem: '전시 홍보 페이지는 방문자가 짧은 시간 안에 전시의 주제, 분위기, 주요 정보를 이해할 수 있어야 했습니다.',
+        role: '전체 페이지 구조 설계, 섹션별 화면 구성, 반응형 스타일 정리, 배포까지 진행했습니다.',
+        features: ['전시 홍보용 랜딩 페이지 구성', '섹션 기반 정보 배치', '버튼과 링크 중심의 사용자 이동 흐름', '모바일/데스크톱 대응 레이아웃', 'Vercel을 통한 웹 배포'],
+        result: 'AI 전시의 분위기와 정보를 전달하는 홍보용 웹 페이지를 제작하고 실제 URL로 배포했습니다.',
+        github: 'https://github.com/ajttk369',
+        demo: 'https://ai-expo-sooty.vercel.app/'
       }
     };
     function openModal(key) {
       const p = PROJECTS[key];
       const bd = document.createElement('div');
       bd.className = 'modal-backdrop';
-      bd.innerHTML = `<div class="modal"><button class="modal-close" onclick="this.closest('.modal-backdrop').remove()">✕</button><p class="modal-meta">${p.year} · Side Project</p><h3>${p.title}</h3><div class="tag-list" style="margin-bottom:22px">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div><p>${p.description}</p>${p.video ? `<div class="modal-video"><video controls preload="metadata" playsinline><source src="${p.video}" type="video/mp4">브라우저가 video 태그를 지원하지 않습니다.</video></div>` : ''}<div class="modal-facts">${p.facts.map(([label, value]) => `<div class="modal-fact"><strong>${label}</strong><span>${value}</span></div>`).join('')}</div><div class="modal-links"><a href="${p.github}" target="_blank" class="btn btn-primary" style="font-size:14px;padding:12px 24px">GitHub 보기</a>${p.video ? `<a href="${p.video}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">영상 새 창으로 보기</a>` : ''}</div></div>`;
+      bd.innerHTML = `<div class="modal"><button class="modal-close" onclick="this.closest('.modal-backdrop').remove()">✕</button><p class="modal-meta">${p.year} · Side Project</p><h3>${p.title}</h3><div class="tag-list" style="margin-bottom:22px">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div><p>${p.description}</p>${p.video ? `<div class="modal-video"><video controls preload="metadata" playsinline><source src="${p.video}" type="video/mp4">브라우저가 video 태그를 지원하지 않습니다.</video></div>` : ''}<div class="modal-facts">${p.facts.map(([label, value]) => `<div class="modal-fact"><strong>${label}</strong><span>${value}</span></div>`).join('')}</div><div class="modal-detail"><div class="modal-detail-block"><h4>문제</h4><p>${p.problem}</p></div><div class="modal-detail-block"><h4>내 역할</h4><p>${p.role}</p></div><div class="modal-detail-block"><h4>구현 기능</h4><ul>${p.features.map(item => `<li>${item}</li>`).join('')}</ul></div><div class="modal-detail-block"><h4>결과</h4><p>${p.result}</p></div></div><div class="modal-links">${p.demo ? `<a href="${p.demo}" target="_blank" class="btn btn-primary" style="font-size:14px;padding:12px 24px">사이트 보기 ↗</a>` : ''}<a href="${p.github}" target="_blank" class="btn ${p.demo ? 'btn-outline' : 'btn-primary'}" style="font-size:14px;padding:12px 24px">GitHub 보기</a>${p.video ? `<a href="${p.video}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">영상 새 창으로 보기</a>` : ''}</div></div>`;
       bd.addEventListener('click', e => { if (e.target === bd) bd.remove() });
       document.body.appendChild(bd)
+    }
+    function handleCardKey(event, key) {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      openModal(key);
     }
 
     const canvas = document.getElementById('star-canvas'), ctx = canvas.getContext('2d');
@@ -2787,6 +3268,14 @@
       mobileMenu.setAttribute('aria-expanded', 'false');
       mobileMenu.setAttribute('aria-label', '메뉴 열기')
     }));
+    document.addEventListener('click', e => {
+      if (!mainNav.classList.contains('open')) return;
+      if (e.target.closest('#mainNav,#mobileMenu')) return;
+      mainNav.classList.remove('open');
+      mobileMenu.classList.remove('active');
+      mobileMenu.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-label', '메뉴 열기')
+    });
     const scrollMax = () => document.documentElement.scrollHeight - innerHeight;
     let scrollTicking = false;
     window.addEventListener('scroll', () => { if (scrollTicking) return; scrollTicking = true; requestAnimationFrame(() => { const y = window.scrollY; mainHeader.classList.toggle('scrolled', y > 60); progressBar.style.width = (y / scrollMax() * 100) + '%'; backTop.classList.toggle('show', y > 400); scrollTicking = false }) }, { passive: true });
@@ -2800,7 +3289,16 @@
     document.querySelectorAll('.filter-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); const f = btn.dataset.filter; document.querySelectorAll('.project-card').forEach(card => { card.classList.toggle('hidden', f !== 'all' && !card.dataset.tags.includes(f)) }) }) });
 
     document.querySelectorAll('.gallery-item').forEach(item => { item.addEventListener('click', () => { const img = item.querySelector('img'); if (!img || img.style.display === 'none') return; const box = document.createElement('div'); box.className = 'lightbox'; const big = document.createElement('img'); big.src = item.dataset.src; big.onclick = e => e.stopPropagation(); const close = document.createElement('button'); close.className = 'lightbox-close'; close.textContent = '✕'; close.onclick = () => box.remove(); box.append(big, close); box.onclick = () => box.remove(); document.body.appendChild(box) }) });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.querySelector('.lightbox')?.remove(); document.querySelector('.modal-backdrop')?.remove() } });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.querySelector('.lightbox')?.remove();
+        document.querySelector('.modal-backdrop')?.remove();
+        mainNav.classList.remove('open');
+        mobileMenu.classList.remove('active');
+        mobileMenu.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-label', '메뉴 열기')
+      }
+    });
   </script>
 </body>
 
