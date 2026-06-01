@@ -1523,6 +1523,55 @@
       top: 54%
     }
 
+
+    .visual-shop {
+      background: linear-gradient(135deg, rgba(15, 23, 42, .88), rgba(20, 184, 166, .38))
+    }
+
+    .shop-page {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      top: 42px;
+      bottom: 22px;
+      border-radius: 14px;
+      background: rgba(248, 250, 252, .94);
+      overflow: hidden;
+      padding: 12px
+    }
+
+    .shop-hero {
+      height: 38%;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #99f6e4, #dbeafe)
+    }
+
+    .shop-products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 10px
+    }
+
+    .shop-products span {
+      display: block;
+      height: 34px;
+      border-radius: 8px;
+      background: #e2e8f0;
+      position: relative;
+      overflow: hidden
+    }
+
+    .shop-products span::after {
+      content: '';
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 7px;
+      height: 5px;
+      border-radius: 999px;
+      background: #94a3b8
+    }
     .project-body {
       padding: 32px 36px 36px
     }
@@ -1710,6 +1759,23 @@
       transition: transform .5s ease;
       display: block
     }
+    .gallery-item.design-product .gallery-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(125, 211, 252, .16), transparent 34%),
+        linear-gradient(135deg, rgba(15, 23, 42, .95), rgba(2, 6, 23, .88));
+    }
+
+    .gallery-item.design-product img {
+      object-fit: contain;
+      padding: 0;
+      background: transparent;
+      border-radius: 10px;
+      box-shadow: 0 18px 38px rgba(0, 0, 0, .32)
+    }
 
     .gallery-image {
       position: relative;
@@ -1769,6 +1835,116 @@
       font-size: 52px;
       color: var(--text-sub);
       background: var(--bg3)
+    }
+
+
+    /* ── 3D WORK ── */
+
+    #three-d h2,
+    #three-d .video-caption h3,
+    #three-d .three-d-info h3 {
+      font-family: var(--font-body);
+      font-weight: 800;
+      letter-spacing: 0
+    }
+    .three-d-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 24px;
+      align-items: stretch
+    }
+
+    .three-d-card,
+    .three-d-info {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden
+    }
+
+    .three-d-preview {
+      position: relative;
+      min-height: 280px;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 72% 32%, rgba(20, 184, 166, .28), transparent 28%),
+        radial-gradient(circle at 28% 70%, rgba(125, 211, 252, .18), transparent 30%),
+        linear-gradient(135deg, rgba(15, 23, 42, .94), rgba(2, 6, 23, .82));
+      overflow: hidden
+    }
+
+    .three-d-orbit {
+      position: absolute;
+      inset: 48px;
+      border: 1px solid rgba(125, 211, 252, .18);
+      border-radius: 50%;
+      transform: rotate(-14deg)
+    }
+
+    .three-d-cube {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 104px;
+      height: 104px;
+      transform: translate(-50%, -50%) rotateX(58deg) rotateZ(42deg);
+      transform-style: preserve-3d;
+      background: linear-gradient(135deg, #67e8f9, #2563eb);
+      box-shadow: 0 28px 70px rgba(37, 99, 235, .36)
+    }
+
+    .three-d-cube::before,
+    .three-d-cube::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      transform-origin: left center
+    }
+
+    .three-d-cube::before {
+      background: #0f766e;
+      transform: rotateY(90deg)
+    }
+
+    .three-d-cube::after {
+      background: #7dd3fc;
+      transform: rotateX(90deg);
+      transform-origin: center top
+    }
+
+    .three-d-label {
+      position: absolute;
+      left: 20px;
+      bottom: 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: #dbeafe;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      background: rgba(15, 23, 42, .72);
+      border: 1px solid rgba(147, 197, 253, .26)
+    }
+
+    .three-d-info {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px
+    }
+
+    .three-d-info h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      line-height: 1.25;
+      margin-bottom: 10px
+    }
+
+    .three-d-info p {
+      color: var(--text-sub);
+      font-size: 14px;
+      line-height: 1.75
     }
 
     /* ── VIDEO ── */
@@ -2591,8 +2767,8 @@
       .projects-grid {
         grid-template-columns: 1fr
       }
-
-      .video-grid {
+      .video-grid,
+      .three-d-grid {
         grid-template-columns: 1fr
       }
 
@@ -2728,6 +2904,7 @@
       <a href="#tools" data-section="tools">Tools</a>
       <a href="#projects" data-section="projects">Projects</a>
       <a href="#design" data-section="design">Design</a>
+      <a href="#three-d" data-section="three-d">3D</a>
       <a href="#video" data-section="video">Video</a>
       <a href="#contact" data-section="contact">Contact</a>
     </nav>
@@ -3066,6 +3243,30 @@
           </div>
         </div>
       </div>
+      <div class="project-card" onclick="openModal('shoppingMall')" onkeydown="handleCardKey(event,'shoppingMall')" tabindex="0" role="button" aria-label="쇼핑몰 페이지 자세히 보기" data-tags="Web,HTML,CSS,JavaScript,Responsive,Vercel">
+        <div class="project-media has-visual">
+          <div class="project-visual visual-shop" aria-hidden="true">
+            <div class="visual-topbar"><i></i><i></i><i></i></div>
+            <div class="shop-page">
+              <div class="shop-hero"></div>
+              <div class="shop-products"><span></span><span></span><span></span></div>
+            </div>
+            <span class="visual-label">SHOPPING MALL</span>
+          </div>
+        </div>
+        <div class="project-arrow">→</div>
+        <div class="project-body">
+          <div class="project-num">04</div>
+          <div class="project-meta"><span>2026</span><span>Web</span><span>Shopping Mall</span><span>Live</span></div>
+          <h3>쇼핑몰 페이지</h3>
+          <p>상품 목록, 브랜드, 이벤트, 검색, 마이페이지 등 쇼핑몰 흐름을 구성한 웹 프로젝트입니다.</p>
+          <div class="tag-list"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Responsive</span><span class="tag">Vercel</span></div>
+          <div class="project-actions">
+            <span class="project-action">자세히 보기</span>
+            <a class="project-site-link" href="https://shopping-mall-rosy.vercel.app/" target="_blank" rel="noopener" onclick="event.stopPropagation()" onkeydown="event.stopPropagation()">사이트 보기</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -3073,7 +3274,43 @@
     <span class="section-label">Design</span>
     <h2 class="reveal">디자인 작업</h2>
     <div class="gallery-grid reveal-stagger">
-      <div class="gallery-item featured" data-src="images/moon.PNG">
+      <div class="gallery-item design-product" data-src="images/알로에.jpg">
+        <div class="gallery-image">
+          <img src="images/알로에.jpg" alt="알로에 배너 디자인 작품" loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder" style="display:none">🖼️</div>
+          <div class="gallery-overlay">🔍</div>
+        </div>
+        <div class="gallery-caption">
+          <h3>Aloe Banner</h3>
+          <p>Photoshop · 배너 디자인 · 상품 이미지 구성</p>
+        </div>
+      </div>
+      <div class="gallery-item design-product" data-src="images/쿠폰.jpg">
+        <div class="gallery-image">
+          <img src="images/쿠폰.jpg" alt="쿠폰 디자인 작품" loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder" style="display:none">🎟️</div>
+          <div class="gallery-overlay">🔍</div>
+        </div>
+        <div class="gallery-caption">
+          <h3>Coupon Design</h3>
+          <p>Photoshop · 쿠폰 디자인 · 프로모션 그래픽</p>
+        </div>
+      </div>
+      <div class="gallery-item design-product" data-src="images/아이템.jpg">
+        <div class="gallery-image">
+          <img src="images/아이템.jpg" alt="아이템 디자인 작품" loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder" style="display:none">🛍️</div>
+          <div class="gallery-overlay">🔍</div>
+        </div>
+        <div class="gallery-caption">
+          <h3>Summer Event Banner</h3>
+          <p>Photoshop · 배너 디자인 · 여름 이벤트 그래픽</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-src="images/moon.PNG">
         <div class="gallery-image">
           <img src="images/moon.PNG" alt="달 디자인 작품" loading="lazy"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -3112,6 +3349,36 @@
     </div>
   </section>
 
+
+  <section class="section" id="three-d">
+    <span class="section-label">3D</span>
+    <h2 class="reveal">3D 작업</h2>
+    <div class="three-d-grid reveal-stagger">
+      <div class="three-d-card">
+        <div class="three-d-preview" aria-hidden="true">
+          <div class="three-d-orbit"></div>
+          <div class="three-d-cube"></div>
+          <span class="three-d-label">BLENDER RENDER</span>
+        </div>
+        <div class="video-caption">
+          <h3>Blender 3D Work</h3>
+          <p>Blender로 모델링, 재질 설정, 조명, 카메라 구도, 렌더링 작업을 진행한 결과물을 추가할 영역입니다.</p>
+        </div>
+      </div>
+      <div class="three-d-info">
+        <div>
+          <h3>Modeling / Lighting / Rendering</h3>
+          <p>렌더링이 완료되면 이 섹션에 영상 또는 썸네일을 연결해 3D 작업 흐름이 따로 보이도록 구성할 예정입니다.</p>
+        </div>
+        <div class="tool-list">
+          <span class="tool-chip">Blender</span>
+          <span class="tool-chip">3D Modeling</span>
+          <span class="tool-chip">Rendering</span>
+          <span class="tool-chip">Animation</span>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="section" id="video">
     <span class="section-label">Video</span>
     <h2 class="reveal">영상 작업</h2>
@@ -3163,8 +3430,8 @@
   <section class="section" id="contact">
     <div class="contact-wrapper reveal">
       <span class="section-label">Contact</span>
-      <h2>연락 주세요</h2>
-      <p>웹 제작, 디자인 작업, 협업 제안 모두 편하게 연락 주세요.<br>확인하는 대로 답장드리겠습니다.</p>
+      <h2>감사합니다</h2>
+      <p>포트폴리오를 봐주셔서 감사합니다.<br>맡은 일에 책임감을 가지고 꾸준히 성장하는 인재가 되겠습니다.</p>
       <div class="contact-links">
         <a href="resume.pdf" target="_blank" rel="noopener" class="contact-link">📄 이력서 보기</a>
         <a href="https://github.com/ajttk369" target="_blank" class="contact-link">🐙 GitHub</a>
@@ -3220,6 +3487,19 @@
         result: 'AI 전시의 분위기와 정보를 전달하는 홍보용 웹 페이지를 제작하고 실제 URL로 배포했습니다.',
         github: 'https://github.com/ajttk369',
         demo: 'https://ai-expo-sooty.vercel.app/'
+      },
+      shoppingMall: {
+        title: '쇼핑몰 페이지',
+        year: '2026',
+        description: '쇼핑몰 서비스를 가정해 제작한 웹 페이지입니다. 상품 목록, 브랜드 소개, 이벤트, 검색, 마이페이지 등 쇼핑몰에서 필요한 주요 화면 흐름을 구성했습니다.',
+        tags: ['HTML', 'CSS', 'JavaScript', 'Responsive UI', 'Vercel'],
+        facts: [['역할', '페이지 구조 · UI 구현'], ['핵심 기능', '쇼핑몰 주요 화면 구성'], ['결과물', 'Vercel 배포 사이트']],
+        problem: '쇼핑몰 페이지는 사용자가 상품과 이벤트 정보를 빠르게 확인하고 원하는 페이지로 자연스럽게 이동할 수 있어야 했습니다.',
+        role: '메인 페이지와 하위 페이지 구조 설계, 상품/이벤트 화면 구성, 반응형 스타일 정리, 배포를 진행했습니다.',
+        features: ['쇼핑몰 메인 페이지 구성', '상품·브랜드·이벤트·검색·마이페이지 화면 제작', '사용자 이동 흐름을 고려한 내비게이션 구성', '모바일/데스크톱 대응 레이아웃', 'Vercel을 통한 웹 배포'],
+        result: '쇼핑몰의 기본 탐색 흐름과 주요 페이지를 갖춘 웹 프로젝트를 제작하고 실제 URL로 배포했습니다.',
+        github: 'https://github.com/ajttk369',
+        demo: 'https://shopping-mall-rosy.vercel.app/'
       }
     };
     function openModal(key) {
