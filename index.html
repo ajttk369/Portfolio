@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="images/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_pone.png">
-  <link rel="apple-touch-icon" href="images/favicon_ipone.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link
     href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
     rel="stylesheet">
@@ -325,18 +325,28 @@
     #darkToggle {
       width: 38px;
       height: 38px;
+      padding: 0;
       border: 1px solid var(--border);
       background: rgba(37, 99, 235, 0.1);
       border-radius: 50%;
-      font-size: 16px;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-grid;
+      place-items: center;
+      line-height: 1;
       transition: 0.3s;
       color: var(--text)
     }
 
+    .theme-emoji {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      font-size: 16px;
+      line-height: 1;
+      font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif
+    }
     #darkToggle:hover {
       transform: rotate(30deg) scale(1.1);
       background: rgba(37, 99, 235, 0.25);
@@ -689,6 +699,12 @@
       transition-delay: .4s
     }
 
+    .reveal-stagger.visible>*:nth-child(n+7) {
+      opacity: 1;
+      transform: none;
+      transition-delay: .48s
+    }
+
     /* ── ABOUT ── */
     .about-grid {
       display: grid;
@@ -790,21 +806,45 @@
     }
 
     .about-card h3 {
-      font-family: var(--font-display);
-      font-size: 26px;
+      font-family: var(--font-body);
+      font-size: 28px;
       font-weight: 800;
-      margin-bottom: 10px
+      line-height: 1.25;
+      letter-spacing: 0;
+      margin-bottom: 8px
+    }
+
+    .about-role {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(37, 99, 235, .18);
+      background: rgba(37, 99, 235, .08);
+      color: var(--accent3);
+      font-size: 12px;
+      font-weight: 800
     }
 
     .about-card p {
       color: var(--text-sub);
       font-size: 15px;
-      line-height: 1.85
+      line-height: 1.8;
+      word-break: keep-all
+    }
+
+    .about-card .about-intro {
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 12px
     }
 
     .profile-info {
       display: grid;
-      gap: 10px;
+      gap: 9px;
       margin-top: 26px;
       padding-top: 22px;
       border-top: 1px solid var(--border)
@@ -814,6 +854,8 @@
       display: grid;
       grid-template-columns: 86px 1fr;
       gap: 12px;
+      align-items: center;
+      padding: 9px 0;
       font-size: 14px
     }
 
@@ -825,13 +867,45 @@
     .profile-row span,
     .profile-row a {
       color: var(--text-sub);
-      text-decoration: none
+      text-decoration: none;
+      line-height: 1.55;
+      word-break: keep-all
     }
 
     .profile-row a:hover {
       color: var(--accent3)
     }
 
+    .work-summary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px
+    }
+
+    .work-summary span {
+      min-height: 68px;
+      padding: 14px 12px;
+      border-radius: 12px;
+      text-align: center;
+      color: var(--text-sub);
+      background: rgba(37, 99, 235, .08);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.45;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center
+    }
+
+    .work-summary strong {
+      display: block;
+      color: var(--text);
+      font-size: 16px;
+      margin-bottom: 4px
+    }
     .about-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -961,6 +1035,13 @@
       margin-bottom: 12px
     }
 
+    .experience-summary h3 {
+      max-width: 310px;
+      font-size: 20px;
+      line-height: 1.45;
+      word-break: keep-all
+    }
+
     .experience-summary p,
     .experience-card p {
       color: var(--text-sub);
@@ -1023,10 +1104,38 @@
       box-shadow: 0 0 10px rgba(14, 165, 233, .55)
     }
 
+
+    .experience-stack {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 12px;
+      margin-top: 32px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border)
+    }
+
+    .experience-stack strong {
+      flex-basis: 100%;
+      margin-bottom: 2px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 800
+    }
+
+    .experience-stack span {
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(37, 99, 235, .2);
+      background: rgba(37, 99, 235, .08);
+      color: var(--accent3);
+      font-size: 12px;
+      font-weight: 700
+    }
     /* ── SKILLS ── */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px
     }
 
@@ -1034,41 +1143,57 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 26px;
+      min-height: 188px;
+      padding: 24px;
       transition: transform .3s, box-shadow .3s, border-color .3s;
       position: relative;
       overflow: hidden;
-      cursor: default
+      cursor: default;
+      display: flex;
+      flex-direction: column
     }
 
     .skill-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       box-shadow: var(--glow);
       border-color: var(--border-hover)
     }
 
     .skill-icon {
-      font-size: 30px;
+      width: 42px;
+      height: 42px;
       margin-bottom: 14px;
-      display: block
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(37, 99, 235, .1);
+      color: var(--accent3);
+      font-size: 21px;
+      font-weight: 900;
+      line-height: 1
     }
 
     .skill-card h3 {
+      min-height: 38px;
       font-size: 15px;
       font-weight: 700;
+      line-height: 1.45;
       margin-bottom: 7px
     }
 
     .skill-card p {
+      min-height: 42px;
       font-size: 13px;
       color: var(--text-sub);
       margin-bottom: 16px;
-      line-height: 1.6
+      line-height: 1.55
     }
 
     .bar {
       width: 100%;
       height: 5px;
+      margin-top: auto;
       background: rgba(37, 99, 235, 0.12);
       border-radius: 10px;
       overflow: hidden
@@ -1094,7 +1219,7 @@
     /* ── TOOLS ── */
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 16px
     }
 
@@ -1102,33 +1227,46 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px;
-      transition: transform .3s, box-shadow .3s, border-color .3s
+      min-height: 158px;
+      padding: 22px;
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      display: flex;
+      flex-direction: column
     }
 
     .tool-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-5px);
       box-shadow: var(--glow);
       border-color: var(--border-hover)
     }
 
     .tool-card .tool-icon {
-      font-size: 28px;
-      display: block;
-      margin-bottom: 14px
+      width: 40px;
+      height: 40px;
+      margin-bottom: 14px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(37, 99, 235, .1);
+      color: var(--accent3);
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1
     }
 
     .tool-card h3 {
+      min-height: 36px;
       font-size: 15px;
+      line-height: 1.45;
       margin-bottom: 8px
     }
 
     .tool-card p {
       color: var(--text-sub);
       font-size: 13px;
-      line-height: 1.6
+      line-height: 1.55
     }
-
     /* ── PROJECTS ── */
     .filter-bar {
       display: flex;
@@ -1277,6 +1415,41 @@
       display: none
     }
 
+    .project-thumb {
+      height: 210px;
+      background: #0f172a;
+    }
+
+    .project-thumb::before,
+    .project-thumb::after {
+      display: none;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform .45s ease;
+    }
+
+    .project-thumb img.project-thumb-ai {
+      object-position: center top;
+    }
+
+    .project-thumb img.project-thumb-shop {
+      object-position: 58% top;
+    }
+
+    .project-card:hover .project-thumb img {
+      transform: scale(1.04);
+    }
+
+    .project-thumb .visual-label {
+      display: none;
+    }
+
     .project-visual {
       position: absolute;
       inset: 18px;
@@ -1309,7 +1482,7 @@
       position: absolute;
       left: 14px;
       bottom: 12px;
-      padding: 6px 10px;
+      padding: 7px 12px;
       border-radius: 999px;
       color: #dbeafe;
       font-size: 10px;
@@ -1608,22 +1781,37 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background: rgba(37, 99, 235, 0.1);
-      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .22);
+      color: #f8fafc;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
-      color: var(--text-sub);
-      transition: .3s
+      font-size: 20px;
+      transition: background .28s ease, border-color .28s ease, color .28s ease, transform .28s ease, box-shadow .28s ease;
+      z-index: 2
     }
 
     .project-card:hover .project-arrow {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
+      background: rgba(255, 255, 255, .9);
+      color: #0f172a;
+      border-color: rgba(255, 255, 255, .95);
       transform: translate(3px, -3px);
-      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.5)
+      box-shadow: 0 10px 24px rgba(15, 23, 42, .24)
+    }
+
+    .light .project-arrow {
+      background: rgba(255, 255, 255, .82);
+      color: #0f172a;
+      border-color: rgba(15, 23, 42, .14);
+      box-shadow: 0 6px 18px rgba(15, 23, 42, .08);
+    }
+
+    .light .project-card:hover .project-arrow {
+      background: #0f172a;
+      color: #fff;
+      border-color: #0f172a;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, .22);
     }
 
     .project-num {
@@ -1796,7 +1984,7 @@
 
     .gallery-caption h3 {
       font-size: 15px;
-      line-height: 1.35;
+      line-height: 1.45;
       margin-bottom: 6px
     }
 
@@ -1804,6 +1992,20 @@
       color: var(--text-sub);
       font-size: 12px;
       line-height: 1.55
+    }
+    .gallery-kind {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 8px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: var(--accent3);
+      background: rgba(37, 99, 235, .1);
+      border: 1px solid rgba(37, 99, 235, .18);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      text-transform: uppercase
     }
 
     .gallery-item:hover img {
@@ -1849,7 +2051,7 @@
     }
     .three-d-grid {
       display: grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 24px;
       align-items: stretch
     }
@@ -1864,13 +2066,23 @@
 
     .three-d-preview {
       position: relative;
-      min-height: 280px;
+      aspect-ratio: 16/9;
+      min-height: 0;
       border-bottom: 1px solid var(--border);
-      background:
-        radial-gradient(circle at 72% 32%, rgba(20, 184, 166, .28), transparent 28%),
-        radial-gradient(circle at 28% 70%, rgba(125, 211, 252, .18), transparent 30%),
-        linear-gradient(135deg, rgba(15, 23, 42, .94), rgba(2, 6, 23, .82));
+      background: #0f172a;
       overflow: hidden
+    }
+
+    .three-d-preview video {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      display: block;
+      object-fit: contain;
+      object-position: center;
+      background: #0f172a;
+      transform: scale(1.012);
+      clip-path: inset(1px)
     }
 
     .three-d-orbit {
@@ -1924,6 +2136,13 @@
       letter-spacing: 1px;
       background: rgba(15, 23, 42, .72);
       border: 1px solid rgba(147, 197, 253, .26)
+    }
+
+    .three-d-label.inline {
+      position: static;
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 12px
     }
 
     .three-d-info {
@@ -2114,6 +2333,70 @@
       box-shadow: 0 30px 100px rgba(37, 99, 235, 0.3);
       animation: scaleIn .25s cubic-bezier(.34, 1.56, .64, 1)
     }
+    .lightbox-content {
+      max-width: min(92vw, 1080px);
+      max-height: 88vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 18px;
+      align-items: stretch
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 88vh;
+      object-fit: contain
+    }
+
+    .lightbox-info {
+      padding: 26px;
+      border-radius: 14px;
+      background: rgba(8, 17, 31, .88);
+      border: 1px solid rgba(147, 197, 253, .22);
+      color: white;
+      box-shadow: 0 30px 100px rgba(0, 0, 0, .28)
+    }
+
+    .lightbox-info span {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: #bfdbfe;
+      background: rgba(37, 99, 235, .18);
+      border: 1px solid rgba(147, 197, 253, .24);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      text-transform: uppercase
+    }
+
+    .lightbox-info h3 {
+      font-size: 24px;
+      line-height: 1.25;
+      margin-bottom: 10px
+    }
+
+    .lightbox-info p {
+      color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.75
+    }
+
+    .lightbox-info p + p {
+      margin-top: 14px
+    }
+
+    @media(max-width:760px) {
+      .lightbox-content {
+        grid-template-columns: 1fr;
+        overflow-y: auto
+      }
+
+      .lightbox-info {
+        padding: 22px
+      }
+    }
 
     @keyframes scaleIn {
       from {
@@ -2178,16 +2461,6 @@
       box-shadow: 0 30px 80px rgba(37, 99, 235, 0.2)
     }
 
-    /* .modal::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
-    } */
-
     .modal-close {
       position: absolute;
       top: 22px;
@@ -2238,13 +2511,89 @@
     .modal-links {
       display: flex;
       gap: 12px;
-      flex-wrap: wrap
+      flex-wrap: wrap;
+      justify-content: center
     }
 
     .modal-links .btn {
-      min-width: 132px
+      min-width: 132px;
+      justify-content: center
     }
 
+    .modal-nav,
+    .lightbox-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 20px
+    }
+
+    .modal-nav button,
+    .lightbox-nav button {
+      min-width: 92px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(37, 99, 235, .08);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background .25s ease, border-color .25s ease, transform .25s ease
+    }
+
+    .modal-nav button:hover,
+    .lightbox-nav button:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      transform: translateY(-2px)
+    }
+
+    .lightbox-nav {
+      margin-top: 20px;
+      margin-bottom: 0
+    }
+
+    .lightbox-nav button {
+      color: #dbeafe;
+      border-color: rgba(147, 197, 253, .24);
+      background: rgba(37, 99, 235, .16)
+    }
+
+    .light .lightbox-nav button {
+      color: var(--text);
+      background: rgba(37, 99, 235, .08);
+      border-color: rgba(37, 99, 235, .2)
+    }
+
+
+    .modal-preview {
+      margin: 4px 0 24px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--bg3)
+    }
+
+    .modal-preview img {
+      width: 100%;
+      max-height: 420px;
+      display: block;
+      object-fit: cover
+    }
+
+    .light .three-d-preview {
+      background: #edf4ff
+    }
+
+    .light .three-d-preview video {
+      background: #edf4ff
+    }
+
+    .light .modal-preview {
+      background: #eef5ff
+    }
     .modal-video {
       margin: 4px 0 26px;
       border: 1px solid var(--border);
@@ -2255,11 +2604,19 @@
 
     .modal-video video {
       width: 100%;
-      aspect-ratio: 16/9;
+      height: auto;
       max-height: 58vh;
       display: block;
       object-fit: contain;
       background: #000
+    }
+
+
+    .modal-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 0 0 26px
     }
 
     .modal-facts {
@@ -2466,6 +2823,72 @@
       box-shadow: 0 18px 55px rgba(0, 0, 0, .2)
     }
 
+
+    .light .gallery-item.design-product .gallery-image {
+      background:
+        radial-gradient(circle at 18% 22%, rgba(147, 197, 253, .34), transparent 34%),
+        linear-gradient(135deg, #f8fbff, #eaf3ff)
+    }
+
+    .light .gallery-item.design-product img {
+      box-shadow: 0 14px 34px rgba(59, 130, 246, .16)
+    }
+
+    .light .lightbox {
+      background: rgba(226, 238, 255, .86)
+    }
+
+    .light .lightbox-info {
+      background: rgba(255, 255, 255, .94);
+      border-color: rgba(59, 130, 246, .22);
+      color: var(--text);
+      box-shadow: 0 28px 80px rgba(59, 130, 246, .18)
+    }
+
+    .light .lightbox-info p {
+      color: var(--text-sub)
+    }
+
+    .light .lightbox-info span {
+      color: var(--accent);
+      background: rgba(37, 99, 235, .09);
+      border-color: rgba(37, 99, 235, .2)
+    }
+
+    .light .lightbox-close {
+      background: rgba(255, 255, 255, .88);
+      color: var(--text);
+      border-color: rgba(37, 99, 235, .24)
+    }
+
+    /* ── FONT CONSISTENCY ── */
+    .hero h1,
+    .section h2,
+    .experience-summary h3,
+    .experience-card h3,
+    .contents-title,
+    .contents-item h3,
+    .project-card h3,
+    .gallery-caption h3,
+    .video-caption h3,
+    .video-info h3,
+    .modal h3,
+    .lightbox-info h3 {
+      font-family: var(--font-body);
+      letter-spacing: 0;
+      word-break: keep-all
+    }
+
+    .hero h1 {
+      line-height: 1.08
+    }
+
+    .project-card h3,
+    .gallery-caption h3,
+    .video-caption h3,
+    .video-info h3 {
+      font-weight: 800
+    }
     .light header,
     .light header.scrolled {
       background: rgba(255, 255, 250, .82)
@@ -2708,6 +3131,20 @@
       box-shadow: 0 14px 32px rgba(0, 0, 0, .14)
     }
 
+    @media(max-width:1100px) {
+      .skills-grid,
+      .tools-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .three-d-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .three-d-info {
+        grid-column: 1 / -1;
+      }
+    }
     @media(max-width:900px) {
       header {
         width: calc(100% - 28px);
@@ -2862,7 +3299,6 @@
       .modal {
         padding: 32px 24px
       }
-
       .modal-facts {
         grid-template-columns: 1fr
       }
@@ -2912,7 +3348,7 @@
       <button class="mobile-menu" id="mobileMenu" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav">
         <span></span><span></span><span></span>
       </button>
-      <button id="darkToggle" aria-label="라이트모드 전환">☀️</button>
+      <button id="darkToggle" aria-label="라이트모드 전환"><span class="theme-emoji" aria-hidden="true">☀️</span></button>
     </div>
   </header>
 
@@ -2941,26 +3377,33 @@
         <div class="about-card glass-card">
           <div class="about-avatar"><span>YJ</span></div>
           <h3>유종안</h3>
-          <p style="margin-bottom:16px">웹 개발을 중심으로 UI/UX, 그래픽, 영상 작업까지 함께 다루는 유종안입니다. 화면을 구현하고 기능을 붙이는 일에서 시작해, 결과물이 더 잘 보이도록 다듬는 과정까지 좋아합니다.</p>
-          <p>개발자처럼 구조를 보고, 디자이너처럼 화면을 보고, 영상 작업처럼 흐름을 생각하려고 합니다.</p>
+          <div class="about-role">Web · Design · Video · 3D</div>
+          <p class="about-intro">웹 개발을 중심으로 UI/UX, 그래픽, 영상, 3D 작업까지 함께 다루고 있습니다.</p>
+          <p>화면을 구현하고 기능을 붙이는 개발 경험을 바탕으로, 결과물이 보기 좋고 사용하기 편하게 완성되는 과정까지 생각하며 작업합니다.</p>
           <div class="profile-info">
             <div class="profile-row"><strong>Name</strong><span>유종안</span></div>
-            <div class="profile-row"><strong>Field</strong><span>Web Development · UI/UX · Graphic · Video</span></div>
-            <div class="profile-row"><strong>Stack</strong><span>HTML/CSS, Java, PHP, SQL</span></div>
+            <div class="profile-row"><strong>Field</strong><span>Web Development · UI/UX · Graphic · Video · 3D</span></div>
+            <div class="profile-row"><strong>Stack</strong><span>HTML/CSS, JavaScript, Java, PHP, SQL, Python</span></div>
             <div class="profile-row"><strong>GitHub</strong><a href="https://github.com/ajttk369" target="_blank" rel="noopener">github.com/ajttk369</a></div>
+          </div>
+          <div class="work-summary">
+            <span><strong>Web</strong>4개 프로젝트</span>
+            <span><strong>Design</strong>7개 그래픽</span>
+            <span><strong>Video</strong>2개 편집</span>
+            <span><strong>3D</strong>Blender 작업</span>
           </div>
           <div class="about-stats">
             <div class="stat-box"><span class="num" data-target="5">0</span>
               <div class="label">완료 프로젝트</div>
             </div>
-            <div class="stat-box"><span class="num" data-target="3">0</span>
+            <div class="stat-box"><span class="num" data-target="5">0</span>
               <div class="label">사용 언어</div>
             </div>
-            <div class="stat-box"><span class="num" data-target="2" data-suffix="년">0</span>
-              <div class="label">개발 경력</div>
+            <div class="stat-box"><span class="num" data-target="1" data-suffix="년">0</span>
+              <div class="label">실무 경험</div>
             </div>
-            <div class="stat-box"><span class="num" data-target="999" data-symbol="∞">0</span>
-              <div class="label">학습 의지</div>
+            <div class="stat-box"><span class="num" data-target="0" data-symbol="진행">0</span>
+              <div class="label">역량 확장</div>
             </div>
           </div>
         </div>
@@ -3018,28 +3461,39 @@
     <div class="experience-grid reveal-stagger">
       <div class="experience-summary">
         <div>
-          <h3>만든 뒤의 관리까지 생각합니다</h3>
-          <p>기능을 추가하는 일뿐 아니라, 실제로 쓰이는 화면을 고치고 데이터를 확인하는 일도 경험했습니다.</p>
+          <h3>개발과 운영 흐름을 함께 경험했습니다</h3>
+          <p>LMS 개발 및 유지보수, 서버 관리, 업무용 웹/앱 개발을 진행하며 실제 서비스가 운영되는 흐름을 경험했습니다.</p>
         </div>
         <div class="tag-list">
-          <span class="tag">Web System</span>
+          <span class="tag">LMS</span>
           <span class="tag">Maintenance</span>
-          <span class="tag">Data Management</span>
+          <span class="tag">Server Management</span>
+          <span class="tag">Web/App</span>
         </div>
       </div>
       <div class="experience-card">
         <div class="experience-meta">
           <span>2024 — 2025</span>
-          <span>Hermes System</span>
-          <span>Development</span>
+          <span>LMS · Internal System</span>
+          <span>Development · Maintenance</span>
         </div>
-        <h3>Hermes 시스템 개발 및 유지보수</h3>
-        <p>회사 내부에서 사용하는 Hermes 시스템을 유지보수하며, 필요한 기능 수정과 운영 지원을 진행했습니다.</p>
+        <h3>LMS 및 내부 시스템 개발 · 유지보수</h3>
+        <p>신입으로 입사 후 LMS 개발 및 유지보수, 서버 관리, 업무에 필요한 웹/앱 개발을 맡으며 실무 경험을 쌓았습니다. 광고 업무도 함께 담당하며 마케팅, 기획, 보고서 작성까지 경험했습니다.</p>
         <ul class="experience-list">
-          <li>요청 사항에 맞춰 기능 수정 및 화면 보완</li>
-          <li>운영 데이터 확인과 관리 업무 지원</li>
-          <li>사용 중 발견된 문제를 확인하고 수정 방향 정리</li>
+          <li>LMS 기능 수정, 화면 보완, 유지보수 업무 진행</li>
+          <li>서버 상태 확인과 운영에 필요한 관리 업무 지원</li>
+          <li>업무 효율을 위한 웹/앱 화면 및 기능 개발 경험</li>
+          <li>운영 데이터 확인, 오류 파악, 수정 방향 정리</li>
+          <li>광고 업무를 통한 마케팅 기획과 보고서 작성 경험</li>
         </ul>
+        <div class="experience-stack">
+          <strong>사용 기술</strong>
+          <span>HTML/CSS</span>
+          <span>PHP</span>
+          <span>SQL</span>
+          <span>Server Management</span>
+          <span>Web/App</span>
+        </div>
       </div>
     </div>
   </section>
@@ -3090,6 +3544,20 @@
           <div class="progress" data-width="60"></div>
         </div><span class="skill-pct">60%</span>
       </div>
+      <div class="skill-card"><span class="skill-icon">🎬</span>
+        <h3>Premiere Pro / After Effects</h3>
+        <p>영상 컷 편집, 자막, 모션 그래픽, 화면 전환 효과 작업</p>
+        <div class="bar">
+          <div class="progress" data-width="55"></div>
+        </div><span class="skill-pct">55%</span>
+      </div>
+      <div class="skill-card"><span class="skill-icon">3D</span>
+        <h3>Blender / 3D 작업</h3>
+        <p>모델링, 조명, 재질 설정, 렌더링 작업</p>
+        <div class="bar">
+          <div class="progress" data-width="50"></div>
+        </div><span class="skill-pct">50%</span>
+      </div>
     </div>
   </section>
 
@@ -3116,6 +3584,11 @@
         <span class="tool-icon">✨</span>
         <h3>After Effects</h3>
         <p>모션 그래픽과 화면 전환 효과 작업</p>
+      </div>
+      <div class="tool-card">
+        <span class="tool-icon">3D</span>
+        <h3>Blender</h3>
+        <p>3D 모델링, 조명, 재질 설정, 렌더링 작업</p>
       </div>
     </div>
   </section>
@@ -3158,6 +3631,9 @@
       <button class="filter-btn" data-filter="NFC">NFC</button>
       <button class="filter-btn" data-filter="Web">Web</button>
       <button class="filter-btn" data-filter="AI">AI</button>
+      <button class="filter-btn" data-jump="design">디자인</button>
+      <button class="filter-btn" data-jump="three-d">3D</button>
+      <button class="filter-btn" data-jump="video">영상</button>
     </div>
     <div class="projects-grid reveal-stagger">
       <div class="project-card" onclick="openModal('cup')" onkeydown="handleCardKey(event,'cup')" tabindex="0" role="button" aria-label="자동 인식 컵 수거기 자세히 보기" data-tags="Raspberry Pi,Python,Machine Learning,OpenCV">
@@ -3217,18 +3693,9 @@
         </div>
       </div>
       <div class="project-card" onclick="openModal('aiExpo')" onkeydown="handleCardKey(event,'aiExpo')" tabindex="0" role="button" aria-label="AI 미래전시 홍보 사이트 자세히 보기" data-tags="Web,AI,HTML,CSS,JavaScript,Vercel">
-        <div class="project-media has-visual">
-          <div class="project-visual visual-ai" aria-hidden="true">
-            <div class="visual-topbar"><i></i><i></i><i></i></div>
-            <div class="expo-page">
-              <div class="expo-hero"></div>
-              <div class="expo-lines"><span></span><span></span></div>
-            </div>
-            <span class="expo-node"></span>
-            <span class="expo-node"></span>
-            <span class="expo-node"></span>
-            <span class="visual-label">AI EXPO WEB</span>
-          </div>
+        <div class="project-media project-thumb">
+          <img class="project-thumb-ai" src="images/ai-expo-main.png" alt="AI 미래전시 홍보 사이트 메인 페이지 프리뷰" loading="lazy">
+          <span class="visual-label">AI EXPO WEB</span>
         </div>
         <div class="project-arrow">→</div>
         <div class="project-body">
@@ -3244,15 +3711,9 @@
         </div>
       </div>
       <div class="project-card" onclick="openModal('shoppingMall')" onkeydown="handleCardKey(event,'shoppingMall')" tabindex="0" role="button" aria-label="쇼핑몰 페이지 자세히 보기" data-tags="Web,HTML,CSS,JavaScript,Responsive,Vercel">
-        <div class="project-media has-visual">
-          <div class="project-visual visual-shop" aria-hidden="true">
-            <div class="visual-topbar"><i></i><i></i><i></i></div>
-            <div class="shop-page">
-              <div class="shop-hero"></div>
-              <div class="shop-products"><span></span><span></span><span></span></div>
-            </div>
-            <span class="visual-label">SHOPPING MALL</span>
-          </div>
+        <div class="project-media project-thumb">
+          <img class="project-thumb-shop" src="images/shopping-mall-main.png" alt="쇼핑몰 페이지 메인 화면 프리뷰" loading="lazy">
+          <span class="visual-label">SHOPPING MALL</span>
         </div>
         <div class="project-arrow">→</div>
         <div class="project-body">
@@ -3274,76 +3735,95 @@
     <span class="section-label">Design</span>
     <h2 class="reveal">디자인 작업</h2>
     <div class="gallery-grid reveal-stagger">
-      <div class="gallery-item design-product" data-src="images/알로에.jpg">
+      <div class="gallery-item design-product" data-src="images/milk-banner.jpg" data-note="바나나우유와 메론우유를 한눈에 보여주는 홍보 배너로, 제품 이미지와 색감을 중심으로 구성했습니다.">
         <div class="gallery-image">
-          <img src="images/알로에.jpg" alt="알로에 배너 디자인 작품" loading="lazy"
+          <img src="images/milk-banner.jpg" alt="우유 배너 디자인 작품" loading="lazy"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder" style="display:none">🖼️</div>
           <div class="gallery-overlay">🔍</div>
         </div>
         <div class="gallery-caption">
+          <span class="gallery-kind">Banner</span>
+          <h3>Milk Banner</h3>
+          <p>Photoshop · 배너 디자인 · 우유 홍보 그래픽</p>
+        </div>
+      </div>
+      <div class="gallery-item design-product" data-src="images/aloe-banner.jpg" data-note="제품 라인업과 이벤트 메시지가 빠르게 보이도록 가로형 배너 구조로 정리했습니다.">
+        <div class="gallery-image">
+          <img src="images/aloe-banner.jpg" alt="알로에 배너 디자인 작품" loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder" style="display:none">🖼️</div>
+          <div class="gallery-overlay">🔍</div>
+        </div>
+        <div class="gallery-caption">
+          <span class="gallery-kind">Banner</span>
           <h3>Aloe Banner</h3>
           <p>Photoshop · 배너 디자인 · 상품 이미지 구성</p>
         </div>
       </div>
-      <div class="gallery-item design-product" data-src="images/쿠폰.jpg">
+      <div class="gallery-item design-product" data-src="images/coupon-design.jpg" data-note="쿠폰 정보와 버튼 영역이 명확하게 보이도록 프로모션 중심으로 구성했습니다.">
         <div class="gallery-image">
-          <img src="images/쿠폰.jpg" alt="쿠폰 디자인 작품" loading="lazy"
+          <img src="images/coupon-design.jpg" alt="쿠폰 디자인 작품" loading="lazy"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder" style="display:none">🎟️</div>
           <div class="gallery-overlay">🔍</div>
         </div>
         <div class="gallery-caption">
+          <span class="gallery-kind">Coupon</span>
           <h3>Coupon Design</h3>
           <p>Photoshop · 쿠폰 디자인 · 프로모션 그래픽</p>
         </div>
       </div>
-      <div class="gallery-item design-product" data-src="images/아이템.jpg">
+      <div class="gallery-item design-product" data-src="images/summer-event-banner.jpg" data-note="여름 이벤트 분위기에 맞춰 상품 이미지와 문구를 중심으로 배치했습니다.">
         <div class="gallery-image">
-          <img src="images/아이템.jpg" alt="아이템 디자인 작품" loading="lazy"
+          <img src="images/summer-event-banner.jpg" alt="아이템 디자인 작품" loading="lazy"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder" style="display:none">🛍️</div>
           <div class="gallery-overlay">🔍</div>
         </div>
         <div class="gallery-caption">
+          <span class="gallery-kind">Banner</span>
           <h3>Summer Event Banner</h3>
           <p>Photoshop · 배너 디자인 · 여름 이벤트 그래픽</p>
         </div>
       </div>
-      <div class="gallery-item" data-src="images/moon.PNG">
+      <div class="gallery-item" data-src="images/moon-poster.png" data-note="합성 이미지와 색감 보정을 통해 몽환적인 포스터 분위기를 표현했습니다.">
         <div class="gallery-image">
-          <img src="images/moon.PNG" alt="달 디자인 작품" loading="lazy"
+          <img src="images/moon-poster.png" alt="달 디자인 작품" loading="lazy"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder" style="display:none">🌙</div>
           <div class="gallery-overlay">🔍</div>
         </div>
         <div class="gallery-caption">
+          <span class="gallery-kind">Poster</span>
           <h3>Moon Poster</h3>
           <p>Photoshop · 포스터 구성 · 색감 보정</p>
         </div>
       </div>
-      <div class="gallery-item" data-src="images/space.PNG">
+      <div class="gallery-item" data-src="images/space-artwork.png" data-note="컬러와 배경 요소를 조합해 밝고 판타지적인 그래픽 장면을 구성했습니다.">
         <div class="gallery-image">
-          <img src="images/space.PNG" alt="우주 디자인 작품" loading="lazy"
+          <img src="images/space-artwork.png" alt="우주 디자인 작품" loading="lazy"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder" style="display:none">🚀</div>
           <div class="gallery-overlay">🔍</div>
         </div>
         <div class="gallery-caption">
+          <span class="gallery-kind">Artwork</span>
           <h3>Space Artwork</h3>
-          <p>Illustrator · 그래픽 구성 · 컬러 작업</p>
+          <p>Photoshop ·  그래픽 구성 · 컬러 작업</p>
         </div>
       </div>
-      <div class="gallery-item" data-src="images/bear.PNG">
+      <div class="gallery-item" data-src="images/character-bear.png" data-note="캐릭터 형태와 색감을 단순화해 귀여운 그래픽 요소로 제작했습니다.">
         <div class="gallery-image">
-          <img src="images/bear.PNG" alt="곰 디자인 작품" loading="lazy"
+          <img src="images/character-bear.png" alt="곰 디자인 작품" loading="lazy"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder" style="display:none">🐻</div>
           <div class="gallery-overlay">🔍</div>
         </div>
         <div class="gallery-caption">
+          <span class="gallery-kind">Character</span>
           <h3>Character Graphic</h3>
-          <p>디지털 일러스트 · 캐릭터 그래픽</p>
+          <p>Photoshop · 디지털 일러스트 · 캐릭터 그래픽</p>
         </div>
       </div>
     </div>
@@ -3355,26 +3835,43 @@
     <h2 class="reveal">3D 작업</h2>
     <div class="three-d-grid reveal-stagger">
       <div class="three-d-card">
-        <div class="three-d-preview" aria-hidden="true">
-          <div class="three-d-orbit"></div>
-          <div class="three-d-cube"></div>
-          <span class="three-d-label">BLENDER RENDER</span>
+        <div class="three-d-preview">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/moon-3d-render.mp4" type="video/mp4">
+            브라우저가 video 태그를 지원하지 않습니다.
+          </video>
         </div>
         <div class="video-caption">
-          <h3>Blender 3D Work</h3>
-          <p>Blender로 모델링, 재질 설정, 조명, 카메라 구도, 렌더링 작업을 진행한 결과물을 추가할 영역입니다.</p>
+          <span class="three-d-label inline">BLENDER RENDER</span>
+          <h3>Moon 3D Render</h3>
+          <p>Blender로 3D 장면을 제작하고 렌더링한 뒤, Premiere Pro에서 최종 편집까지 진행한 작업입니다.</p>
         </div>
       </div>
-      <div class="three-d-info">
+      <div class="three-d-card">
+        <div class="three-d-preview">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/cat-2d-3d-motion.mp4" type="video/mp4">
+            브라우저가 video 태그를 지원하지 않습니다.
+          </video>
+        </div>
+        <div class="video-caption">
+          <span class="three-d-label inline">BLENDER 2D + 3D</span>
+          <h3>Cat 2D + 3D Motion</h3>
+          <p>Blender에서 2D와 3D 느낌을 함께 살려 제작한 영상 작업입니다. 평면적인 그래픽 감성과 3D 공간감을 섞어 표현했습니다.</p>
+        </div>
+      </div>      <div class="three-d-info">
         <div>
-          <h3>Modeling / Lighting / Rendering</h3>
-          <p>렌더링이 완료되면 이 섹션에 영상 또는 썸네일을 연결해 3D 작업 흐름이 따로 보이도록 구성할 예정입니다.</p>
+          <h3>Blender 3D Render Works</h3>
+          <p>Blender로 3D 장면을 구성하고 렌더링한 작업과, 2D 그래픽 감성을 더한 3D 모션 작업을 함께 정리했습니다. 일부 작업은 렌더링 후 Premiere Pro로 최종 편집했습니다.</p>
         </div>
         <div class="tool-list">
           <span class="tool-chip">Blender</span>
           <span class="tool-chip">3D Modeling</span>
+          <span class="tool-chip">Lighting</span>
           <span class="tool-chip">Rendering</span>
-          <span class="tool-chip">Animation</span>
+          <span class="tool-chip">2D + 3D Style</span>
+          <span class="tool-chip">Premiere Pro</span>
+          <span class="tool-chip">Final Edit</span>
         </div>
       </div>
     </div>
@@ -3453,14 +3950,17 @@
       cup: {
         title: '자동 인식 컵 수거기',
         year: '2023',
-        description: '라즈베리파이와 카메라 모듈을 사용해 컵을 인식하고, 재질에 따라 분류하는 자동 분리수거 프로젝트입니다. 인식 결과를 실제 동작으로 연결하는 흐름에 집중했습니다.',
+        description: '라즈베리파이와 카메라 모듈을 사용해 컵을 인식하고, 재질에 따라 분류하는 자동 분리수거 프로젝트입니다. 시연 영상과 제작 당시 예상도를 함께 정리했습니다.',
         tags: ['Raspberry Pi', 'Python', 'Machine Learning', 'OpenCV', 'TensorFlow Lite'],
-        facts: [['역할', '인식 로직 · 하드웨어 연동'], ['핵심 기능', '컵 인식 및 분류'], ['결과물', '작동 프로토타입']],
+        facts: [['역할', '인식 로직 · 하드웨어 연동'], ['핵심 기능', '컵 인식 및 분류'], ['자료', '시연 영상 · 예상도']],
         problem: '컵을 사람이 직접 구분하지 않아도 카메라 인식 결과로 분류 흐름을 만들 수 있는지 확인하는 프로젝트였습니다.',
         role: '카메라 입력 처리, 컵 인식 흐름 구성, 하드웨어 동작 연결을 맡았습니다.',
-        features: ['카메라 모듈을 통한 컵 감지', '인식 결과에 따른 분류 흐름 구성', '라즈베리파이 기반 프로토타입 동작 확인'],
+        features: ['카메라 모듈을 통한 컵 감지', '인식 결과에 따른 분류 흐름 구성', '라즈베리파이 기반 프로토타입 동작 확인', '제작 전 예상도와 실제 시연 영상 정리'],
         result: '인식 결과가 실제 동작으로 이어지는 프로토타입을 구현했습니다.',
-        github: 'https://github.com/ajttk369'
+        github: 'https://github.com/ajttk369',
+        video: 'videos/cup-collector-demo.mp4',
+        docs: 'cup-collector-plan.pdf',
+        techUse: [['Raspberry Pi', '카메라 입력과 하드웨어 제어 흐름 구성'], ['Python', '인식 로직과 데이터 처리 구현'], ['Machine Learning', '컵 분류를 위한 인식 모델 활용'], ['OpenCV', '카메라 영상 처리와 객체 감지']]
       },
       parking: {
         title: '스마트 무선 주차 시스템',
@@ -3473,40 +3973,50 @@
         features: ['초음파 센서 기반 주차 상태 감지', 'NFC를 활용한 상태 확인 흐름', '시연 영상으로 동작 과정 정리'],
         result: '센서 입력부터 상태 확인까지 이어지는 스마트 주차 시스템 시연을 완성했습니다.',
         github: 'https://github.com/ajttk369',
-        video: 'videos/nfc.mp4'
+        video: 'videos/smart-parking-demo.mp4',
+        techUse: [['Arduino', '센서 입력과 주차 상태 제어 로직 구현'], ['C++', '아두이노 동작 코드 작성'], ['NFC', '사용자 확인 흐름 구성'], ['Bluetooth', '무선 연결 흐름 테스트']]
       },
       aiExpo: {
         title: 'AI 미래전시 홍보 사이트',
         year: '2026',
-        description: 'AI 전시 홍보를 위한 웹 페이지입니다. 전시 소개, 핵심 콘텐츠, 방문자가 확인해야 할 정보를 한 화면 흐름 안에서 자연스럽게 볼 수 있도록 구성했습니다.',
-        tags: ['HTML', 'CSS', 'JavaScript', 'Responsive UI', 'Vercel', 'Codex'],
-        facts: [['역할', '페이지 구조 · UI 구현'], ['핵심 기능', '전시 홍보 콘텐츠 구성'], ['결과물', 'Vercel 배포 사이트']],
+        description: 'AI 전시 홍보를 위한 웹 페이지입니다. 전시 소개와 핵심 콘텐츠를 웹 화면으로 구성하고, 페이지 안에 들어가는 영상 요소는 Premiere Pro와 After Effects를 활용해 직접 제작했습니다.',
+        tags: ['HTML', 'CSS', 'JavaScript', 'Premiere Pro', 'After Effects', 'Vercel'],
+        facts: [['역할', '페이지 구조 · UI 구현'], ['영상 작업', 'Premiere Pro · After Effects'], ['결과물', 'Vercel 배포 사이트']],
         problem: '전시 홍보 페이지는 방문자가 짧은 시간 안에 전시의 주제, 분위기, 주요 정보를 이해할 수 있어야 했습니다.',
-        role: '전체 페이지 구조 설계, 섹션별 화면 구성, 반응형 스타일 정리, 배포까지 진행했습니다.',
-        features: ['전시 홍보용 랜딩 페이지 구성', '섹션 기반 정보 배치', '버튼과 링크 중심의 사용자 이동 흐름', '모바일/데스크톱 대응 레이아웃', 'Vercel을 통한 웹 배포'],
-        result: 'AI 전시의 분위기와 정보를 전달하는 홍보용 웹 페이지를 제작하고 실제 URL로 배포했습니다.',
+        role: '전체 페이지 구조 설계, 섹션별 화면 구성, 반응형 스타일 정리, 홍보 영상 제작, 배포까지 진행했습니다.',
+        features: ['전시 홍보용 랜딩 페이지 구성', '섹션 기반 정보 배치', 'Premiere Pro와 After Effects를 활용한 영상 콘텐츠 제작', '버튼과 링크 중심의 사용자 이동 흐름', '모바일/데스크톱 대응 레이아웃', 'Vercel을 통한 웹 배포'],
+        result: 'AI 전시의 분위기와 정보를 전달하는 웹 페이지를 제작하고, 직접 편집한 영상 콘텐츠와 함께 실제 URL로 배포했습니다.',
         github: 'https://github.com/ajttk369',
-        demo: 'https://ai-expo-sooty.vercel.app/'
+        preview: 'images/ai-expo-preview.png',
+        demo: 'https://ai-expo-sooty.vercel.app/',
+        techUse: [['HTML/CSS', '전시 홍보 페이지 구조와 반응형 화면 구현'], ['JavaScript', '인터랙션과 페이지 이동 흐름 구성'], ['Premiere Pro', '홍보 영상 컷 편집'], ['After Effects', '모션 그래픽과 화면 전환 효과 제작']]
       },
       shoppingMall: {
         title: '쇼핑몰 페이지',
         year: '2026',
-        description: '쇼핑몰 서비스를 가정해 제작한 웹 페이지입니다. 상품 목록, 브랜드 소개, 이벤트, 검색, 마이페이지 등 쇼핑몰에서 필요한 주요 화면 흐름을 구성했습니다.',
-        tags: ['HTML', 'CSS', 'JavaScript', 'Responsive UI', 'Vercel'],
-        facts: [['역할', '페이지 구조 · UI 구현'], ['핵심 기능', '쇼핑몰 주요 화면 구성'], ['결과물', 'Vercel 배포 사이트']],
+        description: '쇼핑몰 서비스를 가정해 제작한 웹 페이지입니다. HTML/CSS/JavaScript로 화면을 구성하고, Python을 활용한 백엔드 작업으로 상품 데이터 흐름과 관리 구조까지 확장했습니다.',
+        tags: ['HTML', 'CSS', 'JavaScript', 'Python', 'Backend', 'Vercel'],
+        facts: [['역할', 'UI 구현 · 백엔드 구성'], ['핵심 기능', '상품 탐색 · 데이터 관리'], ['결과물', 'Vercel 배포 사이트']],
         problem: '쇼핑몰 페이지는 사용자가 상품과 이벤트 정보를 빠르게 확인하고 원하는 페이지로 자연스럽게 이동할 수 있어야 했습니다.',
-        role: '메인 페이지와 하위 페이지 구조 설계, 상품/이벤트 화면 구성, 반응형 스타일 정리, 배포를 진행했습니다.',
-        features: ['쇼핑몰 메인 페이지 구성', '상품·브랜드·이벤트·검색·마이페이지 화면 제작', '사용자 이동 흐름을 고려한 내비게이션 구성', '모바일/데스크톱 대응 레이아웃', 'Vercel을 통한 웹 배포'],
-        result: '쇼핑몰의 기본 탐색 흐름과 주요 페이지를 갖춘 웹 프로젝트를 제작하고 실제 URL로 배포했습니다.',
+        role: '메인 페이지와 하위 페이지 구조 설계, 상품/이벤트 화면 구성, Python 기반 백엔드 작업, 반응형 스타일 정리, 배포를 진행했습니다.',
+        features: ['메인 비주얼과 상품 영역 구성', '상품·브랜드·이벤트·검색·마이페이지 화면 제작', 'Python을 활용한 백엔드 데이터 처리 구조 구성', '페이지별 이동 흐름을 고려한 내비게이션 구성', '상품 카드와 배너 중심의 쇼핑몰 UI 정리', '모바일/데스크톱 대응 레이아웃', 'Vercel을 통한 웹 배포'],
+        result: '쇼핑몰의 핵심 화면과 사용자 이동 흐름을 구현하고, Python 백엔드 작업을 더해 프론트엔드와 데이터 처리 흐름을 함께 경험한 프로젝트로 정리했습니다.',
         github: 'https://github.com/ajttk369',
-        demo: 'https://shopping-mall-rosy.vercel.app/'
+        preview: 'images/shopping-mall-preview.png',
+        demo: 'https://shopping-mall-rosy.vercel.app/',
+        techUse: [['HTML/CSS', '쇼핑몰 화면 구조와 반응형 UI 구현'], ['JavaScript', '페이지 인터랙션과 상품 화면 흐름 구성'], ['Python', '상품 데이터 처리와 백엔드 구조 작업'], ['Vercel', '프론트엔드 배포와 URL 공유']]
       }
     };
+    const PROJECT_KEYS = Object.keys(PROJECTS);
     function openModal(key) {
+      document.querySelector('.modal-backdrop')?.remove();
       const p = PROJECTS[key];
+      const currentIndex = PROJECT_KEYS.indexOf(key);
+      const prevKey = PROJECT_KEYS[(currentIndex - 1 + PROJECT_KEYS.length) % PROJECT_KEYS.length];
+      const nextKey = PROJECT_KEYS[(currentIndex + 1) % PROJECT_KEYS.length];
       const bd = document.createElement('div');
       bd.className = 'modal-backdrop';
-      bd.innerHTML = `<div class="modal"><button class="modal-close" onclick="this.closest('.modal-backdrop').remove()">✕</button><p class="modal-meta">${p.year} · Side Project</p><h3>${p.title}</h3><div class="tag-list" style="margin-bottom:22px">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div><p>${p.description}</p>${p.video ? `<div class="modal-video"><video controls preload="metadata" playsinline><source src="${p.video}" type="video/mp4">브라우저가 video 태그를 지원하지 않습니다.</video></div>` : ''}<div class="modal-facts">${p.facts.map(([label, value]) => `<div class="modal-fact"><strong>${label}</strong><span>${value}</span></div>`).join('')}</div><div class="modal-detail"><div class="modal-detail-block"><h4>문제</h4><p>${p.problem}</p></div><div class="modal-detail-block"><h4>내 역할</h4><p>${p.role}</p></div><div class="modal-detail-block"><h4>구현 기능</h4><ul>${p.features.map(item => `<li>${item}</li>`).join('')}</ul></div><div class="modal-detail-block"><h4>결과</h4><p>${p.result}</p></div></div><div class="modal-links">${p.demo ? `<a href="${p.demo}" target="_blank" class="btn btn-primary" style="font-size:14px;padding:12px 24px">사이트 보기 ↗</a>` : ''}<a href="${p.github}" target="_blank" class="btn ${p.demo ? 'btn-outline' : 'btn-primary'}" style="font-size:14px;padding:12px 24px">GitHub 보기</a>${p.video ? `<a href="${p.video}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">영상 새 창으로 보기</a>` : ''}</div></div>`;
+      bd.innerHTML = `<div class="modal"><button class="modal-close" onclick="this.closest('.modal-backdrop').remove()">✕</button><p class="modal-meta">${p.year} · Side Project</p><h3>${p.title}</h3><div class="tag-list" style="margin-bottom:22px">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>${p.preview ? `<div class="modal-preview"><img src="${p.preview}" alt="${p.title} 메인 화면 프리뷰"></div>` : ''}<p>${p.description}</p>${p.video ? `<div class="modal-video"><video controls preload="metadata" playsinline><source src="${p.video}" type="video/mp4">브라우저가 video 태그를 지원하지 않습니다.</video></div>` : ''}${p.gallery ? `<div class="modal-gallery">${p.gallery.map(src => `<img src="${src}" alt="${p.title} 예상도 자료">`).join('')}</div>` : ''}<div class="modal-facts">${p.facts.map(([label, value]) => `<div class="modal-fact"><strong>${label}</strong><span>${value}</span></div>`).join('')}</div><div class="modal-detail"><div class="modal-detail-block"><h4>문제</h4><p>${p.problem}</p></div><div class="modal-detail-block"><h4>내 역할</h4><p>${p.role}</p></div><div class="modal-detail-block"><h4>구현 기능</h4><ul>${p.features.map(item => `<li>${item}</li>`).join('')}</ul></div>${p.techUse ? `<div class="modal-detail-block"><h4>사용 기술</h4><ul class="modal-tech">${p.techUse.map(([tech, use]) => `<li><strong>${tech}</strong> · ${use}</li>`).join('')}</ul></div>` : ''}<div class="modal-detail-block"><h4>결과</h4><p>${p.result}</p></div></div><div class="modal-nav"><button type="button" onclick="event.stopPropagation();openModal('${prevKey}')">이전 프로젝트</button><button type="button" onclick="event.stopPropagation();openModal('${nextKey}')">다음 프로젝트</button></div><div class="modal-links">${p.demo ? `<a href="${p.demo}" target="_blank" class="btn btn-primary" style="font-size:14px;padding:12px 24px">사이트 보기 ↗</a>` : ''}<a href="${p.github}" target="_blank" class="btn ${p.demo ? 'btn-outline' : 'btn-primary'}" style="font-size:14px;padding:12px 24px">GitHub 보기</a>${p.video ? `<a href="${p.video}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">영상 새 창으로 보기</a>` : ''}${p.docs ? `<a href="${p.docs}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">기획서 보기</a>` : ''}</div></div>`;
       bd.addEventListener('click', e => { if (e.target === bd) bd.remove() });
       document.body.appendChild(bd)
     }
@@ -3538,7 +4048,7 @@
     const toggle = document.getElementById('darkToggle');
     toggle.addEventListener('click', () => {
       const isLight = document.body.classList.toggle('light');
-      toggle.textContent = isLight ? '🌙' : '☀️';
+      toggle.querySelector('.theme-emoji').textContent = isLight ? '🌙' : '☀️';
       canvas.style.opacity = isLight ? '0' : '0.6';
       logoImg.src = isLight ? LOGO_LIGHT : LOGO_DARK;
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
@@ -3551,7 +4061,7 @@
     } else {
       // 저장값 없거나 light면 라이트로 기본 오픈
       document.body.classList.add('light');
-      toggle.textContent = '🌙';
+      toggle.querySelector('.theme-emoji').textContent = '🌙';
       canvas.style.opacity = '0';
       logoImg.src = LOGO_LIGHT;
     }
@@ -3588,9 +4098,43 @@
     const navLinks = document.querySelectorAll('nav a[data-section]'); const navObs = new IntersectionObserver(entries => { for (const entry of entries) { if (!entry.isIntersecting) continue; navLinks.forEach(a => a.classList.remove('active')); document.querySelector(`nav a[data-section="${entry.target.id}"]`)?.classList.add('active') } }, { rootMargin: '-40% 0px -55% 0px' });
     document.querySelectorAll('section[id]').forEach(s => navObs.observe(s));
 
-    document.querySelectorAll('.filter-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); const f = btn.dataset.filter; document.querySelectorAll('.project-card').forEach(card => { card.classList.toggle('hidden', f !== 'all' && !card.dataset.tags.includes(f)) }) }) });
+    document.querySelectorAll('.filter-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); if (btn.dataset.jump) { document.getElementById(btn.dataset.jump)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return } const f = btn.dataset.filter; document.querySelectorAll('.project-card').forEach(card => { card.classList.toggle('hidden', f !== 'all' && !card.dataset.tags.includes(f)) }) }) });
 
-    document.querySelectorAll('.gallery-item').forEach(item => { item.addEventListener('click', () => { const img = item.querySelector('img'); if (!img || img.style.display === 'none') return; const box = document.createElement('div'); box.className = 'lightbox'; const big = document.createElement('img'); big.src = item.dataset.src; big.onclick = e => e.stopPropagation(); const close = document.createElement('button'); close.className = 'lightbox-close'; close.textContent = '✕'; close.onclick = () => box.remove(); box.append(big, close); box.onclick = () => box.remove(); document.body.appendChild(box) }) });
+    const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+    function openDesignLightbox(index) {
+      const item = galleryItems[index];
+      const img = item?.querySelector('img');
+      if (!img || img.style.display === 'none') return;
+      document.querySelector('.lightbox')?.remove();
+      const prevIndex = (index - 1 + galleryItems.length) % galleryItems.length;
+      const nextIndex = (index + 1) % galleryItems.length;
+      const title = item.querySelector('.gallery-caption h3')?.textContent || 'Design Work';
+      const meta = item.querySelector('.gallery-caption p')?.textContent || '';
+      const kind = item.querySelector('.gallery-kind')?.textContent || 'Design';
+      const note = item.dataset.note || '';
+      const box = document.createElement('div');
+      box.className = 'lightbox';
+      const wrap = document.createElement('div');
+      wrap.className = 'lightbox-content';
+      wrap.onclick = e => e.stopPropagation();
+      const big = document.createElement('img');
+      big.src = item.dataset.src;
+      big.alt = img.alt || title;
+      const info = document.createElement('div');
+      info.className = 'lightbox-info';
+      info.innerHTML = `<span>${kind}</span><h3>${title}</h3><p>${meta}</p>${note ? `<p>${note}</p>` : ''}<div class="lightbox-nav"><button type="button" data-prev="${prevIndex}">이전</button><button type="button" data-next="${nextIndex}">다음</button></div>`;
+      info.querySelector('[data-prev]').onclick = e => { e.stopPropagation(); openDesignLightbox(prevIndex) };
+      info.querySelector('[data-next]').onclick = e => { e.stopPropagation(); openDesignLightbox(nextIndex) };
+      const close = document.createElement('button');
+      close.className = 'lightbox-close';
+      close.textContent = '✕';
+      close.onclick = () => box.remove();
+      wrap.append(big, info);
+      box.append(wrap, close);
+      box.onclick = () => box.remove();
+      document.body.appendChild(box)
+    }
+    galleryItems.forEach((item, index) => { item.addEventListener('click', () => openDesignLightbox(index)) });
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
         document.querySelector('.lightbox')?.remove();
