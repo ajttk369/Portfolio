@@ -1605,6 +1605,96 @@
       display: none
     }
 
+
+    .visual-rift {
+      display: grid;
+      gap: 10px;
+      padding: 42px 20px 18px;
+      background:
+        radial-gradient(circle at 78% 18%, rgba(56, 189, 248, .24), transparent 34%),
+        linear-gradient(135deg, rgba(15, 23, 42, .9), rgba(30, 64, 175, .62));
+    }
+
+    .rift-search {
+      height: 32px;
+      border-radius: 10px;
+      border: 1px solid rgba(191, 219, 254, .42);
+      background: rgba(255, 255, 255, .1);
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      color: rgba(226, 232, 240, .78);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .rift-profile {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .09);
+      border: 1px solid rgba(147, 197, 253, .2);
+    }
+
+    .rift-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #60a5fa, #22d3ee);
+      box-shadow: 0 0 24px rgba(34, 211, 238, .35);
+    }
+
+    .rift-lines span,
+    .match-line span {
+      display: block;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(219, 234, 254, .72);
+      margin-bottom: 7px;
+    }
+
+    .rift-lines span:last-child {
+      width: 58%;
+      background: rgba(125, 211, 252, .54);
+      margin-bottom: 0;
+    }
+
+    .rift-rank {
+      padding: 6px 9px;
+      border-radius: 999px;
+      color: #082f49;
+      background: #7dd3fc;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .rift-matches {
+      display: grid;
+      gap: 7px;
+    }
+
+    .match-line {
+      height: 26px;
+      border-radius: 9px;
+      background: rgba(15, 23, 42, .42);
+      border-left: 4px solid #38bdf8;
+      padding: 7px 10px;
+    }
+
+    .match-line.loss {
+      border-left-color: #fb7185;
+    }
+
+    .match-line span {
+      width: 72%;
+      height: 6px;
+      margin: 0;
+      background: rgba(226, 232, 240, .46);
+    }
     .nfc-card {
       position: absolute;
       right: 18px;
@@ -1747,6 +1837,44 @@
       padding: 32px 36px 36px
     }
 
+
+    .project-card-wip {
+      border-color: rgba(245, 158, 11, .42);
+    }
+
+    .project-status {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 4;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 158, 11, .42);
+      color: #78350f;
+      background: #fef3c7;
+      box-shadow: 0 12px 26px rgba(245, 158, 11, .18);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .04em;
+    }
+
+    .project-status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #f59e0b;
+      box-shadow: 0 0 0 4px rgba(245, 158, 11, .18);
+    }
+
+    .light .project-status {
+      color: #92400e;
+      background: #fffbeb;
+      border-color: rgba(245, 158, 11, .45);
+    }
     .project-meta {
       display: flex;
       flex-wrap: wrap;
@@ -3713,6 +3841,7 @@
       <button class="filter-btn" data-filter="NFC">NFC</button>
       <button class="filter-btn" data-filter="Web">Web</button>
       <button class="filter-btn" data-filter="AI">AI</button>
+      <button class="filter-btn" data-filter="Riot API">Riot API</button>
       <button class="filter-btn" data-jump="design">디자인</button>
       <button class="filter-btn" data-jump="three-d">3D</button>
       <button class="filter-btn" data-jump="video">영상</button>
@@ -3825,6 +3954,38 @@
           <div class="project-actions">
             <span class="project-action">자세히 보기</span>
             <a class="project-site-link" href="https://student-lms-manager.onrender.com/" target="_blank" rel="noopener" onclick="event.stopPropagation()" onkeydown="event.stopPropagation()">사이트 보기</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card project-card-wip" onclick="openModal('riftRecord')" onkeydown="handleCardKey(event,'riftRecord')" tabindex="0" role="button" aria-label="전적검색 서비스 자세히 보기" data-tags="Web,Riot API,JavaScript,API,Vercel,In Progress">
+        <div class="project-media has-visual">
+          <div class="project-visual visual-rift" aria-hidden="true">
+            <div class="visual-topbar"><i></i><i></i><i></i></div>
+            <div class="rift-search">SUMMONER#KR1</div>
+            <div class="rift-profile">
+              <span class="rift-avatar"></span>
+              <div class="rift-lines"><span></span><span></span></div>
+              <span class="rift-rank">RANK</span>
+            </div>
+            <div class="rift-matches">
+              <div class="match-line"><span></span></div>
+              <div class="match-line loss"><span></span></div>
+              <div class="match-line"><span></span></div>
+            </div>
+            <span class="visual-label">RIOT API · WIP</span>
+          </div>
+        </div>
+        <div class="project-arrow">→</div>
+        <span class="project-status">제작중</span>
+        <div class="project-body">
+          <div class="project-num">06</div>
+          <div class="project-meta"><span>2026</span><span>Web</span><span>Riot API</span><span>API 연동 제작중</span></div>
+          <h3>전적검색 서비스</h3>
+          <p>Riot API를 기반으로 소환사 정보와 전적 데이터를 조회하는 웹 프로젝트입니다.</p>
+          <div class="tag-list"><span class="tag">Riot API</span><span class="tag">JavaScript</span><span class="tag">API</span><span class="tag">Vercel</span><span class="tag">WIP</span></div>
+          <div class="project-actions">
+            <span class="project-action">자세히 보기</span>
+            <a class="project-site-link" href="https://rift-record.vercel.app/" target="_blank" rel="noopener" onclick="event.stopPropagation()" onkeydown="event.stopPropagation()">사이트 보기</a>
           </div>
         </div>
       </div>
@@ -4136,6 +4297,20 @@
         github: 'https://github.com/ajttk369',
         demo: 'https://student-lms-manager.onrender.com/',
         techUse: [['Python', 'Flask 서버와 라우트 구성'], ['Flask', '템플릿 렌더링과 form 기반 데이터 처리'], ['SQLite', '학생 테이블 설계와 CRUD 데이터 저장'], ['SQL', '검색, 필터, 통계 조회 쿼리 작성'], ['HTML/CSS/JavaScript', '관리자 화면과 dialog 인터랙션 구현']]
+      },
+      riftRecord: {
+        title: '전적검색 서비스',
+        year: '2026',
+        description: 'Riot API를 기반으로 소환사 정보, 랭크 정보, 최근 경기 기록을 조회할 수 있도록 제작 중인 전적검색 웹 서비스입니다. 현재는 Riot ID 검색, 매치 데이터 수집, 라인별 챔피언 티어 계산 흐름을 중심으로 구현하고 있습니다.',
+        tags: ['Riot API', 'Data Dragon', 'JavaScript', 'API', 'Champion Tier', '제작중'],
+        facts: [['상태', 'API 연동 제작중'], ['핵심 기능', '전적검색 · 라인별 챔피언 티어'], ['배포', 'Vercel 연결']],
+        problem: '전적검색 서비스는 Riot ID를 입력했을 때 필요한 전적 정보를 빠르게 보여주고, 수집된 match 데이터를 바탕으로 챔피언 통계까지 확장할 수 있어야 합니다. API Key 보안, rate limit, 중복 match 저장 방지, 표본 부족 표시도 함께 고려해야 합니다.',
+        role: 'Riot API와 Data Dragon을 활용해 Riot ID 검색, PUUID 조회, 최근 matchId 수집, match detail 처리 흐름을 설계하고 있습니다. 저장된 participant 데이터를 기반으로 TOP/JUNGLE/MID/ADC/SUPPORT 라인별 챔피언 통계를 계산하고 티어 화면으로 확장하는 구조를 정리했습니다.',
+        features: ['Riot ID와 Tagline 기반 소환사 검색', 'ACCOUNT-V1, MATCH-V5, LEAGUE-V4 API 연동 흐름 설계', 'Data Dragon을 활용한 챔피언/아이템/스펠 이미지 표시 계획', '최근 경기, 랭크, LP, 승률, KDA 표시 구조 제작', 'matchId 중복 저장 방지와 DB 캐싱 구조 계획', 'TOP/JUNGLE/MID/ADC/SUPPORT 라인별 챔피언 티어 계산', '승률, 픽률, KDA, 표본 신뢰도를 반영한 tierScore 산정', '표본 부족 챔피언은 Low sample 상태로 표시 예정'],
+        result: '현재 제작중인 프로젝트로, 외부 API 연동뿐 아니라 수집 데이터 저장, 캐싱, 통계 계산, 티어 리스트 UI까지 확장 가능한 구조로 정리하고 있습니다.',
+        github: 'https://github.com/ajttk369',
+        demo: 'https://rift-record.vercel.app/',
+        techUse: [['Riot API', 'PUUID, 랭크, 최근 경기 데이터 조회'], ['Riot Data Dragon', '챔피언, 아이템, 스펠 이미지 리소스 연결'], ['Database', 'matches, participants, champion_stats_cache 테이블 설계'], ['Tier Logic', '승률, 픽률, KDA, 표본 신뢰도를 반영한 자체 tierScore 계산'], ['Vercel', '제작중 페이지 배포와 URL 연결']]
       }
     };
     const PROJECT_KEYS = Object.keys(PROJECTS);
