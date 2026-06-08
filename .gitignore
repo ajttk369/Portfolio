@@ -2,3 +2,6 @@ node_modules/
 .vercel/
 .DS_Store
 Thumbs.db
+__pycache__/
+*.pyc
+student-lms-manager/data/*.db

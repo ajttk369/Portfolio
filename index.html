@@ -756,7 +756,7 @@
       font-family: var(--font-display);
       font-size: 28px;
       font-weight: 900;
-      letter-spacing: 1px;
+      letter-spacing: .6px;
       color: #eaf2ff;
       margin-bottom: 22px;
       box-shadow:
@@ -1484,12 +1484,12 @@
       bottom: 12px;
       padding: 7px 12px;
       border-radius: 999px;
-      color: #dbeafe;
+      color: #bfdbfe;
       font-size: 10px;
       font-weight: 800;
-      letter-spacing: 1px;
-      background: rgba(15, 23, 42, .72);
-      border: 1px solid rgba(147, 197, 253, .26)
+      letter-spacing: .6px;
+      background: rgba(37, 99, 235, .12);
+      border: 1px solid rgba(147, 197, 253, .24)
     }
 
     .visual-cup .scan-frame {
@@ -1559,9 +1559,7 @@
     .visual-cup .sensor-dot:nth-of-type(2) {
       left: 28px;
       bottom: 40px
-    }
-
-    .visual-parking {
+    }    .visual-parking {
       background:
         linear-gradient(135deg, rgba(15, 23, 42, .86), rgba(12, 74, 110, .72)),
         linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px);
@@ -2130,14 +2128,20 @@
       bottom: 18px;
       padding: 8px 12px;
       border-radius: 999px;
-      color: #dbeafe;
+      color: #bfdbfe;
       font-size: 11px;
       font-weight: 800;
-      letter-spacing: 1px;
-      background: rgba(15, 23, 42, .72);
-      border: 1px solid rgba(147, 197, 253, .26)
+      letter-spacing: .6px;
+      background: rgba(37, 99, 235, .12);
+      border: 1px solid rgba(147, 197, 253, .24)
     }
 
+
+    .light .three-d-label {
+      color: #2563eb;
+      background: #eef5ff;
+      border-color: rgba(37, 99, 235, .18);
+    }
     .three-d-label.inline {
       position: static;
       display: inline-flex;
@@ -2160,6 +2164,62 @@
       margin-bottom: 10px
     }
 
+    .three-d-card[role="button"] {
+      position: relative;
+      transition: border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .three-d-card[role="button"]:hover,
+    .three-d-card[role="button"]:focus-visible {
+      border-color: var(--border-hover);
+      box-shadow: 0 18px 42px rgba(37, 99, 235, .18);
+      outline: none;
+    }
+
+    .three-d-card[role="button"] .video-caption {
+      cursor: pointer;
+    }
+
+    .three-d-preview,
+    .three-d-preview video {
+      cursor: default;
+    }
+
+    .detail-hint {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      margin-top: 16px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: #bfdbfe;
+      background: rgba(37, 99, 235, .14);
+      border: 1px solid rgba(147, 197, 253, .28);
+      font-size: 13px;
+      font-weight: 800;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+
+    .three-d-card[role="button"]:hover .detail-hint,
+    .three-d-card[role="button"]:focus-visible .detail-hint {
+      color: #fff;
+      background: linear-gradient(135deg, #2563eb, #06b6d4);
+      border-color: transparent;
+    }
+
+    .light .detail-hint {
+      color: #1d4ed8;
+      background: #eef5ff;
+      border-color: rgba(37, 99, 235, .22);
+    }
+
+    .light .three-d-card[role="button"]:hover .detail-hint,
+    .light .three-d-card[role="button"]:focus-visible .detail-hint {
+      color: #fff;
+      background: #0f172a;
+      border-color: #0f172a;
+    }
     .three-d-info p {
       color: var(--text-sub);
       font-size: 14px;
@@ -2268,7 +2328,6 @@
       line-height: 1.25;
       margin-bottom: 10px
     }
-
     .video-caption p,
     .video-info p {
       color: var(--text-sub);
@@ -2497,7 +2556,7 @@
       font-size: 12px;
       color: var(--text-sub);
       margin-bottom: 22px;
-      letter-spacing: 1px;
+      letter-spacing: .6px;
       text-transform: uppercase
     }
 
@@ -2556,7 +2615,7 @@
     }
 
     .lightbox-nav button {
-      color: #dbeafe;
+      color: #bfdbfe;
       border-color: rgba(147, 197, 253, .24);
       background: rgba(37, 99, 235, .16)
     }
@@ -3627,6 +3686,7 @@
       <button class="filter-btn" data-filter="Raspberry Pi">Raspberry Pi</button>
       <button class="filter-btn" data-filter="Arduino">Arduino</button>
       <button class="filter-btn" data-filter="Python">Python</button>
+      <button class="filter-btn" data-filter="SQLite">SQLite</button>
       <button class="filter-btn" data-filter="IoT">IoT</button>
       <button class="filter-btn" data-filter="NFC">NFC</button>
       <button class="filter-btn" data-filter="Web">Web</button>
@@ -3728,24 +3788,54 @@
           </div>
         </div>
       </div>
-    </div>
+      <div class="project-card" onclick="openModal('studentLms')" onkeydown="handleCardKey(event,'studentLms')" tabindex="0" role="button" aria-label="학생 관리 시스템 자세히 보기" data-tags="Web,Python,Flask,SQLite,Database,Backend">
+        <div class="project-media project-thumb">
+          <img src="images/student-manager-card.png" alt="학생 관리 시스템 메인 화면 프리뷰" loading="lazy">
+          <span class="visual-label">FLASK · SQLITE</span>
+        </div>
+        <div class="project-arrow">→</div>
+        <div class="project-body">
+          <div class="project-num">05</div>
+          <div class="project-meta"><span>2026</span><span>Python</span><span>Flask</span><span>SQLite</span></div>
+          <h3>학생 관리 시스템</h3>
+          <p>학생 데이터 등록, 조회, 수정, 삭제와 검색/필터를 구현한 SQLite 기반 관리자 페이지입니다.</p>
+          <div class="tag-list"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">CRUD</span><span class="tag">Admin UI</span></div>
+          <div class="project-actions">
+            <span class="project-action">자세히 보기</span>
+            <span class="project-action">DB 연동</span>
+          </div>
+        </div>
+      </div>    </div>
   </section>
 
   <section class="section" id="design">
     <span class="section-label">Design</span>
     <h2 class="reveal">디자인 작업</h2>
     <div class="gallery-grid reveal-stagger">
-      <div class="gallery-item design-product" data-src="images/milk-banner.jpg" data-note="바나나우유와 메론우유를 한눈에 보여주는 홍보 배너로, 제품 이미지와 색감을 중심으로 구성했습니다.">
+      <div class="gallery-item design-product" data-src="images/milk-banner.jpg" data-note="바나나우유와 메론우유를 한눈에 보여주는 홍보 포스터로, 제품 이미지와 색감을 중심으로 구성했습니다.">
         <div class="gallery-image">
-          <img src="images/milk-banner.jpg" alt="우유 배너 디자인 작품" loading="lazy"
+          <img src="images/milk-banner.jpg" alt="우유 홍보 포스터 디자인 작품" loading="lazy"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder" style="display:none">🖼️</div>
           <div class="gallery-overlay">🔍</div>
         </div>
         <div class="gallery-caption">
-          <span class="gallery-kind">Banner</span>
-          <h3>Milk Banner</h3>
-          <p>Photoshop · 배너 디자인 · 우유 홍보 그래픽</p>
+          <span class="gallery-kind">Poster</span>
+          <h3>Milk Promotion Poster</h3>
+          <p>Photoshop · 포스터 디자인 · 우유 홍보 그래픽</p>
+        </div>
+      </div>
+      <div class="gallery-item design-product" data-src="images/dubai.jpg" data-note="유행하는 두바이쫀득쿠키의 분위기를 살려 상품의 특징이 돋보이도록 제작한 홍보 포스터입니다.">
+        <div class="gallery-image">
+          <img src="images/dubai.jpg" alt="두바이 상품 홍보 그래픽" loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder" style="display:none">🖼️</div>
+          <div class="gallery-overlay">🔍</div>
+        </div>
+        <div class="gallery-caption">
+          <span class="gallery-kind">Poster</span>
+          <h3>Dubai Cookie Poster</h3>
+          <p>Photoshop · 포스터 디자인 · 상품 홍보 그래픽</p>
         </div>
       </div>
       <div class="gallery-item design-product" data-src="images/aloe-banner.jpg" data-note="제품 라인업과 이벤트 메시지가 빠르게 보이도록 가로형 배너 구조로 정리했습니다.">
@@ -3834,9 +3924,9 @@
     <span class="section-label">3D</span>
     <h2 class="reveal">3D 작업</h2>
     <div class="three-d-grid reveal-stagger">
-      <div class="three-d-card">
+      <div class="three-d-card" onclick="openThreeDModal('moon')" onkeydown="handleThreeDKey(event,'moon')" tabindex="0" role="button" aria-label="Moon 3D Render 자세히 보기">
         <div class="three-d-preview">
-          <video controls preload="metadata" playsinline>
+          <video controls preload="metadata" playsinline onclick="event.stopPropagation()">
             <source src="videos/moon-3d-render.mp4" type="video/mp4">
             브라우저가 video 태그를 지원하지 않습니다.
           </video>
@@ -3845,11 +3935,12 @@
           <span class="three-d-label inline">BLENDER RENDER</span>
           <h3>Moon 3D Render</h3>
           <p>Blender로 3D 장면을 제작하고 렌더링한 뒤, Premiere Pro에서 최종 편집까지 진행한 작업입니다.</p>
+          <span class="detail-hint">카드를 눌러 제작 과정 보기</span>
         </div>
       </div>
-      <div class="three-d-card">
+      <div class="three-d-card" onclick="openThreeDModal('cat')" onkeydown="handleThreeDKey(event,'cat')" tabindex="0" role="button" aria-label="Cat 2D + 3D Motion 자세히 보기">
         <div class="three-d-preview">
-          <video controls preload="metadata" playsinline>
+          <video controls preload="metadata" playsinline onclick="event.stopPropagation()">
             <source src="videos/cat-2d-3d-motion.mp4" type="video/mp4">
             브라우저가 video 태그를 지원하지 않습니다.
           </video>
@@ -3858,8 +3949,10 @@
           <span class="three-d-label inline">BLENDER 2D + 3D</span>
           <h3>Cat 2D + 3D Motion</h3>
           <p>Blender에서 2D와 3D 느낌을 함께 살려 제작한 영상 작업입니다. 평면적인 그래픽 감성과 3D 공간감을 섞어 표현했습니다.</p>
+          <span class="detail-hint">카드를 눌러 제작 과정 보기</span>
         </div>
-      </div>      <div class="three-d-info">
+      </div>
+      <div class="three-d-info">
         <div>
           <h3>Blender 3D Render Works</h3>
           <p>Blender로 3D 장면을 구성하고 렌더링한 작업과, 2D 그래픽 감성을 더한 3D 모션 작업을 함께 정리했습니다. 일부 작업은 렌더링 후 Premiere Pro로 최종 편집했습니다.</p>
@@ -4005,6 +4098,20 @@
         preview: 'images/shopping-mall-preview.png',
         demo: 'https://shopping-mall-rosy.vercel.app/',
         techUse: [['HTML/CSS', '쇼핑몰 화면 구조와 반응형 UI 구현'], ['JavaScript', '페이지 인터랙션과 상품 화면 흐름 구성'], ['Python', '상품 데이터 처리와 백엔드 구조 작업'], ['Vercel', '프론트엔드 배포와 URL 공유']]
+      },
+      studentLms: {
+        title: '학생 관리 시스템',
+        year: '2026',
+        description: 'Python Flask와 SQLite를 활용해 학생 데이터를 관리하는 관리자 페이지입니다. 학생 등록, 조회, 수정, 삭제와 검색/필터 기능을 구현하고, 앱 실행 시 데이터베이스와 샘플 데이터가 자동 생성되도록 구성했습니다.',
+        tags: ['Python', 'Flask', 'SQLite', 'Database', 'CRUD', 'Admin UI'],
+        facts: [['역할', '백엔드 · DB 설계 · 관리자 UI'], ['핵심 기능', '학생 데이터 CRUD · 검색/필터'], ['DB', 'SQLite 자동 생성']],
+        preview: 'images/student-manager-preview.png',
+        problem: '운영 업무에서는 학생 정보를 빠르게 확인하고 상태별로 관리할 수 있는 화면이 필요합니다. 또한 데이터 추가, 수정, 삭제 흐름이 실제 데이터베이스와 연결되어야 합니다.',
+        role: 'Flask 서버 구조를 만들고 SQLite 테이블을 설계했습니다. 학생 데이터 CRUD 라우트, 검색/필터, 운영 통계, 반응형 관리자 UI를 구현했습니다.',
+        features: ['SQLite 테이블 자동 생성 및 샘플 데이터 삽입', '학생 등록, 조회, 수정, 삭제 기능', '이름, 연락처, 이메일, 메모 기반 검색', '수강 상태와 과정별 필터', '전체 학생, 수강중, 수료, 상담 필요 통계 표시', '수정용 dialog UI와 삭제 확인 처리', '모바일/데스크톱 대응 관리자 레이아웃'],
+        result: '프론트엔드 화면 구현뿐 아니라 Python 백엔드, SQL 테이블, 데이터 관리 흐름까지 연결한 미니 LMS 운영 프로젝트로 완성했습니다.',
+        github: 'https://github.com/ajttk369',
+        techUse: [['Python', 'Flask 서버와 라우트 구성'], ['Flask', '템플릿 렌더링과 form 기반 데이터 처리'], ['SQLite', '학생 테이블 설계와 CRUD 데이터 저장'], ['SQL', '검색, 필터, 통계 조회 쿼리 작성'], ['HTML/CSS/JavaScript', '관리자 화면과 dialog 인터랙션 구현']]
       }
     };
     const PROJECT_KEYS = Object.keys(PROJECTS);
@@ -4026,6 +4133,67 @@
       openModal(key);
     }
 
+    const THREE_D_WORKS = {
+      moon: {
+        title: 'Moon 3D Render',
+        meta: 'Blender · Geometry Nodes · Rigid Body',
+        video: 'videos/moon-3d-render.mp4',
+        summary: 'Blender에서 달이 바위 위를 굴러가고, 달의 위치에 따라 풀과 꽃이 자라나는 반응형 3D 아트웍으로 제작한 작업입니다.',
+        effects: [
+          ['Blender Kit', '달, 꽃, 잔디 에셋을 활용해 장면 구성 시간을 줄이고 전체 분위기 연출에 집중했습니다.'],
+          ['Rigid Body', '달은 Active, 바위는 Passive로 설정해 달이 바위 위를 자연스럽게 굴러가는 물리 움직임을 만들었습니다.'],
+          ['Geometry Nodes', 'Distribute Points on Faces와 Instance on Points로 바위 표면에 잔디와 꽃을 랜덤하게 배치했습니다.'],
+          ['Geometry Proximity', '달의 위치와 식물 오브젝트 사이의 거리를 계산해 가까운 풀과 꽃만 반응하도록 구성했습니다.'],
+          ['Map Range / Bake', '거리 값을 스케일 변화로 변환하고, 리지드 바디 시뮬레이션을 키프레임으로 베이크해 위치 정보를 안정적으로 활용했습니다.'],
+          ['Shader Editor', '달 재질에 Emission과 노란빛을 더해 어두운 장면 안에서 빛나는 분위기를 연출했습니다.']
+        ],
+        process: [
+          'Blender Kit으로 달, 꽃, 잔디 에셋을 준비하고 큐브를 변형해 자연스러운 바위 형태를 제작했습니다.',
+          '달과 바위에 Rigid Body를 설정해 달이 바위 위를 굴러가는 물리 애니메이션을 만들었습니다.',
+          '시뮬레이션 결과를 키프레임으로 베이크해 Geometry Nodes에서 달의 위치 정보를 사용할 수 있게 정리했습니다.',
+          'Geometry Nodes로 바위 표면에 포인트를 분산하고 잔디와 꽃을 인스턴싱했습니다.',
+          'Geometry Proximity와 Map Range를 활용해 달이 지나가는 경로를 따라 식물이 자라나는 효과를 구현했습니다.',
+          'Shader Editor에서 달의 Emission을 조정하고 최종 렌더링 후 Premiere Pro로 마무리 편집했습니다.'
+        ],
+        result: 'Rigid Body 물리 애니메이션과 Geometry Nodes의 근접 반응 효과를 결합해, 달의 움직임에 따라 바위 위 식물이 자라나는 판타지 분위기의 3D 렌더 작업으로 완성했습니다.'
+      },
+      cat: {
+        title: 'Cat 2D + 3D Motion',
+        meta: 'Blender · 2D + 3D Motion · Toon Shading',
+        video: 'videos/cat-2d-3d-motion.mp4',
+        summary: 'Blender에서 3D 캐릭터를 모델링한 뒤 툰 셰이딩과 Grease Pencil을 더해 2D 애니메이션 같은 느낌으로 완성한 작업입니다.',
+        effects: [
+          ['모델링 / 메쉬 편집', 'Cube 기반 모델링, Subdivision Surface, Extrude, Loop Cut, Proportional Editing으로 캐릭터 형태와 소품을 구성했습니다.'],
+          ['물리 / 애니메이션', 'Cloth Physics, Collision, Hook, Vertex Group을 활용해 캐릭터 움직임과 들어 올리는 동작을 자연스럽게 조정했습니다.'],
+          ['세부 움직임', 'Animall 애드온과 키프레임을 활용해 귀와 꼬리 움직임을 잡고, 물리 시뮬레이션은 Baking으로 고정했습니다.'],
+          ['재질 / 렌더링', 'Shader to RGB와 Color Ramp로 툰 셰이딩을 만들고, UV 언래핑과 텍스처 페인팅으로 디테일을 더했습니다.'],
+          ['Grease Pencil', 'Line Art, Onion Skin, Interpolation을 활용해 외곽선과 표정 변화, 2D 느낌의 프레임 애니메이션을 완성했습니다.']
+        ],
+        process: [
+          '기본 큐브를 세분화하고 돌출해 캐릭터의 몸체, 귀, 꼬리와 소품 형태를 제작했습니다.',
+          'Cloth Physics와 Collision을 설정하고 Hook과 Vertex Group으로 움직임을 제어했습니다.',
+          'Animall 애드온으로 귀와 꼬리의 세부 동작을 키프레임으로 조정했습니다.',
+          'Shader to RGB, Color Ramp, Texture Painting으로 2D 애니메이션 같은 툰 스타일을 적용했습니다.',
+          'Grease Pencil로 외곽선과 표정 변화를 추가하고 프레임 보간으로 부드러운 동작을 만들었습니다.'
+        ],
+        result: '3D 모델링, 물리 시뮬레이션, 툰 셰이딩, Grease Pencil을 함께 사용해 2D와 3D 감성이 섞인 캐릭터 모션 작업으로 정리했습니다.'
+      }
+    };
+    function openThreeDModal(key) {
+      const item = THREE_D_WORKS[key];
+      if (!item) return;
+      document.querySelector('.modal-backdrop')?.remove();
+      const bd = document.createElement('div');
+      bd.className = 'modal-backdrop';
+      bd.innerHTML = `<div class="modal"><button class="modal-close" onclick="this.closest('.modal-backdrop').remove()">✕</button><p class="modal-meta">3D Work · Blender</p><h3>${item.title}</h3><div class="tag-list" style="margin-bottom:22px"><span class="tag">Blender</span><span class="tag">Grease Pencil</span><span class="tag">Toon Shading</span><span class="tag">Animation</span></div><p>${item.summary}</p><div class="modal-video"><video controls preload="metadata" playsinline><source src="${item.video}" type="video/mp4">브라우저가 video 태그를 지원하지 않습니다.</video></div><div class="modal-detail"><div class="modal-detail-block"><h4>사용 효과</h4><ul class="modal-tech">${item.effects.map(([name, desc]) => `<li><strong>${name}</strong> · ${desc}</li>`).join('')}</ul></div><div class="modal-detail-block"><h4>제작 방법</h4><ul>${item.process.map(step => `<li>${step}</li>`).join('')}</ul></div><div class="modal-detail-block"><h4>결과</h4><p>${item.result}</p></div></div><div class="modal-links"><a href="${item.video}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">영상 새 창으로 보기</a></div></div>`;
+      bd.addEventListener('click', e => { if (e.target === bd) bd.remove() });
+      document.body.appendChild(bd);
+    }
+    function handleThreeDKey(event, key) {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      openThreeDModal(key);
+    }
     const canvas = document.getElementById('star-canvas'), ctx = canvas.getContext('2d');
     let stars = [], animPaused = false;
     document.addEventListener('visibilitychange', () => { animPaused = document.hidden });
