@@ -55,6 +55,9 @@ AI 전시 홍보를 위한 반응형 웹사이트입니다. HTML, CSS, JavaScrip
 ### 학생 관리 시스템
 Python Flask와 SQLite를 활용해 학생 데이터 등록, 조회, 수정, 삭제가 가능한 학생 관리 페이지를 제작했습니다. 검색/필터, 상태별 통계, SQLite 테이블 자동 생성 기능을 구현해 운영 데이터 관리 흐름을 보여주는 프로젝트입니다.
 
+### Rift Record
+Riot Games API를 활용해 League of Legends와 Teamfight Tactics 전적을 조회하고 분석하는 반응형 서비스입니다. LoL 최근 15경기와 TFT 최근 10경기, 게임 유형 필터, 상세 참여자 검색, 플레이스타일 분석, TFT 유닛·특성·증강체 한글화, Supabase 기반 자체 챔피언 티어를 구현해 Vercel에 배포했습니다.
+
 ### Shopping Mall Page
 쇼핑몰 서비스를 가정해 제작한 웹 페이지입니다. 상품 목록, 브랜드, 이벤트, 검색, 마이페이지 등 쇼핑몰 흐름을 구성했고, Python을 활용한 백엔드 작업 경험도 함께 정리했습니다.
 

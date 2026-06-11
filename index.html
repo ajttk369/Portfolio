@@ -1442,6 +1442,10 @@
       object-position: 58% top;
     }
 
+    .project-thumb img.project-thumb-rift {
+      object-position: center top;
+    }
+
     .project-card:hover .project-thumb img {
       transform: scale(1.04);
     }
@@ -1606,95 +1610,6 @@
     }
 
 
-    .visual-rift {
-      display: grid;
-      gap: 10px;
-      padding: 42px 20px 18px;
-      background:
-        radial-gradient(circle at 78% 18%, rgba(56, 189, 248, .24), transparent 34%),
-        linear-gradient(135deg, rgba(15, 23, 42, .9), rgba(30, 64, 175, .62));
-    }
-
-    .rift-search {
-      height: 32px;
-      border-radius: 10px;
-      border: 1px solid rgba(191, 219, 254, .42);
-      background: rgba(255, 255, 255, .1);
-      display: flex;
-      align-items: center;
-      padding: 0 10px;
-      color: rgba(226, 232, 240, .78);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .08em;
-    }
-
-    .rift-profile {
-      display: grid;
-      grid-template-columns: 42px 1fr auto;
-      gap: 10px;
-      align-items: center;
-      padding: 10px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, .09);
-      border: 1px solid rgba(147, 197, 253, .2);
-    }
-
-    .rift-avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #60a5fa, #22d3ee);
-      box-shadow: 0 0 24px rgba(34, 211, 238, .35);
-    }
-
-    .rift-lines span,
-    .match-line span {
-      display: block;
-      height: 7px;
-      border-radius: 999px;
-      background: rgba(219, 234, 254, .72);
-      margin-bottom: 7px;
-    }
-
-    .rift-lines span:last-child {
-      width: 58%;
-      background: rgba(125, 211, 252, .54);
-      margin-bottom: 0;
-    }
-
-    .rift-rank {
-      padding: 6px 9px;
-      border-radius: 999px;
-      color: #082f49;
-      background: #7dd3fc;
-      font-size: 10px;
-      font-weight: 900;
-    }
-
-    .rift-matches {
-      display: grid;
-      gap: 7px;
-    }
-
-    .match-line {
-      height: 26px;
-      border-radius: 9px;
-      background: rgba(15, 23, 42, .42);
-      border-left: 4px solid #38bdf8;
-      padding: 7px 10px;
-    }
-
-    .match-line.loss {
-      border-left-color: #fb7185;
-    }
-
-    .match-line span {
-      width: 72%;
-      height: 6px;
-      margin: 0;
-      background: rgba(226, 232, 240, .46);
-    }
     .nfc-card {
       position: absolute;
       right: 18px;
@@ -1838,43 +1753,6 @@
     }
 
 
-    .project-card-wip {
-      border-color: rgba(245, 158, 11, .42);
-    }
-
-    .project-status {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      z-index: 4;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 11px;
-      border-radius: 999px;
-      border: 1px solid rgba(245, 158, 11, .42);
-      color: #78350f;
-      background: #fef3c7;
-      box-shadow: 0 12px 26px rgba(245, 158, 11, .18);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .04em;
-    }
-
-    .project-status::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #f59e0b;
-      box-shadow: 0 0 0 4px rgba(245, 158, 11, .18);
-    }
-
-    .light .project-status {
-      color: #92400e;
-      background: #fffbeb;
-      border-color: rgba(245, 158, 11, .45);
-    }
     .project-meta {
       display: flex;
       flex-wrap: wrap;
@@ -2275,11 +2153,18 @@
     }
 
     .three-d-info {
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 24px
+      order: -1;
+      grid-column: 1 / -1;
+      padding: 26px 30px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, .85fr);
+      align-items: center;
+      gap: 28px;
+    }
+
+    .three-d-info .tool-list {
+      justify-content: flex-end;
+      align-content: center;
     }
 
     .three-d-info h3 {
@@ -2764,7 +2649,7 @@
       width: 100%;
       max-height: 420px;
       display: block;
-      object-fit: cover
+      object-fit: contain
     }
 
     .light .three-d-preview {
@@ -3392,6 +3277,14 @@
       .three-d-grid {
         grid-template-columns: 1fr
       }
+      .three-d-info {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+
+      .three-d-info .tool-list {
+        justify-content: flex-start;
+      }
 
       .gallery-grid {
         grid-template-columns: repeat(2, 1fr)
@@ -3957,32 +3850,18 @@
           </div>
         </div>
       </div>
-      <div class="project-card project-card-wip" onclick="openModal('riftRecord')" onkeydown="handleCardKey(event,'riftRecord')" tabindex="0" role="button" aria-label="전적검색 서비스 자세히 보기" data-tags="Web,Riot API,JavaScript,API,Vercel,In Progress">
-        <div class="project-media has-visual">
-          <div class="project-visual visual-rift" aria-hidden="true">
-            <div class="visual-topbar"><i></i><i></i><i></i></div>
-            <div class="rift-search">SUMMONER#KR1</div>
-            <div class="rift-profile">
-              <span class="rift-avatar"></span>
-              <div class="rift-lines"><span></span><span></span></div>
-              <span class="rift-rank">RANK</span>
-            </div>
-            <div class="rift-matches">
-              <div class="match-line"><span></span></div>
-              <div class="match-line loss"><span></span></div>
-              <div class="match-line"><span></span></div>
-            </div>
-            <span class="visual-label">RIOT API · WIP</span>
-          </div>
+      <div class="project-card" onclick="openModal('riftRecord')" onkeydown="handleCardKey(event,'riftRecord')" tabindex="0" role="button" aria-label="Rift Record 전적 분석 서비스 자세히 보기" data-tags="Web,Riot API,TFT API,JavaScript,Supabase,Vercel">
+        <div class="project-media project-thumb">
+          <img class="project-thumb-rift" src="images/rift-record-card.png" alt="Rift Record 전적 분석 서비스 메인 화면" loading="lazy">
+          <span class="visual-label">LOL · TFT ANALYTICS</span>
         </div>
         <div class="project-arrow">→</div>
-        <span class="project-status">제작중</span>
         <div class="project-body">
           <div class="project-num">06</div>
-          <div class="project-meta"><span>2026</span><span>Web</span><span>Riot API</span><span>API 연동 제작중</span></div>
-          <h3>전적검색 서비스</h3>
-          <p>Riot API를 기반으로 소환사 정보와 전적 데이터를 조회하는 웹 프로젝트입니다.</p>
-          <div class="tag-list"><span class="tag">Riot API</span><span class="tag">JavaScript</span><span class="tag">API</span><span class="tag">Vercel</span><span class="tag">WIP</span></div>
+          <div class="project-meta"><span>2026</span><span>Web</span><span>Riot API</span><span>Live</span></div>
+          <h3>Rift Record 전적 분석 서비스</h3>
+          <p>LoL과 TFT 전적을 분리 조회하고 최근 경기 요약, 상세 분석, 자체 챔피언 티어를 제공하는 Riot API 기반 서비스입니다.</p>
+          <div class="tag-list"><span class="tag">Riot API</span><span class="tag">TFT API</span><span class="tag">JavaScript</span><span class="tag">Supabase</span><span class="tag">Responsive</span></div>
           <div class="project-actions">
             <span class="project-action">자세히 보기</span>
             <a class="project-site-link" href="https://rift-record.vercel.app/" target="_blank" rel="noopener" onclick="event.stopPropagation()" onkeydown="event.stopPropagation()">사이트 보기</a>
@@ -4136,16 +4015,31 @@
           <span class="detail-hint">카드를 눌러 제작 과정 보기</span>
         </div>
       </div>
+      <div class="three-d-card" onclick="openThreeDModal('sfCity')" onkeydown="handleThreeDKey(event,'sfCity')" tabindex="0" role="button" aria-label="SF City Geometry Nodes 자세히 보기">
+        <div class="three-d-preview">
+          <video controls preload="metadata" playsinline onclick="event.stopPropagation()">
+            <source src="videos/sf-city-geometry-nodes.mp4" type="video/mp4">
+            브라우저가 video 태그를 지원하지 않습니다.
+          </video>
+        </div>
+        <div class="video-caption">
+          <span class="three-d-label inline">BLENDER · GEOMETRY NODES</span>
+          <h3>SF City Geometry Nodes</h3>
+          <p>Geometry Nodes로 건물 디테일과 잔해를 생성하고, 볼륨 안개와 먼지를 더해 완성한 SF 도시 렌더 작업입니다.</p>
+          <span class="detail-hint">카드를 눌러 제작 과정 보기</span>
+        </div>
+      </div>
       <div class="three-d-info">
         <div>
           <h3>Blender 3D Render Works</h3>
-          <p>Blender로 3D 장면을 구성하고 렌더링한 작업과, 2D 그래픽 감성을 더한 3D 모션 작업을 함께 정리했습니다. 일부 작업은 렌더링 후 Premiere Pro로 최종 편집했습니다.</p>
+          <p>Blender로 제작한 판타지 아트웍, 2D+3D 캐릭터 모션, Geometry Nodes 기반 SF 도시 렌더 작업을 함께 정리했습니다. 일부 작업은 렌더링 후 Premiere Pro로 최종 편집했습니다.</p>
         </div>
         <div class="tool-list">
           <span class="tool-chip">Blender</span>
           <span class="tool-chip">3D Modeling</span>
           <span class="tool-chip">Lighting</span>
           <span class="tool-chip">Rendering</span>
+          <span class="tool-chip">Geometry Nodes</span>
           <span class="tool-chip">2D + 3D Style</span>
           <span class="tool-chip">Premiere Pro</span>
           <span class="tool-chip">Final Edit</span>
@@ -4260,7 +4154,7 @@
         tags: ['HTML', 'CSS', 'JavaScript', 'Premiere Pro', 'After Effects', 'Vercel'],
         facts: [['역할', '페이지 구조 · UI 구현'], ['영상 작업', 'Premiere Pro · After Effects'], ['결과물', 'Vercel 배포 사이트']],
         problem: '전시 홍보 페이지는 방문자가 짧은 시간 안에 전시의 주제, 분위기, 주요 정보를 이해할 수 있어야 했습니다.',
-        role: '전체 페이지 구조 설계, 섹션별 화면 구성, 반응형 스타일 정리, 홍보 영상 제작, 배포까지 진행했습니다.',
+        role: '전체 페이지 구조 설계, 섹션별 화면 구성, 반응형 스타일 정리, 배포까지 진행했습니다.',
         features: ['전시 홍보용 랜딩 페이지 구성', '섹션 기반 정보 배치', 'Premiere Pro와 After Effects를 활용한 영상 콘텐츠 제작', '버튼과 링크 중심의 사용자 이동 흐름', '모바일/데스크톱 대응 레이아웃', 'Vercel을 통한 웹 배포'],
         result: 'AI 전시의 분위기와 정보를 전달하는 웹 페이지를 제작하고, 직접 편집한 영상 콘텐츠와 함께 실제 URL로 배포했습니다.',
         github: 'https://github.com/ajttk369',
@@ -4271,9 +4165,10 @@
       shoppingMall: {
         title: '쇼핑몰 페이지',
         year: '2026',
+        roleLabel: '직접 구현한 내용',
         description: '쇼핑몰 서비스를 가정해 제작한 웹 페이지입니다. HTML/CSS/JavaScript로 화면을 구성하고, Python을 활용한 백엔드 작업으로 상품 데이터 흐름과 관리 구조까지 확장했습니다.',
         tags: ['HTML', 'CSS', 'JavaScript', 'Python', 'Backend', 'Vercel'],
-        facts: [['역할', 'UI 구현 · 백엔드 구성'], ['핵심 기능', '상품 탐색 · 데이터 관리'], ['결과물', 'Vercel 배포 사이트']],
+        facts: [['제작 범위', 'UI 구현 · 백엔드 구성'], ['핵심 기능', '상품 탐색 · 데이터 관리'], ['결과물', 'Vercel 배포 사이트']],
         problem: '쇼핑몰 페이지는 사용자가 상품과 이벤트 정보를 빠르게 확인하고 원하는 페이지로 자연스럽게 이동할 수 있어야 했습니다.',
         role: '메인 페이지와 하위 페이지 구조 설계, 상품/이벤트 화면 구성, Python 기반 백엔드 작업, 반응형 스타일 정리, 배포를 진행했습니다.',
         features: ['메인 비주얼과 상품 영역 구성', '상품·브랜드·이벤트·검색·마이페이지 화면 제작', 'Python을 활용한 백엔드 데이터 처리 구조 구성', '페이지별 이동 흐름을 고려한 내비게이션 구성', '상품 카드와 배너 중심의 쇼핑몰 UI 정리', '모바일/데스크톱 대응 레이아웃', 'Vercel을 통한 웹 배포'],
@@ -4286,9 +4181,10 @@
       studentLms: {
         title: '학생 관리 시스템',
         year: '2026',
+        roleLabel: '직접 구현한 내용',
         description: 'Python Flask와 SQLite를 활용해 학생 데이터를 관리하는 관리자 페이지입니다. 학생 등록, 조회, 수정, 삭제와 검색/필터 기능을 구현하고, 앱 실행 시 데이터베이스와 샘플 데이터가 자동 생성되도록 구성했습니다.',
         tags: ['Python', 'Flask', 'SQLite', 'Database', 'CRUD', 'Admin UI'],
-        facts: [['역할', '백엔드 · DB 설계 · 관리자 UI'], ['핵심 기능', '학생 데이터 CRUD · 검색/필터'], ['DB', 'SQLite 자동 생성']],
+        facts: [['제작 범위', '백엔드 · DB 설계 · 관리자 UI'], ['핵심 기능', '학생 데이터 CRUD · 검색/필터'], ['DB', 'SQLite 자동 생성']],
         preview: 'images/student-manager-preview.png',
         problem: '운영 업무에서는 학생 정보를 빠르게 확인하고 상태별로 관리할 수 있는 화면이 필요합니다. 또한 데이터 추가, 수정, 삭제 흐름이 실제 데이터베이스와 연결되어야 합니다.',
         role: 'Flask 서버 구조를 만들고 SQLite 테이블을 설계했습니다. 학생 데이터 CRUD 라우트, 검색/필터, 운영 통계, 반응형 관리자 UI를 구현했습니다.',
@@ -4299,18 +4195,20 @@
         techUse: [['Python', 'Flask 서버와 라우트 구성'], ['Flask', '템플릿 렌더링과 form 기반 데이터 처리'], ['SQLite', '학생 테이블 설계와 CRUD 데이터 저장'], ['SQL', '검색, 필터, 통계 조회 쿼리 작성'], ['HTML/CSS/JavaScript', '관리자 화면과 dialog 인터랙션 구현']]
       },
       riftRecord: {
-        title: '전적검색 서비스',
+        title: 'Rift Record 전적 분석 서비스',
         year: '2026',
-        description: 'Riot API를 기반으로 소환사 정보, 랭크 정보, 최근 경기 기록을 조회할 수 있도록 제작 중인 전적검색 웹 서비스입니다. 현재는 Riot ID 검색, 매치 데이터 수집, 라인별 챔피언 티어 계산 흐름을 중심으로 구현하고 있습니다.',
-        tags: ['Riot API', 'Data Dragon', 'JavaScript', 'API', 'Champion Tier', '제작중'],
-        facts: [['상태', 'API 연동 제작중'], ['핵심 기능', '전적검색 · 라인별 챔피언 티어'], ['배포', 'Vercel 연결']],
-        problem: '전적검색 서비스는 Riot ID를 입력했을 때 필요한 전적 정보를 빠르게 보여주고, 수집된 match 데이터를 바탕으로 챔피언 통계까지 확장할 수 있어야 합니다. API Key 보안, rate limit, 중복 match 저장 방지, 표본 부족 표시도 함께 고려해야 합니다.',
-        role: 'Riot API와 Data Dragon을 활용해 Riot ID 검색, PUUID 조회, 최근 matchId 수집, match detail 처리 흐름을 설계하고 있습니다. 저장된 participant 데이터를 기반으로 TOP/JUNGLE/MID/ADC/SUPPORT 라인별 챔피언 통계를 계산하고 티어 화면으로 확장하는 구조를 정리했습니다.',
-        features: ['Riot ID와 Tagline 기반 소환사 검색', 'ACCOUNT-V1, MATCH-V5, LEAGUE-V4 API 연동 흐름 설계', 'Data Dragon을 활용한 챔피언/아이템/스펠 이미지 표시 계획', '최근 경기, 랭크, LP, 승률, KDA 표시 구조 제작', 'matchId 중복 저장 방지와 DB 캐싱 구조 계획', 'TOP/JUNGLE/MID/ADC/SUPPORT 라인별 챔피언 티어 계산', '승률, 픽률, KDA, 표본 신뢰도를 반영한 tierScore 산정', '표본 부족 챔피언은 Low sample 상태로 표시 예정'],
-        result: '현재 제작중인 프로젝트로, 외부 API 연동뿐 아니라 수집 데이터 저장, 캐싱, 통계 계산, 티어 리스트 UI까지 확장 가능한 구조로 정리하고 있습니다.',
-        github: 'https://github.com/ajttk369',
+        roleLabel: '직접 구현한 내용',
+        preview: 'images/rift-record-detail.png',
+        description: 'Riot ID 하나로 League of Legends와 Teamfight Tactics 전적을 각각 조회하고, 최근 경기 핵심 지표와 상세 분석을 제공하는 반응형 웹 서비스입니다. 검색 후 티어와 최근 게임을 먼저 확인할 수 있도록 정보 구조를 설계하고 라이트·다크 테마와 Demo Mode를 함께 구현했습니다.',
+        tags: ['Riot API', 'TFT API', 'Data Dragon', 'JavaScript', 'Supabase', 'Responsive'],
+        facts: [['제작 범위', '기획 · UI · 프론트엔드 · 백엔드'], ['핵심 기능', 'LoL · TFT 전적 조회 및 분석'], ['배포', 'Vercel Live']],
+        problem: 'LoL 전적검색 화면은 분석 정보가 많아질수록 최근 경기 목록까지 도달하기 어렵고, LoL과 TFT는 서로 다른 API와 데이터 구조를 사용합니다. 검색 직후 필요한 정보를 빠르게 보여주면서 API Key 보안, 요청 제한, 중복 매치 저장, 모바일 가독성까지 함께 해결해야 했습니다.',
+        role: '정보 구조와 UI를 직접 설계하고 Vanilla JavaScript로 검색, 탭, 필터, 상세보기, 테마 전환을 구현했습니다. Node.js 백엔드에서 LoL과 TFT API Key와 라우트를 분리했으며, Riot 응답을 화면에 필요한 구조로 가공하고 Supabase 저장 및 자체 챔피언 티어 계산 흐름을 구성했습니다.',
+        features: ['Riot ID와 Tagline 기반 ACCOUNT-V1 계정 조회', '솔로·자유 랭크 티어와 최근 15경기 요약 표시', '전체·솔로랭크·자유랭크·일반·칼바람 게임 유형 필터', '매치 카드의 챔피언, KDA, 룬, 아이템, CS, 피해량, 킬 관여율 표시', '상세보기 참여자 Riot ID 클릭 시 해당 유저 전적 재검색', '플레이스타일, 추천픽, 경기 흐름, 개선 포인트 분석 아코디언', 'TFT 랭크와 최근 10경기 평균 등수, Top 4 비율, 유닛·특성·증강체 표시', 'TFT Data Dragon ko_KR 기반 유닛, 특성, 증강체, 아이템 한글화', 'Supabase 매치 저장과 라인별 자체 챔피언 티어 계산', '라이트·다크 테마, Demo Mode, 반응형 모바일 레이아웃'],
+        result: 'LoL과 TFT 전적을 하나의 서비스 안에서 명확히 분리하고, 검색부터 최근 경기 확인과 상세 분석까지 이어지는 완성형 포트폴리오 서비스로 배포했습니다. 서버 환경변수로 API Key를 보호하고 데이터 저장, 캐싱, 분석 UI까지 연결했습니다.',
+        github: 'https://github.com/ajttk369/rift-record',
         demo: 'https://rift-record.vercel.app/',
-        techUse: [['Riot API', 'PUUID, 랭크, 최근 경기 데이터 조회'], ['Riot Data Dragon', '챔피언, 아이템, 스펠 이미지 리소스 연결'], ['Database', 'matches, participants, champion_stats_cache 테이블 설계'], ['Tier Logic', '승률, 픽률, KDA, 표본 신뢰도를 반영한 자체 tierScore 계산'], ['Vercel', '제작중 페이지 배포와 URL 연결']]
+        techUse: [['HTML/CSS', '라이트·다크 테마와 PC·태블릿·모바일 반응형 UI'], ['Vanilla JavaScript', '검색 상태, 게임 탭, 필터, 상세보기, 참여자 재검색, Demo Mode 구현'], ['Node.js', 'LoL/TFT API 라우팅, 오류 처리, 응답 가공과 캐시 관리'], ['Riot API', 'ACCOUNT, SUMMONER, LEAGUE, MATCH, CHAMPION-MASTERY 데이터 조회'], ['TFT API', 'TFT 소환사, 랭크, 최근 매치와 참가자 데이터 조회'], ['Data Dragon', '챔피언, 아이템, 룬과 TFT 데이터의 한국어 이름·이미지 매핑'], ['Supabase', 'LoL 매치와 참가자 데이터 저장 및 챔피언 통계 캐시'], ['Vercel', 'Serverless Function과 정적 프론트엔드 배포']]
       }
     };
     const PROJECT_KEYS = Object.keys(PROJECTS);
@@ -4322,7 +4220,7 @@
       const nextKey = PROJECT_KEYS[(currentIndex + 1) % PROJECT_KEYS.length];
       const bd = document.createElement('div');
       bd.className = 'modal-backdrop';
-      bd.innerHTML = `<div class="modal"><button class="modal-close" onclick="this.closest('.modal-backdrop').remove()">✕</button><p class="modal-meta">${p.year} · Side Project</p><h3>${p.title}</h3><div class="tag-list" style="margin-bottom:22px">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>${p.preview ? `<div class="modal-preview"><img src="${p.preview}" alt="${p.title} 메인 화면 프리뷰"></div>` : ''}<p>${p.description}</p>${p.video ? `<div class="modal-video"><video controls preload="metadata" playsinline><source src="${p.video}" type="video/mp4">브라우저가 video 태그를 지원하지 않습니다.</video></div>` : ''}${p.gallery ? `<div class="modal-gallery">${p.gallery.map(src => `<img src="${src}" alt="${p.title} 예상도 자료">`).join('')}</div>` : ''}<div class="modal-facts">${p.facts.map(([label, value]) => `<div class="modal-fact"><strong>${label}</strong><span>${value}</span></div>`).join('')}</div><div class="modal-detail"><div class="modal-detail-block"><h4>문제</h4><p>${p.problem}</p></div><div class="modal-detail-block"><h4>내 역할</h4><p>${p.role}</p></div><div class="modal-detail-block"><h4>구현 기능</h4><ul>${p.features.map(item => `<li>${item}</li>`).join('')}</ul></div>${p.techUse ? `<div class="modal-detail-block"><h4>사용 기술</h4><ul class="modal-tech">${p.techUse.map(([tech, use]) => `<li><strong>${tech}</strong> · ${use}</li>`).join('')}</ul></div>` : ''}<div class="modal-detail-block"><h4>결과</h4><p>${p.result}</p></div></div><div class="modal-nav"><button type="button" onclick="event.stopPropagation();openModal('${prevKey}')">이전 프로젝트</button><button type="button" onclick="event.stopPropagation();openModal('${nextKey}')">다음 프로젝트</button></div><div class="modal-links">${p.demo ? `<a href="${p.demo}" target="_blank" class="btn btn-primary" style="font-size:14px;padding:12px 24px">사이트 보기 ↗</a>` : ''}<a href="${p.github}" target="_blank" class="btn ${p.demo ? 'btn-outline' : 'btn-primary'}" style="font-size:14px;padding:12px 24px">GitHub 보기</a>${p.video ? `<a href="${p.video}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">영상 새 창으로 보기</a>` : ''}${p.docs ? `<a href="${p.docs}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">기획서 보기</a>` : ''}</div></div>`;
+      bd.innerHTML = `<div class="modal"><button class="modal-close" onclick="this.closest('.modal-backdrop').remove()">✕</button><p class="modal-meta">${p.year} · Side Project</p><h3>${p.title}</h3><div class="tag-list" style="margin-bottom:22px">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>${p.preview ? `<div class="modal-preview"><img src="${p.preview}" alt="${p.title} 메인 화면 프리뷰"></div>` : ''}<p>${p.description}</p>${p.video ? `<div class="modal-video"><video controls preload="metadata" playsinline><source src="${p.video}" type="video/mp4">브라우저가 video 태그를 지원하지 않습니다.</video></div>` : ''}${p.gallery ? `<div class="modal-gallery">${p.gallery.map(src => `<img src="${src}" alt="${p.title} 예상도 자료">`).join('')}</div>` : ''}<div class="modal-facts">${p.facts.map(([label, value]) => `<div class="modal-fact"><strong>${label}</strong><span>${value}</span></div>`).join('')}</div><div class="modal-detail"><div class="modal-detail-block"><h4>문제</h4><p>${p.problem}</p></div><div class="modal-detail-block"><h4>${p.roleLabel || '내 역할'}</h4><p>${p.role}</p></div><div class="modal-detail-block"><h4>구현 기능</h4><ul>${p.features.map(item => `<li>${item}</li>`).join('')}</ul></div>${p.techUse ? `<div class="modal-detail-block"><h4>사용 기술</h4><ul class="modal-tech">${p.techUse.map(([tech, use]) => `<li><strong>${tech}</strong> · ${use}</li>`).join('')}</ul></div>` : ''}<div class="modal-detail-block"><h4>결과</h4><p>${p.result}</p></div></div><div class="modal-nav"><button type="button" onclick="event.stopPropagation();openModal('${prevKey}')">이전 프로젝트</button><button type="button" onclick="event.stopPropagation();openModal('${nextKey}')">다음 프로젝트</button></div><div class="modal-links">${p.demo ? `<a href="${p.demo}" target="_blank" class="btn btn-primary" style="font-size:14px;padding:12px 24px">사이트 보기 ↗</a>` : ''}<a href="${p.github}" target="_blank" class="btn ${p.demo ? 'btn-outline' : 'btn-primary'}" style="font-size:14px;padding:12px 24px">GitHub 보기</a>${p.video ? `<a href="${p.video}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">영상 새 창으로 보기</a>` : ''}${p.docs ? `<a href="${p.docs}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">기획서 보기</a>` : ''}</div></div>`;
       bd.addEventListener('click', e => { if (e.target === bd) bd.remove() });
       document.body.appendChild(bd)
     }
@@ -4376,6 +4274,27 @@
           'Grease Pencil로 외곽선과 표정 변화를 추가하고 프레임 보간으로 부드러운 동작을 만들었습니다.'
         ],
         result: '3D 모델링, 물리 시뮬레이션, 툰 셰이딩, Grease Pencil을 함께 사용해 2D와 3D 감성이 섞인 캐릭터 모션 작업으로 정리했습니다.'
+      },
+      sfCity: {
+        title: 'SF City Geometry Nodes',
+        meta: 'Blender · Geometry Nodes · Cycles · Volume',
+        video: 'videos/sf-city-geometry-nodes.mp4',
+        summary: 'Blender의 Geometry Nodes로 복잡한 건물 형태와 잔해를 절차적으로 생성하고, Cycles 렌더링과 볼륨 효과를 활용해 SF 도시 분위기로 완성한 작업입니다.',
+        effects: [
+          ['Geometry Nodes', 'Subdivide Mesh, Extrude Mesh, Random Value로 건물 표면의 돌출부와 기둥을 무작위로 생성했습니다.'],
+          ['Repeat Zone', '메쉬 분할과 돌출 과정을 반복해 단순한 큐브에서 복잡한 SF 건물 형태를 만들었습니다.'],
+          ['Instance / Debris', 'Distribute Points on Faces와 Instance on Points로 건물 주변 잔해와 파편을 배치했습니다.'],
+          ['Material / Environment', 'Noise Texture와 Bump로 표면 질감을 만들고, HDRI 환경과 Color Ramp로 물웅덩이 반사를 표현했습니다.'],
+          ['Volume Effects', 'Volume Scatter, Mesh to Volume, Distribute Points in Volume로 안개와 공중의 먼지 움직임을 연출했습니다.'],
+          ['Cycles Rendering', 'Cycles 렌더러를 사용해 재질, 반사, 안개가 어우러지는 현실적인 조명 결과를 만들었습니다.']
+        ],
+        process: [
+          '큐브를 기본 형태로 만들고 Geometry Nodes에서 면 분할과 랜덤 돌출을 반복해 메인 건물을 제작했습니다.',
+          'Array와 Mirror 모디파이어로 건물을 배치하고, 인스턴싱으로 주변 파편과 잔해를 분산했습니다.',
+          'HDRI 환경을 설정한 뒤 Noise Texture, Bump, Color Ramp로 건물과 젖은 바닥의 재질을 구성했습니다.',
+          'Volume Scatter와 볼륨 포인트에 키프레임을 적용해 안개가 걷히고 먼지가 흩날리는 장면을 완성했습니다.'
+        ],
+        result: '절차적 건물 생성, 재질 표현, 볼륨 애니메이션을 결합해 깊이감 있는 SF 도시 장면으로 완성했습니다.'
       }
     };
     function openThreeDModal(key) {
@@ -4384,7 +4303,7 @@
       document.querySelector('.modal-backdrop')?.remove();
       const bd = document.createElement('div');
       bd.className = 'modal-backdrop';
-      bd.innerHTML = `<div class="modal"><button class="modal-close" onclick="this.closest('.modal-backdrop').remove()">✕</button><p class="modal-meta">3D Work · Blender</p><h3>${item.title}</h3><div class="tag-list" style="margin-bottom:22px"><span class="tag">Blender</span><span class="tag">Grease Pencil</span><span class="tag">Toon Shading</span><span class="tag">Animation</span></div><p>${item.summary}</p><div class="modal-video"><video controls preload="metadata" playsinline><source src="${item.video}" type="video/mp4">브라우저가 video 태그를 지원하지 않습니다.</video></div><div class="modal-detail"><div class="modal-detail-block"><h4>사용 효과</h4><ul class="modal-tech">${item.effects.map(([name, desc]) => `<li><strong>${name}</strong> · ${desc}</li>`).join('')}</ul></div><div class="modal-detail-block"><h4>제작 방법</h4><ul>${item.process.map(step => `<li>${step}</li>`).join('')}</ul></div><div class="modal-detail-block"><h4>결과</h4><p>${item.result}</p></div></div><div class="modal-links"><a href="${item.video}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">영상 새 창으로 보기</a></div></div>`;
+      bd.innerHTML = `<div class="modal"><button class="modal-close" onclick="this.closest('.modal-backdrop').remove()">✕</button><p class="modal-meta">3D Work · Blender</p><h3>${item.title}</h3><div class="tag-list" style="margin-bottom:22px">${item.meta.split(' · ').map(tag => `<span class="tag">${tag}</span>`).join('')}</div><p>${item.summary}</p><div class="modal-video"><video controls preload="metadata" playsinline><source src="${item.video}" type="video/mp4">브라우저가 video 태그를 지원하지 않습니다.</video></div><div class="modal-detail"><div class="modal-detail-block"><h4>사용 효과</h4><ul class="modal-tech">${item.effects.map(([name, desc]) => `<li><strong>${name}</strong> · ${desc}</li>`).join('')}</ul></div><div class="modal-detail-block"><h4>제작 방법</h4><ul>${item.process.map(step => `<li>${step}</li>`).join('')}</ul></div><div class="modal-detail-block"><h4>결과</h4><p>${item.result}</p></div></div><div class="modal-links"><a href="${item.video}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">영상 새 창으로 보기</a></div></div>`;
       bd.addEventListener('click', e => { if (e.target === bd) bd.remove() });
       document.body.appendChild(bd);
     }
