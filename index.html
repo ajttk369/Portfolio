@@ -3734,6 +3734,7 @@
       <button class="filter-btn" data-filter="NFC">NFC</button>
       <button class="filter-btn" data-filter="Web">Web</button>
       <button class="filter-btn" data-filter="AI">AI</button>
+      <button class="filter-btn" data-filter="OpenAI">OpenAI</button>
       <button class="filter-btn" data-filter="Riot API">Riot API</button>
       <button class="filter-btn" data-jump="design">디자인</button>
       <button class="filter-btn" data-jump="three-d">3D</button>
@@ -3865,6 +3866,24 @@
           <div class="project-actions">
             <span class="project-action">자세히 보기</span>
             <a class="project-site-link" href="https://rift-record.vercel.app/" target="_blank" rel="noopener" onclick="event.stopPropagation()" onkeydown="event.stopPropagation()">사이트 보기</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card" onclick="openModal('careerLens')" onkeydown="handleCardKey(event,'careerLens')" tabindex="0" role="button" aria-label="CareerLens AI 포트폴리오 분석 도구 자세히 보기" data-tags="Web,AI,OpenAI,Next.js,TypeScript,Supabase,Vercel">
+        <div class="project-media project-thumb">
+          <img src="images/careerlens-ai-card.png" alt="CareerLens AI 포트폴리오 분석 도구 메인 화면" loading="lazy">
+          <span class="visual-label">PORTFOLIO REVIEW</span>
+        </div>
+        <div class="project-arrow">→</div>
+        <div class="project-body">
+          <div class="project-num">07</div>
+          <div class="project-meta"><span>2026</span><span>Next.js</span><span>OpenAI</span><span>Live</span></div>
+          <h3>CareerLens AI 포트폴리오 분석</h3>
+          <p>포트폴리오와 자기소개서 내용을 입력하면 점수, 개선 우선순위, 면접 질문과 답변을 정리해주는 리뷰 도구입니다.</p>
+          <div class="tag-list"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">OpenAI</span><span class="tag">Supabase</span><span class="tag">Vercel</span></div>
+          <div class="project-actions">
+            <span class="project-action">자세히 보기</span>
+            <a class="project-site-link" href="https://careerlens-ai-kohl.vercel.app/" target="_blank" rel="noopener" onclick="event.stopPropagation()" onkeydown="event.stopPropagation()">사이트 보기</a>
           </div>
         </div>
       </div>
@@ -4209,6 +4228,22 @@
         github: 'https://github.com/ajttk369/rift-record',
         demo: 'https://rift-record.vercel.app/',
         techUse: [['HTML/CSS', '라이트·다크 테마와 PC·태블릿·모바일 반응형 UI'], ['Vanilla JavaScript', '검색 상태, 게임 탭, 필터, 상세보기, 참여자 재검색, Demo Mode 구현'], ['Node.js', 'LoL/TFT API 라우팅, 오류 처리, 응답 가공과 캐시 관리'], ['Riot API', 'ACCOUNT, SUMMONER, LEAGUE, MATCH, CHAMPION-MASTERY 데이터 조회'], ['TFT API', 'TFT 소환사, 랭크, 최근 매치와 참가자 데이터 조회'], ['Data Dragon', '챔피언, 아이템, 룬과 TFT 데이터의 한국어 이름·이미지 매핑'], ['Supabase', 'LoL 매치와 참가자 데이터 저장 및 챔피언 통계 캐시'], ['Vercel', 'Serverless Function과 정적 프론트엔드 배포']]
+      },
+      careerLens: {
+        title: 'CareerLens AI 포트폴리오 분석',
+        year: '2026',
+        roleLabel: '직접 구현한 내용',
+        preview: 'images/careerlens-ai-detail.png',
+        description: '지원 직무, 포트폴리오 설명, 대표 프로젝트, 기술 스택을 입력하면 포트폴리오 내용을 점수와 카드형 피드백으로 정리해주는 웹 도구입니다. 분석 결과 저장, 공유 리포트, 삭제까지 이어지는 흐름을 구현했습니다.',
+        tags: ['Next.js', 'TypeScript', 'OpenAI', 'Supabase', 'Tailwind CSS', 'Vercel'],
+        facts: [['제작 범위', '기획 · UI · 서버 API · 배포'], ['핵심 기능', '포트폴리오 분석 · 결과 저장'], ['배포', 'Vercel Live']],
+        problem: '포트폴리오 설명은 내용이 길어질수록 강점과 보완점을 빠르게 파악하기 어렵습니다. 입력 내용을 채용자가 확인하는 순서에 맞춰 정리하고, 개선 문구와 면접 준비 자료까지 한 화면에서 확인할 수 있게 만드는 것이 목표였습니다.',
+        role: '전체 화면 구조와 입력 폼, 결과 대시보드, OpenAI 분석 API route, Supabase 저장/조회/삭제 API를 직접 구현했습니다. API Key는 서버 환경변수로만 사용하고, 결과 데이터는 JSON 구조로 받아 카드 UI에 렌더링했습니다.',
+        features: ['지원 직무, 포트폴리오 URL, 자기소개서/설명, 대표 프로젝트, 기술 스택 입력 폼', '입력 품질 점검 카드와 샘플 데이터/데모 결과 확인', 'OpenAI Structured Outputs 기반 분석 결과 생성', '종합 점수, 세부 점수, 강점, 보완점, 개선 우선순위 카드 렌더링', '프로젝트 설명 개선 문구와 예상 면접 질문/답변 복사', 'Supabase 분석 결과 저장, 히스토리 조회, 공유 리포트, 삭제 기능', 'Mock Demo Mode와 Supabase 미설정 fallback 처리', '데스크톱과 모바일을 고려한 반응형 레이아웃'],
+        result: '입력부터 분석, 결과 저장, 공유까지 이어지는 포트폴리오 리뷰 도구로 완성했습니다. OpenAI와 Supabase를 서버 API에서 연결해 키 노출을 막고, README와 프리뷰 이미지까지 정리해 GitHub와 Vercel에 배포했습니다.',
+        github: 'https://github.com/ajttk369/CareerLens-AI',
+        demo: 'https://careerlens-ai-kohl.vercel.app/',
+        techUse: [['Next.js', 'App Router 기반 화면과 서버 API route 구성'], ['TypeScript', '입력값과 분석 결과 데이터 타입 관리'], ['OpenAI', 'Structured Outputs로 점수와 피드백 JSON 생성'], ['Supabase', '분석 결과 저장, 히스토리, 공유 리포트, 삭제 기능 구현'], ['Tailwind CSS', '카드형 결과 화면과 반응형 UI 정리'], ['Vercel', '환경변수 기반 배포와 GitHub 연동']]
       }
     };
     const PROJECT_KEYS = Object.keys(PROJECTS);
