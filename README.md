@@ -18,26 +18,6 @@
 
 ## 주요 프로젝트
 
-### 지도로 지도 서비스
-
-장소명과 주소를 검색하고 지도 위에서 결과, 상세 정보, 즐겨찾기, 길찾기를 확인할 수 있는 지도 기반 웹 서비스입니다.
-Naver 지도/검색/좌표/길찾기 API와 TAGO 교통 API를 연결해 지도 중심의 검색 흐름을 구현했습니다.
-거리뷰와 일부 고급 기능은 현재 업데이트 중 상태로 표시했습니다.
-
-- 배포: https://jidoro-map.vercel.app/
-- 사용 기술: Next.js 14, React 18, TypeScript, Tailwind CSS, LocalStorage, Vercel
-- 사용 API: Naver Maps JavaScript API, Naver Local Search API, Naver Cloud Geocoding API, Naver Cloud Reverse Geocoding API, Naver Cloud Directions API, TAGO 교통 정보 API
-- 구현 범위: 장소/주소 검색, 지도 마커, 결과 목록, 상세 패널, 즐겨찾기, 자동차/대중교통/도보/자전거 길찾기, 모바일 하단 시트 UI
-
-### 웹사이트 리뉴얼
-
-온라인몰 화면을 참고해 홈 화면 정보 구조와 픽업 주문 흐름을 개선한 UX/UI 리뉴얼 프로토타입입니다.
-상품 탐색, 매장 재고 확인, 픽업 가능 매장 추천, 로그인 모달 흐름을 한 페이지 안에서 자연스럽게 이어지도록 구성했습니다.
-
-- 배포: https://website-renewal-navy.vercel.app/
-- 사용 기술: HTML5, CSS3, JavaScript, Vercel
-- 구현 범위: 홈 화면 정보 구조 재배치, 상품/매장 카드, 픽업 가능 정보, 로그인 모달, 반응형 UI
-
 ### Rift Record
 
 Riot Games API를 사용해 League of Legends와 Teamfight Tactics 전적을 분리 조회하고 분석하는 서비스입니다.
@@ -58,6 +38,26 @@ TFT 탭에서는 랭크, 최근 10게임 요약, 유닛/특성/증강체 중심�
 - GitHub: https://github.com/ajttk369/CareerLens-AI
 - 사용 기술: Next.js, TypeScript, OpenAI, Supabase, Tailwind CSS, Vercel
 
+### 지도로 지도 서비스
+
+장소명과 주소를 검색하고 지도 위에서 결과, 상세 정보, 즐겨찾기, 길찾기를 확인할 수 있는 지도 기반 웹 서비스입니다.
+Naver 지도/검색/좌표/길찾기 API와 TAGO 교통 API를 연결해 지도 중심의 검색 흐름을 구현했습니다.
+거리뷰와 일부 고급 기능은 현재 업데이트 중 상태로 표시했습니다.
+
+- 배포: https://jidoro-map.vercel.app/
+- 사용 기술: Next.js 14, React 18, TypeScript, Tailwind CSS, LocalStorage, Vercel
+- 사용 API: Naver Maps JavaScript API, Naver Local Search API, Naver Cloud Geocoding API, Naver Cloud Reverse Geocoding API, Naver Cloud Directions API, TAGO 교통 정보 API
+- 구현 범위: 장소/주소 검색, 지도 마커, 결과 목록, 상세 패널, 즐겨찾기, 자동차/대중교통/도보/자전거 길찾기, 모바일 하단 시트 UI
+
+### 웹사이트 리뉴얼
+
+온라인몰 화면을 참고해 홈 화면 정보 구조와 픽업 주문 흐름을 개선한 UX/UI 리뉴얼 프로토타입입니다.
+상품 탐색, 매장 재고 확인, 픽업 가능 매장 추천, 로그인 모달 흐름을 한 페이지 안에서 자연스럽게 이어지도록 구성했습니다.
+
+- 배포: https://website-renewal-navy.vercel.app/
+- 사용 기술: HTML5, CSS3, JavaScript, Vercel
+- 구현 범위: 홈 화면 정보 구조 재배치, 상품/매장 카드, 픽업 가능 정보, 로그인 모달, 반응형 UI
+
 ### InsightBoard
 
 CSV 매출 데이터를 업로드해 KPI, 차트, 인사이트, 원본 테이블을 확인하는 데이터 대시보드입니다.
@@ -75,14 +75,6 @@ Python Flask와 SQLite를 사용해 학생 데이터를 등록, 조회, 수정, 
 - 배포: https://student-lms-manager.onrender.com/
 - 사용 기술: Python, Flask, SQLite, HTML/CSS/JavaScript
 
-### AI Future Expo
-
-AI 전시 홍보를 위한 반응형 웹사이트입니다.
-전시 정보, 프로그램, 홍보 콘텐츠를 한 화면에서 볼 수 있도록 구성하고 Vercel에 배포했습니다.
-
-- 배포: https://ai-expo-sooty.vercel.app/
-- 사용 기술: HTML, CSS, JavaScript, Premiere Pro, After Effects
-
 ### Shopping Mall Page
 
 쇼핑몰 서비스를 가정해 제작한 웹 페이지입니다.
@@ -90,6 +82,14 @@ AI 전시 홍보를 위한 반응형 웹사이트입니다.
 
 - 배포: https://shopping-mall-rosy.vercel.app/
 - 사용 기술: HTML, CSS, JavaScript, Python
+
+### AI Future Expo
+
+AI 전시 홍보를 위한 반응형 웹사이트입니다.
+전시 정보, 프로그램, 홍보 콘텐츠를 한 화면에서 볼 수 있도록 구성하고 Vercel에 배포했습니다.
+
+- 배포: https://ai-expo-sooty.vercel.app/
+- 사용 기술: HTML, CSS, JavaScript, Premiere Pro, After Effects
 
 ### Automatic Cup Collector
 
