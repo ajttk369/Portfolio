@@ -612,7 +612,7 @@
     .section {
       max-width: 1120px;
       margin: auto;
-      padding: 130px 40px;
+      padding: 108px 40px;
       position: relative;
       z-index: 2
     }
@@ -642,7 +642,7 @@
       font-size: clamp(34px, 5vw, 56px);
       font-weight: 800;
       letter-spacing: -1.5px;
-      margin-bottom: 56px;
+      margin-bottom: 42px;
       line-height: 1.08
     }
 
@@ -709,7 +709,7 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1.4fr;
-      gap: 48px;
+      gap: 36px;
       align-items: start
     }
 
@@ -727,7 +727,7 @@
     }
 
     .about-card {
-      padding: 38px;
+      padding: 30px;
       position: relative;
       overflow: hidden
     }
@@ -743,71 +743,42 @@
     }
 
     .about-avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 24px;
-      background:
-        radial-gradient(circle at 50% 46%, rgba(56, 189, 248, .42), transparent 34%),
-        linear-gradient(145deg, #08111f, #102a4c 58%, #06101f);
-      border: 1px solid rgba(147, 197, 253, .42);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: .6px;
-      color: #eaf2ff;
-      margin-bottom: 22px;
+      width: 132px;
+      height: 170px;
+      border-radius: 26px;
+      padding: 5px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, .95), rgba(219, 234, 254, .88));
+      border: 1px solid rgba(37, 99, 235, .18);
+      margin-bottom: 16px;
       box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, .12),
-        0 18px 42px rgba(3, 12, 27, .34),
-        0 0 34px rgba(37, 99, 235, .18);
+        inset 0 1px 0 rgba(255, 255, 255, .9),
+        0 18px 36px rgba(37, 99, 235, .16);
       position: relative;
       overflow: hidden
     }
 
-    .about-avatar::before {
-      content: '';
-      position: absolute;
-      inset: 12px;
-      border-radius: 18px;
-      border: 1px solid rgba(125, 211, 252, .34);
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, .08), transparent 42%),
-        radial-gradient(circle at 50% 50%, rgba(37, 99, 235, .32), transparent 56%)
+    .about-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 21px;
+      display: block;
+      object-fit: contain;
+      object-position: center center;
+      background: #d9d9d9;
+      image-rendering: auto
     }
 
-    .about-avatar::after {
-      content: '</>';
-      position: absolute;
-      left: 50%;
-      bottom: 16px;
-      transform: translateX(-50%);
-      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .8px;
-      color: #7dd3fc;
-      opacity: .9
-    }
-
-    .about-avatar span {
-      position: relative;
-      z-index: 1;
-      transform: translateY(-5px);
-      text-shadow: 0 0 22px rgba(125, 211, 252, .42)
-    }
-
-    @keyframes rotateRing {
-      to {
-        transform: rotate(360deg)
-      }
+    body:not(.light) .about-avatar {
+      background: linear-gradient(145deg, rgba(30, 41, 59, .95), rgba(15, 23, 42, .92));
+      border-color: rgba(147, 197, 253, .24);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .08),
+        0 18px 36px rgba(3, 12, 27, .32)
     }
 
     .about-card h3 {
       font-family: var(--font-body);
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 800;
       line-height: 1.25;
       letter-spacing: 0;
@@ -818,7 +789,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       padding: 7px 12px;
       border-radius: 999px;
       border: 1px solid rgba(37, 99, 235, .18);
@@ -830,23 +801,23 @@
 
     .about-card p {
       color: var(--text-sub);
-      font-size: 15px;
-      line-height: 1.8;
+      font-size: 14px;
+      line-height: 1.7;
       word-break: keep-all
     }
 
     .about-card .about-intro {
       color: var(--text);
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 500;
       margin-bottom: 12px
     }
 
     .profile-info {
       display: grid;
-      gap: 9px;
-      margin-top: 26px;
-      padding-top: 22px;
+      gap: 5px;
+      margin-top: 20px;
+      padding-top: 16px;
       border-top: 1px solid var(--border)
     }
 
@@ -855,8 +826,8 @@
       grid-template-columns: 86px 1fr;
       gap: 12px;
       align-items: center;
-      padding: 9px 0;
-      font-size: 14px
+      padding: 6px 0;
+      font-size: 13px
     }
 
     .profile-row strong {
@@ -879,13 +850,13 @@
     .work-summary {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 22px
+      gap: 10px;
+      margin-top: 18px
     }
 
     .work-summary span {
-      min-height: 68px;
-      padding: 14px 12px;
+      min-height: 56px;
+      padding: 10px 10px;
       border-radius: 12px;
       text-align: center;
       color: var(--text-sub);
@@ -903,21 +874,21 @@
     .work-summary strong {
       display: block;
       color: var(--text);
-      font-size: 16px;
-      margin-bottom: 4px
+      font-size: 15px;
+      margin-bottom: 2px
     }
     .about-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 28px
+      gap: 10px;
+      margin-top: 20px
     }
 
     .stat-box {
       background: rgba(37, 99, 235, 0.07);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 20px;
+      padding: 14px;
       text-align: center;
       transition: .3s;
       cursor: default
@@ -931,7 +902,7 @@
 
     .stat-box .num {
       font-family: var(--font-display);
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 800;
       background: linear-gradient(135deg, var(--accent), var(--accent3));
       -webkit-background-clip: text;
@@ -954,8 +925,8 @@
 
     .timeline-item {
       display: flex;
-      gap: 24px;
-      padding-bottom: 36px;
+      gap: 18px;
+      padding-bottom: 26px;
       position: relative
     }
 
@@ -999,9 +970,9 @@
     }
 
     .timeline-content p {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-sub);
-      line-height: 1.7
+      line-height: 1.6
     }
 
     /* ── EXPERIENCE ── */
@@ -1020,11 +991,11 @@
     }
 
     .experience-summary {
-      padding: 34px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 28px
+      gap: 20px
     }
 
     .experience-summary h3,
@@ -1046,11 +1017,11 @@
     .experience-card p {
       color: var(--text-sub);
       font-size: 14px;
-      line-height: 1.75
+      line-height: 1.62
     }
 
     .experience-card {
-      padding: 34px;
+      padding: 28px;
       transition: transform .3s, box-shadow .3s, border-color .3s
     }
 
@@ -1064,7 +1035,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 18px
+      margin-bottom: 14px
     }
 
     .experience-meta span {
@@ -1079,15 +1050,15 @@
 
     .experience-list {
       display: grid;
-      gap: 12px;
-      margin-top: 22px
+      gap: 8px;
+      margin-top: 16px
     }
 
     .experience-list li {
       list-style: none;
       color: var(--text-sub);
-      font-size: 14px;
-      line-height: 1.65;
+      font-size: 13px;
+      line-height: 1.55;
       padding-left: 22px;
       position: relative
     }
@@ -1110,8 +1081,8 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 10px 12px;
-      margin-top: 32px;
-      padding-top: 22px;
+      margin-top: 22px;
+      padding-top: 16px;
       border-top: 1px solid var(--border)
     }
 
@@ -1143,8 +1114,8 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      min-height: 188px;
-      padding: 24px;
+      min-height: 166px;
+      padding: 20px;
       transition: transform .3s, box-shadow .3s, border-color .3s;
       position: relative;
       overflow: hidden;
@@ -1160,18 +1131,18 @@
     }
 
     .skill-icon {
-      min-height: 50px;
-      margin-bottom: 14px;
+      min-height: 48px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      gap: 9px
+      gap: 10px
     }
 
     .skill-icon img {
-      width: 44px;
-      height: 44px;
-      padding: 5px;
-      border-radius: 13px;
+      width: 46px;
+      height: 46px;
+      padding: 7px;
+      border-radius: 14px;
       display: block;
       object-fit: contain;
       background: #fff;
@@ -1179,8 +1150,20 @@
       box-shadow: 0 10px 24px rgba(15, 23, 42, .08)
     }
 
+    .skill-icon img.icon-mark {
+      padding: 8px
+    }
+
+    .skill-icon img.icon-line {
+      padding: 9px
+    }
+
+    .skill-icon img.icon-wide {
+      padding: 6px
+    }
+
     .skill-card h3 {
-      min-height: 38px;
+      min-height: 32px;
       font-size: 15px;
       font-weight: 700;
       line-height: 1.45;
@@ -1188,11 +1171,11 @@
     }
 
     .skill-card p {
-      min-height: 42px;
+      min-height: 36px;
       font-size: 13px;
       color: var(--text-sub);
-      margin-bottom: 16px;
-      line-height: 1.55
+      margin-bottom: 0;
+      line-height: 1.5
     }
 
     /* ── PROJECTS ── */
@@ -3187,41 +3170,6 @@
       border-color: var(--border-hover)
     }
 
-    .about-avatar {
-      border-radius: 24px;
-      background:
-        radial-gradient(circle at 50% 46%, rgba(56, 189, 248, .42), transparent 34%),
-        linear-gradient(145deg, #08111f, #102a4c 58%, #06101f);
-      color: #eaf2ff;
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, .12),
-        0 18px 42px rgba(3, 12, 27, .34),
-        0 0 34px rgba(37, 99, 235, .18)
-    }
-
-    .about-avatar::after {
-      content: '</>';
-      position: absolute;
-      left: 50%;
-      right: auto;
-      bottom: 16px;
-      width: auto;
-      height: auto;
-      border-radius: 0;
-      display: block;
-      transform: translateX(-50%);
-      background: transparent;
-      color: #7dd3fc;
-      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .8px;
-      box-shadow: none;
-      animation: none;
-      -webkit-mask: none;
-      mask: none
-    }
-
     .stat-box,
     .filter-btn,
     .tag,
@@ -3324,12 +3272,12 @@
       }
 
       .section {
-        padding: 90px 24px
+        padding: 76px 24px
       }
 
       .about-grid {
         grid-template-columns: 1fr;
-        gap: 32px
+        gap: 26px
       }
 
       .contents-board {
@@ -3561,11 +3509,11 @@
     <div class="about-grid reveal-stagger">
       <div>
         <div class="about-card glass-card">
-          <div class="about-avatar"><span>YJ</span></div>
+          <div class="about-avatar"><img src="images/profile-yujongan-avatar.jpg" alt="유종안 프로필 사진"></div>
           <h3>유종안</h3>
           <div class="about-role">Web · Design · Video · 3D</div>
-          <p class="about-intro">웹 개발을 중심으로 UI/UX, 그래픽, 영상, 3D 작업까지 함께 다루고 있습니다.</p>
-          <p>화면을 구현하고 기능을 붙이는 개발 경험을 바탕으로, 결과물이 보기 좋고 사용하기 편하게 완성되는 과정까지 생각하며 작업합니다.</p>
+          <p class="about-intro">웹 개발을 중심으로 UI/UX, 그래픽, 영상, 3D 작업까지 함께 다룹니다.</p>
+          <p>기능 구현과 화면 완성도를 함께 보며, 사용자가 이해하기 쉬운 결과물을 만드는 데 집중합니다.</p>
           <div class="profile-info">
             <div class="profile-row"><strong>Name</strong><span>유종안</span></div>
             <div class="profile-row"><strong>Field</strong><span>Web Development · UI/UX · Graphic · Video · 3D</span></div>
@@ -3617,7 +3565,7 @@
             <div class="timeline-content">
               <div class="year">2026</div>
               <h4>AI 기반 전시홍보 웹·영상 콘텐츠 제작 과정 수료</h4>
-              <p>KD아카데미(구리남양주)에서 생성형 AI 활용, 홍보영상 기획·편집, 모션그래픽, SNS 숏폼, 웹디자인 설계와 홈페이지 구현을 실습하고 기업 검수형 전시 홍보 프로젝트를 진행했습니다.</p>
+              <p>KD아카데미(구리남양주)에서 생성형 AI, 홍보영상 편집, 모션그래픽, 웹디자인 설계와 홈페이지 구현을 실습하고 기업 검수형 프로젝트를 진행했습니다.</p>
             </div>
           </div>
         </div>
@@ -3632,7 +3580,7 @@
       <div class="experience-summary">
         <div>
           <h3>개발과 운영 흐름을 함께 경험했습니다</h3>
-          <p>LMS 개발 및 유지보수, 서버 관리, 업무용 웹/앱 개발을 진행하며 실제 서비스가 운영되는 흐름을 경험했습니다.</p>
+          <p>LMS 유지보수, 서버 관리, 업무용 웹/앱 개발을 맡으며 실제 서비스 운영 흐름을 경험했습니다.</p>
         </div>
         <div class="tag-list">
           <span class="tag">LMS</span>
@@ -3648,7 +3596,7 @@
           <span>Development · Maintenance</span>
         </div>
         <h3>LMS 및 내부 시스템 개발 · 유지보수</h3>
-        <p>신입으로 입사 후 LMS 개발 및 유지보수, 서버 관리, 업무에 필요한 웹/앱 개발을 맡으며 실무 경험을 쌓았습니다. 광고 업무도 함께 담당하며 마케팅, 기획, 보고서 작성까지 경험했습니다.</p>
+        <p>LMS 개발 및 유지보수, 서버 관리, 업무용 웹/앱 개발을 맡았습니다. 광고 업무를 함께 담당하며 마케팅 기획과 보고서 작성도 경험했습니다.</p>
         <ul class="experience-list">
           <li>LMS 기능 수정, 화면 보완, 유지보수 업무 진행</li>
           <li>서버 상태 확인과 운영에 필요한 관리 업무 지원</li>
@@ -3672,43 +3620,43 @@
     <span class="section-label">Skills</span>
     <h2 class="reveal">기술 스택</h2>
     <div class="skills-grid reveal-stagger">
-      <div class="skill-card"><span class="skill-icon"><img src="images/skills/html5.png" alt="HTML5 로고"><img src="images/skills/css3.png" alt="CSS3 로고"></span>
+      <div class="skill-card"><span class="skill-icon"><img class="icon-mark" src="images/skills/html5.png" alt="HTML5 로고"><img class="icon-mark" src="images/skills/css3.png" alt="CSS3 로고"></span>
         <h3>HTML / CSS</h3>
         <p>반응형 레이아웃과 화면 스타일 구현</p>
       </div>
-      <div class="skill-card"><span class="skill-icon"><img src="images/skills/javascript.png" alt="JavaScript 로고"></span>
+      <div class="skill-card"><span class="skill-icon"><img class="icon-mark" src="images/skills/javascript.png" alt="JavaScript 로고"></span>
         <h3>JavaScript</h3>
         <p>검색, 필터, 탭, 상세보기 등 브라우저 인터랙션 구현</p>
       </div>
-      <div class="skill-card"><span class="skill-icon"><img src="images/skills/typescript.png" alt="TypeScript 로고"><img src="images/skills/nextjs.png" alt="Next.js 로고"></span>
+      <div class="skill-card"><span class="skill-icon"><img class="icon-mark" src="images/skills/typescript.png" alt="TypeScript 로고"><img class="icon-line" src="images/skills/nextjs.png" alt="Next.js 로고"></span>
         <h3>TypeScript / Next.js</h3>
         <p>타입 기반 화면 구성과 서버 API 라우트 연동</p>
       </div>
-      <div class="skill-card"><span class="skill-icon"><img src="images/skills/python.png" alt="Python 로고"></span>
+      <div class="skill-card"><span class="skill-icon"><img class="icon-mark" src="images/skills/python.png" alt="Python 로고"></span>
         <h3>Python</h3>
         <p>관리자 페이지, CRUD, SQLite 기반 데이터 처리</p>
       </div>
-      <div class="skill-card"><span class="skill-icon"><img src="images/skills/sql.png" alt="SQL 로고"></span>
+      <div class="skill-card"><span class="skill-icon"><img class="icon-line" src="images/skills/sql.png" alt="SQL 로고"></span>
         <h3>SQL / Database</h3>
         <p>테이블 설계, 조회, 필터링, 운영 데이터 관리</p>
       </div>
-      <div class="skill-card"><span class="skill-icon"><img src="images/skills/api.png" alt="API 로고"></span>
+      <div class="skill-card"><span class="skill-icon"><img class="icon-line" src="images/skills/api.png" alt="API 로고"></span>
         <h3>API Integration</h3>
         <p>Riot, OpenAI, 지도 API, Supabase 데이터 연동</p>
       </div>
-      <div class="skill-card"><span class="skill-icon"><img src="images/skills/ux.png" alt="UX 로고"></span>
+      <div class="skill-card"><span class="skill-icon"><img class="icon-line" src="images/skills/ux.png" alt="UX 로고"></span>
         <h3>UI / UX</h3>
         <p>화면 흐름과 사용성 중심의 UI 구성</p>
       </div>
-      <div class="skill-card"><span class="skill-icon"><img src="images/skills/photoshop.png" alt="Photoshop 로고"><img src="images/skills/illustrator.png" alt="Illustrator 로고"></span>
+      <div class="skill-card"><span class="skill-icon"><img class="icon-wide" src="images/skills/photoshop.png" alt="Photoshop 로고"><img class="icon-wide" src="images/skills/illustrator.png" alt="Illustrator 로고"></span>
         <h3>Design Tools</h3>
         <p>Photoshop, Illustrator 기반 그래픽 콘텐츠 제작</p>
       </div>
-      <div class="skill-card"><span class="skill-icon"><img src="images/skills/premierepro.png" alt="Premiere Pro 로고"><img src="images/skills/aftereffects.png" alt="After Effects 로고"></span>
+      <div class="skill-card"><span class="skill-icon"><img class="icon-wide" src="images/skills/premierepro.png" alt="Premiere Pro 로고"><img class="icon-wide" src="images/skills/aftereffects.png" alt="After Effects 로고"></span>
         <h3>Video Tools</h3>
         <p>영상 컷 편집, 자막, 모션 그래픽, 화면 전환 효과 작업</p>
       </div>
-      <div class="skill-card"><span class="skill-icon"><img src="images/skills/blender.png" alt="Blender 로고"></span>
+      <div class="skill-card"><span class="skill-icon"><img class="icon-mark" src="images/skills/blender.png" alt="Blender 로고"></span>
         <h3>Blender</h3>
         <p>모델링, 조명, 재질 설정, 렌더링 작업</p>
       </div>
