@@ -1160,18 +1160,23 @@
     }
 
     .skill-icon {
-      width: 42px;
-      height: 42px;
+      min-height: 50px;
       margin-bottom: 14px;
-      border-radius: 12px;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      justify-content: center;
-      background: rgba(37, 99, 235, .1);
-      color: var(--accent3);
-      font-size: 21px;
-      font-weight: 900;
-      line-height: 1
+      gap: 9px
+    }
+
+    .skill-icon img {
+      width: 44px;
+      height: 44px;
+      padding: 5px;
+      border-radius: 13px;
+      display: block;
+      object-fit: contain;
+      background: #fff;
+      border: 1px solid rgba(15, 23, 42, .08);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, .08)
     }
 
     .skill-card h3 {
@@ -1974,6 +1979,27 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px
+    }
+
+    .creative-intro {
+      margin: -26px 0 26px;
+      padding: 22px 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card)
+    }
+
+    .creative-intro h3 {
+      margin-bottom: 6px;
+      color: var(--text);
+      font-size: 20px;
+      font-weight: 900
+    }
+
+    .creative-intro p {
+      color: var(--text-sub);
+      font-size: 14px;
+      line-height: 1.7
     }
 
     .gallery-item.featured {
@@ -3501,9 +3527,7 @@
       <a href="#about" data-section="about">About</a>
       <a href="#skills" data-section="skills">Skills</a>
       <a href="#projects" data-section="projects">Projects</a>
-      <a href="#design" data-section="design">Design</a>
-      <a href="#three-d" data-section="three-d">3D</a>
-      <a href="#video" data-section="video">Video</a>
+      <a href="#design" data-section="design">Creative</a>
       <a href="#contact" data-section="contact">Contact</a>
     </nav>
     <div class="header-right">
@@ -3518,7 +3542,7 @@
     <div class="hero-tag"><span class="dot"></span>개발을 중심으로 디자인과 영상까지 다룹니다</div>
     <h1>웹을 만들고<br><span class="name-highlight">경험을</span> 설계합니다</h1>
     <p class="hero-sub"><span id="typing-text"></span><span id="typing-cursor"></span></p>
-    <p class="hero-lead">웹 화면을 구현하고, 필요한 기능을 붙이고, 그래픽과 영상으로 결과물을 더 잘 전달하는 작업을 합니다.</p>
+    <p class="hero-lead">API 연동, 데이터 처리, 반응형 UI를 중심으로 실제 동작하는 웹 서비스를 구현합니다. 디자인과 영상 경험을 함께 활용해 결과물을 더 명확하게 전달합니다.</p>
     <div class="capability-strip">
       <div class="capability-pill"><span>BUILD</span> Web Development</div>
       <div class="capability-pill"><span>DESIGN</span> UI / Graphic</div>
@@ -3648,36 +3672,44 @@
     <span class="section-label">Skills</span>
     <h2 class="reveal">기술 스택</h2>
     <div class="skills-grid reveal-stagger">
-      <div class="skill-card"><span class="skill-icon">🌐</span>
+      <div class="skill-card"><span class="skill-icon"><img src="images/skills/html5.png" alt="HTML5 로고"><img src="images/skills/css3.png" alt="CSS3 로고"></span>
         <h3>HTML / CSS</h3>
         <p>반응형 레이아웃과 화면 스타일 구현</p>
       </div>
-      <div class="skill-card"><span class="skill-icon">☕</span>
-        <h3>Java</h3>
-        <p>객체지향 문법을 활용한 기능 구현</p>
+      <div class="skill-card"><span class="skill-icon"><img src="images/skills/javascript.png" alt="JavaScript 로고"></span>
+        <h3>JavaScript</h3>
+        <p>검색, 필터, 탭, 상세보기 등 브라우저 인터랙션 구현</p>
       </div>
-      <div class="skill-card"><span class="skill-icon">🐘</span>
-        <h3>PHP</h3>
-        <p>웹 서버 로직과 데이터 처리 구현</p>
+      <div class="skill-card"><span class="skill-icon"><img src="images/skills/typescript.png" alt="TypeScript 로고"><img src="images/skills/nextjs.png" alt="Next.js 로고"></span>
+        <h3>TypeScript / Next.js</h3>
+        <p>타입 기반 화면 구성과 서버 API 라우트 연동</p>
       </div>
-      <div class="skill-card"><span class="skill-icon">🗄️</span>
-        <h3>SQL</h3>
-        <p>테이블 설계, 조회, 데이터 관리</p>
+      <div class="skill-card"><span class="skill-icon"><img src="images/skills/python.png" alt="Python 로고"></span>
+        <h3>Python</h3>
+        <p>관리자 페이지, CRUD, SQLite 기반 데이터 처리</p>
       </div>
-      <div class="skill-card"><span class="skill-icon">🎨</span>
+      <div class="skill-card"><span class="skill-icon"><img src="images/skills/sql.png" alt="SQL 로고"></span>
+        <h3>SQL / Database</h3>
+        <p>테이블 설계, 조회, 필터링, 운영 데이터 관리</p>
+      </div>
+      <div class="skill-card"><span class="skill-icon"><img src="images/skills/api.png" alt="API 로고"></span>
+        <h3>API Integration</h3>
+        <p>Riot, OpenAI, 지도 API, Supabase 데이터 연동</p>
+      </div>
+      <div class="skill-card"><span class="skill-icon"><img src="images/skills/ux.png" alt="UX 로고"></span>
         <h3>UI / UX</h3>
         <p>화면 흐름과 사용성 중심의 UI 구성</p>
       </div>
-      <div class="skill-card"><span class="skill-icon">🖌️</span>
-        <h3>Photoshop · Illustrator</h3>
-        <p>이미지 편집과 그래픽 콘텐츠 제작</p>
+      <div class="skill-card"><span class="skill-icon"><img src="images/skills/photoshop.png" alt="Photoshop 로고"><img src="images/skills/illustrator.png" alt="Illustrator 로고"></span>
+        <h3>Design Tools</h3>
+        <p>Photoshop, Illustrator 기반 그래픽 콘텐츠 제작</p>
       </div>
-      <div class="skill-card"><span class="skill-icon">🎬</span>
-        <h3>Premiere Pro / After Effects</h3>
+      <div class="skill-card"><span class="skill-icon"><img src="images/skills/premierepro.png" alt="Premiere Pro 로고"><img src="images/skills/aftereffects.png" alt="After Effects 로고"></span>
+        <h3>Video Tools</h3>
         <p>영상 컷 편집, 자막, 모션 그래픽, 화면 전환 효과 작업</p>
       </div>
-      <div class="skill-card"><span class="skill-icon">3D</span>
-        <h3>Blender / 3D 작업</h3>
+      <div class="skill-card"><span class="skill-icon"><img src="images/skills/blender.png" alt="Blender 로고"></span>
+        <h3>Blender</h3>
         <p>모델링, 조명, 재질 설정, 렌더링 작업</p>
       </div>
     </div>
@@ -3942,8 +3974,12 @@
   </section>
 
   <section class="section" id="design">
-    <span class="section-label">Design</span>
-    <h2 class="reveal">디자인 작업</h2>
+    <span class="section-label">Creative</span>
+    <h2 class="reveal">Creative Works</h2>
+    <div class="creative-intro reveal">
+      <h3>그래픽 디자인</h3>
+      <p>웹 개발 외에도 화면과 콘텐츠를 더 명확하게 전달하기 위한 그래픽, 3D, 영상 작업을 함께 정리했습니다.</p>
+    </div>
     <div class="gallery-grid reveal-stagger">
       <div class="gallery-item design-product" data-src="images/milk-banner.jpg" data-note="바나나우유와 메론우유를 한눈에 보여주는 홍보 포스터로, 제품 이미지와 색감을 중심으로 구성했습니다.">
         <div class="gallery-image">
@@ -4462,7 +4498,7 @@
     document.addEventListener('mouseover', e => { if (e.target.closest('a,button,.project-card,.gallery-item,.video-card,.skill-card,.experience-card,.contact-link,.stat-box')) document.body.classList.add('cursor-hover') });
     document.addEventListener('mouseout', e => { if (e.target.closest('a,button,.project-card,.gallery-item,.video-card,.skill-card,.experience-card,.contact-link,.stat-box')) document.body.classList.remove('cursor-hover') });
 
-    const TEXTS = ['Web Developer', 'UI / Graphic Designer', 'Video Editor', 'IoT Project Maker'];
+    const TEXTS = ['Web Developer', 'API Integration', 'Data Dashboard', 'Creative Production'];
     let tIdx = 0, cIdx = 0, isDel = false; const typingEl = document.getElementById('typing-text');
     (function type() { const cur = TEXTS[tIdx]; typingEl.textContent = isDel ? cur.slice(0, cIdx--) : cur.slice(0, cIdx++); let spd = isDel ? 55 : 105; if (!isDel && cIdx > cur.length) { spd = 1800; isDel = true } else if (isDel && cIdx < 0) { isDel = false; cIdx = 0; tIdx = (tIdx + 1) % TEXTS.length; spd = 280 } setTimeout(type, spd) })();
 
@@ -4517,7 +4553,7 @@
     let countersRun = false; const revealObs = new IntersectionObserver(entries => { for (const entry of entries) { if (!entry.isIntersecting) continue; const el = entry.target; el.classList.add('visible'); if (!countersRun && el.closest('#about')) { countersRun = true; document.querySelectorAll('.stat-box .num[data-target]').forEach(n => { const target = +n.dataset.target, suffix = n.dataset.suffix || '', sym = n.dataset.symbol; if (sym) { setTimeout(() => n.textContent = sym, 600); return } const dur = 1100, t0 = performance.now(); (function tick(now) { const p = Math.min((now - t0) / dur, 1); n.textContent = Math.floor(p * target) + (p < 1 ? '' : suffix || '+'); if (p < 1) requestAnimationFrame(tick); else n.textContent = target + suffix + (suffix ? '' : '+') })(t0) }) } revealObs.unobserve(el) } }, { threshold: 0.12 });
     document.querySelectorAll('.reveal,.reveal-stagger').forEach(el => revealObs.observe(el));
 
-    const navLinks = document.querySelectorAll('nav a[data-section]'); const navObs = new IntersectionObserver(entries => { for (const entry of entries) { if (!entry.isIntersecting) continue; navLinks.forEach(a => a.classList.remove('active')); document.querySelector(`nav a[data-section="${entry.target.id}"]`)?.classList.add('active') } }, { rootMargin: '-40% 0px -55% 0px' });
+    const navLinks = document.querySelectorAll('nav a[data-section]'); const navObs = new IntersectionObserver(entries => { for (const entry of entries) { if (!entry.isIntersecting) continue; const activeSection = ['three-d', 'video'].includes(entry.target.id) ? 'design' : entry.target.id; navLinks.forEach(a => a.classList.remove('active')); document.querySelector(`nav a[data-section="${activeSection}"]`)?.classList.add('active') } }, { rootMargin: '-40% 0px -55% 0px' });
     document.querySelectorAll('section[id]').forEach(s => navObs.observe(s));
 
     document.querySelectorAll('.filter-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); if (btn.dataset.jump) { document.getElementById(btn.dataset.jump)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return } const f = btn.dataset.filter; const moreProjects = document.querySelector('.more-projects'); if (moreProjects) moreProjects.open = f !== 'all' ? true : moreProjects.open; document.querySelectorAll('.project-card').forEach(card => { card.classList.toggle('hidden', f !== 'all' && !card.dataset.tags.includes(f)) }) }) });

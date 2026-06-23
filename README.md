@@ -10,10 +10,9 @@
 
 - About: 자기소개, 작업 방향, 경험 요약
 - Experience: LMS 개발 및 유지보수, 서버 관리, 데이터 관리 경험
-- Skills: 웹 구현 기술과 디자인, 영상, 3D 작업 역량
+- Skills: 웹 구현, 프론트엔드, 데이터/API, 디자인·영상·3D 역량
 - Projects: 웹 서비스, AI 도구, 지도 서비스, 전적검색, 데이터 대시보드, IoT 프로젝트
-- Design: 배너, 쿠폰, 포스터, 상품 홍보 그래픽
-- 3D / Video: Blender 렌더링, 2D+3D 모션, 영상 편집 작업
+- Creative: 그래픽 디자인, Blender 3D 렌더링, 영상 편집 작업
 - Contact: GitHub, 이메일, 이력서 연결
 
 ## 주요 프로젝트
@@ -113,22 +112,23 @@ Arduino, NFC, Bluetooth를 사용한 무선 주차 시스템 프로젝트입니�
 
 ## 기술 스택
 
-- HTML / CSS / JavaScript
-- TypeScript / React / Next.js
-- Python / Flask / SQLite / SQL
-- Node.js / REST API / Supabase / Vercel
-- Riot API / TFT API / Data Dragon
-- Naver Maps API / Naver Local Search API / Naver Directions API / TAGO API
-- Arduino / Raspberry Pi
+- HTML / CSS: 반응형 레이아웃과 화면 스타일 구현
+- JavaScript: 검색, 필터, 탭, 상세보기 등 브라우저 인터랙션 구현
+- TypeScript / React / Next.js: 타입 기반 화면 구성과 서버 API 라우트 연동
+- Python: 관리자 페이지, CRUD, SQLite 기반 데이터 처리
+- SQL / Database: 테이블 설계, 조회, 필터링, 운영 데이터 관리
+- API Integration: Riot, OpenAI, 지도 API, Supabase 데이터 연동
+- UI / UX: 화면 흐름과 사용성 중심의 UI 구성
+- Design Tools: Photoshop, Illustrator 기반 그래픽 콘텐츠 제작
+- Video Tools: 영상 컷 편집, 자막, 모션 그래픽, 화면 전환 효과 작업
+- Blender: 모델링, 조명, 재질 설정, 렌더링 작업
+- IoT: Arduino, Raspberry Pi 기반 하드웨어 프로젝트 경험
 
-## 디자인 · 영상 · 3D 도구
+## Creative 작업
 
-- Photoshop
-- Illustrator
-- Premiere Pro
-- After Effects
-- Blender
-- Figma
+- 그래픽 디자인: 배너, 쿠폰, 포스터, 상품 홍보 이미지
+- 3D: Blender 렌더링, 재질/조명 설정, 2D+3D 모션 구성
+- 영상: Premiere Pro, After Effects 기반 편집, 자막, 화면 전환, 모션 그래픽
 
 ## 로컬 실행
 
