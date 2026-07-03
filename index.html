@@ -379,7 +379,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      padding: 140px 80px 80px;
+      padding: 112px 80px 68px;
       position: relative;
       overflow: hidden;
       z-index: 2
@@ -425,7 +425,7 @@
 
     .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(50px, 8.5vw, 100px);
+      font-size: clamp(46px, 7vw, 78px);
       font-weight: 800;
       line-height: 1.04;
       letter-spacing: -2.5px;
@@ -499,6 +499,44 @@
       font-size: 12px
     }
 
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      width: min(760px, 100%);
+      margin-top: 22px;
+      animation: fadeUp 0.8s 0.29s ease both
+    }
+
+    .hero-proof-item {
+      min-height: 92px;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .58);
+      box-shadow: 0 14px 34px rgba(37, 99, 235, .09)
+    }
+
+    body:not(.light) .hero-proof-item {
+      background: rgba(15, 23, 42, .62)
+    }
+
+    .hero-proof-item strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 900
+    }
+
+    .hero-proof-item span {
+      display: block;
+      color: var(--text-sub);
+      font-size: 12px;
+      line-height: 1.55;
+      word-break: keep-all
+    }
+
     #typing-cursor {
       display: inline-block;
       width: 2px;
@@ -525,7 +563,7 @@
     .hero-btns {
       display: flex;
       gap: 16px;
-      margin-top: 44px;
+      margin-top: 34px;
       animation: fadeUp 0.8s 0.3s ease both
     }
 
@@ -581,18 +619,6 @@
       background: rgba(37, 99, 235, 0.15);
       box-shadow: var(--glow);
       border-color: var(--accent)
-    }
-
-    .btn-preview {
-      background: transparent;
-      color: var(--text-sub);
-      border: 1px solid var(--border)
-    }
-
-    .btn-preview:hover {
-      color: var(--text);
-      border-color: var(--accent2);
-      background: rgba(14, 165, 233, .08)
     }
 
     .hero-scroll-hint {
@@ -890,25 +916,23 @@
     .certificate-link {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 5px;
       width: fit-content;
-      margin-top: 14px;
-      padding: 11px 16px;
-      border: 1px solid var(--accent3);
-      border-radius: 999px;
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent3), #1d4ed8);
+      margin-top: 10px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      color: var(--accent);
+      background: transparent;
       text-decoration: none;
       font-size: 13px;
       font-weight: 800;
-      transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease
+      transition: color .2s ease
     }
 
     .certificate-link:hover {
-      transform: translateY(-2px);
-      border-color: #1d4ed8;
-      background: linear-gradient(135deg, #1d4ed8, var(--accent3));
-      box-shadow: 0 14px 28px rgba(37, 99, 235, .22)
+      color: var(--accent3);
+      text-decoration: underline
     }
 
     .work-summary {
@@ -1350,13 +1374,14 @@
     }
 
     .project-section-badge {
-      padding: 8px 12px;
+      padding: 7px 10px;
       border: 1px solid var(--border);
-      border-radius: 999px;
+      border-radius: 8px;
       color: var(--muted);
-      background: var(--card);
-      font-size: 12px;
+      background: rgba(255, 255, 255, .48);
+      font-size: 11px;
       font-weight: 800;
+      letter-spacing: .02em;
       white-space: nowrap;
     }
 
@@ -1372,25 +1397,24 @@
 
     .more-projects {
       margin-top: 34px;
-      border: 1px solid rgba(37, 99, 235, .34);
-      border-radius: var(--radius);
+      border: 1px solid rgba(37, 99, 235, .24);
+      border-radius: 14px;
       background:
-        radial-gradient(circle at 94% 10%, rgba(37, 99, 235, .18), transparent 30%),
-        linear-gradient(135deg, rgba(37, 99, 235, .08), rgba(14, 165, 233, .06)),
-        var(--card);
+        linear-gradient(135deg, rgba(37, 99, 235, .08), rgba(14, 165, 233, .035)),
+        rgba(255, 255, 255, .62);
       overflow: hidden;
-      box-shadow: 0 20px 46px rgba(37, 99, 235, .13);
+      box-shadow: 0 14px 34px rgba(37, 99, 235, .08);
     }
 
     .more-projects summary {
-      padding: 26px 28px;
+      padding: 20px 22px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
       color: var(--text);
       cursor: pointer;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 900;
       list-style: none;
       border-bottom: 1px solid transparent;
@@ -1398,7 +1422,7 @@
     }
 
     .more-projects summary:hover {
-      background: rgba(37, 99, 235, .07)
+      background: rgba(37, 99, 235, .055)
     }
 
     .more-projects[open] summary {
@@ -1411,28 +1435,28 @@
 
     .more-projects summary::after {
       content: '펼쳐보기 ↓';
-      min-width: 118px;
-      min-height: 42px;
-      padding: 0 18px;
+      min-width: 92px;
+      min-height: 34px;
+      padding: 0 12px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       flex: 0 0 auto;
-      border: 1px solid var(--accent3);
-      border-radius: 999px;
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent3), #1d4ed8);
-      font-size: 13px;
+      border: 1px solid rgba(37, 99, 235, .2);
+      border-radius: 8px;
+      color: #1d4ed8;
+      background: rgba(37, 99, 235, .1);
+      font-size: 12px;
       font-weight: 900;
       line-height: 1;
-      box-shadow: 0 12px 26px rgba(37, 99, 235, .22)
+      box-shadow: none
     }
 
     .more-projects[open] summary::after {
       content: '접기 ↑';
-      color: #fff;
-      border-color: var(--accent3);
-      background: #1d4ed8
+      color: #1e3a8a;
+      border-color: rgba(37, 99, 235, .34);
+      background: rgba(37, 99, 235, .14)
     }
 
     .more-projects summary span {
@@ -1926,6 +1950,44 @@
       letter-spacing: -.1px;
       line-height: 1.25;
       white-space: nowrap
+    }
+
+    .project-proof-list {
+      display: grid;
+      gap: 9px;
+      margin: 18px 0 18px;
+      padding: 13px 14px;
+      list-style: none;
+      border: 1px solid rgba(37, 99, 235, .12);
+      border-radius: 14px;
+      background: rgba(37, 99, 235, .045)
+    }
+
+    .project-proof-list li {
+      position: relative;
+      padding-left: 17px;
+      color: var(--text-sub);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.65;
+      word-break: keep-all
+    }
+
+    .project-proof-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .7em;
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--accent3);
+      box-shadow: 0 0 0 4px rgba(14, 165, 233, .12)
+    }
+
+    .light .project-proof-list {
+      border-color: rgba(37, 99, 235, .14);
+      background: rgba(239, 246, 255, .72)
     }
 
     .light .project-highlights span {
@@ -3182,7 +3244,7 @@
       min-height: 92vh;
       max-width: 1120px;
       margin: 0 auto;
-      padding: 160px 40px 80px
+      padding: 118px 40px 64px
     }
 
     .hero-tag {
@@ -3194,7 +3256,7 @@
     }
 
     .hero h1 {
-      font-size: clamp(48px, 8vw, 92px);
+      font-size: clamp(46px, 7vw, 78px);
       letter-spacing: -.03em;
       line-height: 1.08;
       max-width: 920px
@@ -3243,15 +3305,17 @@
     }
 
     .btn-preview {
-      background: rgba(37, 99, 235, .06);
-      border: 1px solid var(--border);
-      color: var(--text-sub)
+      background: rgba(37, 99, 235, .1);
+      border: 1px solid rgba(37, 99, 235, .24);
+      color: #1d4ed8;
+      box-shadow: 0 8px 22px rgba(37, 99, 235, .1)
     }
 
     .btn-preview:hover {
-      color: var(--text);
-      border-color: var(--accent2);
-      background: rgba(14, 165, 233, .1)
+      color: #1e3a8a;
+      border-color: rgba(37, 99, 235, .42);
+      background: rgba(37, 99, 235, .16);
+      box-shadow: 0 12px 28px rgba(37, 99, 235, .16)
     }
 
     .section {
@@ -3392,7 +3456,7 @@
       }
 
       .hero {
-        padding: 135px 24px 60px
+        padding: 112px 24px 44px
       }
 
       .hero-scroll-hint {
@@ -3504,8 +3568,70 @@
         line-height: 1.12
       }
 
+      .hero-proof {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        width: 100%;
+        margin-top: 20px
+      }
+
+      .hero-proof-item {
+        min-height: auto;
+        padding: 16px;
+        border-radius: 14px
+      }
+
+      .hero-proof-item strong {
+        margin-bottom: 8px;
+        font-size: 13px
+      }
+
+      .hero-proof-item span {
+        font-size: 12px;
+        line-height: 1.6
+      }
+
       .hero-btns {
-        flex-direction: column
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: 10px;
+        margin-top: 30px
+      }
+
+      .hero-btns .btn {
+        justify-content: center;
+        padding: 14px 12px;
+        border-radius: 16px
+      }
+
+      .hero-btns .btn:first-child {
+        grid-column: 1 / -1
+      }
+
+      .capability-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: 10px;
+        margin-top: 18px
+      }
+
+      .capability-pill {
+        justify-content: center;
+        min-height: 40px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        font-size: 12px
+      }
+
+      .capability-pill:nth-child(3) {
+        grid-column: 1 / -1;
+        justify-self: stretch
+      }
+
+      .hero-scroll-hint {
+        display: none
       }
 
       .skills-grid {
@@ -3518,10 +3644,21 @@
         align-items: start
       }
 
+      .about-role {
+        max-width: 100%;
+        flex-wrap: wrap;
+        gap: 4px;
+        line-height: 1.4
+      }
+
+      .about-card .about-intro {
+        font-size: 14px;
+        line-height: 1.65
+      }
+
       .certificate-link {
-        width: 100%;
-        justify-content: center;
-        border-radius: 14px
+        width: fit-content;
+        justify-content: flex-start
       }
 
       .more-projects summary {
@@ -3532,11 +3669,11 @@
       }
 
       .more-projects summary::after {
-        width: 100%;
+        width: auto;
         min-width: 0;
-        min-height: 42px;
+        min-height: 34px;
         padding: 0 12px;
-        font-size: 13px
+        font-size: 12px
       }
 
       .gallery-grid {
@@ -3567,7 +3704,8 @@
       }
 
       .project-highlights span,
-      .tag {
+      .tag,
+      .project-proof-list li {
         font-size: 10px
       }
 
@@ -3662,14 +3800,20 @@
     <h1>웹을 만들고<br><span class="name-highlight">경험을</span> 설계합니다</h1>
     <p class="hero-sub"><span id="typing-text"></span><span id="typing-cursor"></span></p>
     <p class="hero-lead">API 연동, 데이터 처리, 반응형 UI를 중심으로 실제 동작하는 웹 서비스를 구현합니다. 디자인과 영상 경험을 함께 활용해 결과물을 더 명확하게 전달합니다.</p>
-    <div class="capability-strip">
-      <div class="capability-pill"><span>BUILD</span> Web Development</div>
-      <div class="capability-pill"><span>DESIGN</span> UI / Graphic</div>
-      <div class="capability-pill"><span>MOTION</span> Video Editing</div>
-    </div>
     <div class="hero-btns">
       <a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-primary" aria-label="새 창에서 이력서 PDF 보기">📄 이력서 보기</a>
       <a href="https://github.com/ajttk369" target="_blank" class="btn btn-outline">🐙 GitHub</a>
+      <a href="#projects" class="btn btn-preview">대표 프로젝트 보기</a>
+    </div>
+    <div class="capability-strip">
+      <div class="capability-pill"><span>BUILD</span> Frontend Web</div>
+      <div class="capability-pill"><span>DATA</span> API · Dashboard</div>
+      <div class="capability-pill"><span>OPS</span> LMS Maintenance</div>
+    </div>
+    <div class="hero-proof" aria-label="핵심 역량 요약">
+      <div class="hero-proof-item"><strong>Web Development</strong><span>API 연동과 데이터 화면을 구현합니다</span></div>
+      <div class="hero-proof-item"><strong>UI / UX</strong><span>사용자가 이해하기 쉬운 화면 흐름을 설계합니다</span></div>
+      <div class="hero-proof-item"><strong>Creative Production</strong><span>디자인, 영상, 3D로 결과물의 완성도를 높입니다</span></div>
     </div>
     <div class="hero-scroll-hint"><span class="scroll-line"></span><span>Scroll</span></div>
   </section>
@@ -3685,14 +3829,14 @@
             <div class="about-head-text">
               <h3>유종안</h3>
               <div class="about-role">Web · Design · Video · 3D</div>
-              <p class="about-intro">웹 개발을 중심으로 UI/UX, 그래픽, 영상, 3D 작업까지 함께 다룹니다.</p>
+              <p class="about-intro">API 연동, 데이터 처리, 반응형 UI를 중심으로 웹 서비스를 구현합니다.</p>
             </div>
           </div>
-          <p>기능 구현과 화면 완성도를 함께 보며, 사용자가 이해하기 쉬운 결과물을 만드는 데 집중합니다.</p>
+          <p>기능 구현과 화면 완성도를 함께 보며, 사용자가 필요한 정보를 빠르게 이해하고 사용할 수 있는 결과물을 만드는 데 집중합니다.</p>
           <div class="profile-info">
             <div class="profile-row"><strong>Name</strong><span>유종안</span></div>
-            <div class="profile-row"><strong>Field</strong><span>Web Development · UI/UX · Graphic · Video · 3D</span></div>
-            <div class="profile-row"><strong>Stack</strong><span>HTML/CSS, JavaScript, TypeScript, Next.js, Python, SQL</span></div>
+            <div class="profile-row"><strong>Field</strong><span>Web · Design · Video · 3D</span></div>
+            <div class="profile-row"><strong>Stack</strong><span>HTML/CSS · JS · TS · Next.js · Python · SQL</span></div>
             <div class="profile-row"><strong>Email</strong><a href="mailto:ajttk369@naver.com">ajttk369@naver.com</a></div>
             <div class="profile-row"><strong>GitHub</strong><a href="https://github.com/ajttk369" target="_blank" rel="noopener">github.com/ajttk369</a></div>
           </div>
@@ -3703,16 +3847,16 @@
             <span><strong>3D</strong>Blender 작업</span>
           </div>
           <div class="about-stats">
-            <div class="stat-box"><span class="num" data-target="4">0</span>
+            <div class="stat-box"><span class="num" data-target="4">4+</span>
               <div class="label">대표 웹 프로젝트</div>
             </div>
-            <div class="stat-box"><span class="num" data-target="6">0</span>
+            <div class="stat-box"><span class="num" data-target="6">6+</span>
               <div class="label">배포 서비스</div>
             </div>
-            <div class="stat-box"><span class="num" data-target="1" data-suffix="년">0</span>
+            <div class="stat-box"><span class="num" data-target="1" data-suffix="년">1년</span>
               <div class="label">실무 경험</div>
             </div>
-            <div class="stat-box"><span class="num" data-target="0" data-symbol="진행">0</span>
+            <div class="stat-box"><span class="num" data-target="0" data-symbol="진행">진행</span>
               <div class="label">역량 확장</div>
             </div>
           </div>
@@ -3884,9 +4028,9 @@
     <div class="project-section-head reveal">
       <div>
         <h3>Featured Projects</h3>
-        <p>웹 개발 직무에서 바로 설명하기 좋은 API 연동, AI 분석, 데이터 대시보드, 지도 서비스 중심의 대표 프로젝트입니다.</p>
+        <p>API 연동, 데이터 분석, 대시보드, 지도 서비스처럼 실제 사용 흐름을 구현한 대표 프로젝트입니다.</p>
       </div>
-      <span class="project-section-badge">핵심 4개 먼저 보기</span>
+      <span class="project-section-badge">Live Projects</span>
     </div>
     <div class="projects-grid featured-grid reveal-stagger">
       <div class="project-card" onclick="openModal('riftRecord')" onkeydown="handleCardKey(event,'riftRecord')" tabindex="0" role="button" aria-label="Rift Record 전적 분석 서비스 자세히 보기" data-tags="Web,Riot API,TFT API,JavaScript,Supabase,Vercel">
@@ -3901,6 +4045,10 @@
           <div class="project-highlights"><span>개인 제작</span><span>LoL/TFT API</span><span>반응형 UI</span><span>배포 완료</span></div>
           <h3>Rift Record 전적 분석 서비스</h3>
           <p>LoL과 TFT 전적을 분리 조회하고 최근 경기 요약, 상세 분석, 자체 챔피언 티어를 제공하는 Riot API 기반 서비스입니다.</p>
+          <ul class="project-proof-list">
+            <li>Riot/TFT API 라우팅과 Data Dragon 한글 데이터 매핑</li>
+            <li>검색, 게임 탭, 매치 상세, Demo Mode까지 직접 구현</li>
+          </ul>
           <div class="tag-list"><span class="tag">Riot API</span><span class="tag">TFT API</span><span class="tag">JavaScript</span><span class="tag">Supabase</span><span class="tag">Responsive</span></div>
           <div class="project-actions">
             <span class="project-action">자세히 보기</span>
@@ -3920,6 +4068,10 @@
           <div class="project-highlights"><span>개인 제작</span><span>AI 분석</span><span>DB 저장</span><span>공유 리포트</span></div>
           <h3>CareerLens AI 포트폴리오 분석</h3>
           <p>포트폴리오와 자기소개서 내용을 입력하면 점수, 개선 우선순위, 면접 질문과 답변을 정리해주는 리뷰 도구입니다.</p>
+          <ul class="project-proof-list">
+            <li>OpenAI 분석 API와 Supabase 저장/공유 리포트 구현</li>
+            <li>분석 결과를 점수, 강점, 보완점, 면접 질문 카드로 구조화</li>
+          </ul>
           <div class="tag-list"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">OpenAI</span><span class="tag">Supabase</span><span class="tag">Vercel</span></div>
           <div class="project-actions">
             <span class="project-action">자세히 보기</span>
@@ -3939,6 +4091,10 @@
           <div class="project-highlights"><span>개인 제작</span><span>CSV 분석</span><span>데이터 시각화</span><span>필터링</span></div>
           <h3>InsightBoard 매출 분석 대시보드</h3>
           <p>CSV 매출 데이터를 업로드해 KPI, 차트, 인사이트, 필터링 테이블로 확인하는 데이터 대시보드입니다.</p>
+          <ul class="project-proof-list">
+            <li>CSV 파싱, KPI 계산, 필터링, 테이블 정렬 흐름 구현</li>
+            <li>Recharts 기반 매출 추이, 카테고리, 지역, 상품 차트 구성</li>
+          </ul>
           <div class="tag-list"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">Recharts</span><span class="tag">CSV</span></div>
           <div class="project-actions">
             <span class="project-action">자세히 보기</span>
@@ -3959,6 +4115,10 @@
           <div class="project-highlights"><span>개인 제작</span><span>지도 API</span><span>길찾기</span><span>즐겨찾기</span></div>
           <h3>지도로 지도 서비스</h3>
           <p>장소·주소 검색, 지도 마커, 즐겨찾기, 길찾기, 대중교통 정보를 한 화면에서 확인할 수 있게 만든 지도 기반 웹 서비스입니다.</p>
+          <ul class="project-proof-list">
+            <li>Naver 지도/검색/길찾기와 TAGO 교통 API를 서버 라우트로 분리</li>
+            <li>검색 패널, 지도 마커, 상세 패널, 모바일 하단 시트 구성</li>
+          </ul>
           <div class="tag-list"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Naver API</span><span class="tag">TAGO</span><span class="tag">Map</span></div>
           <div class="project-actions">
             <span class="project-action">자세히 보기</span>
@@ -3982,6 +4142,10 @@
           <div class="project-highlights"><span>개인 제작</span><span>CRUD</span><span>SQLite</span><span>관리자 UI</span></div>
           <h3>학생 관리 시스템</h3>
           <p>학생 데이터 등록, 조회, 수정, 삭제와 검색/필터를 구현한 SQLite 기반 관리자 페이지입니다.</p>
+          <ul class="project-proof-list">
+            <li>Flask 라우트와 SQLite 테이블을 직접 설계해 CRUD 흐름 구현</li>
+            <li>검색, 상태 필터, 통계 카드, 수정 dialog까지 관리자 UI 구성</li>
+          </ul>
           <div class="tag-list"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">CRUD</span><span class="tag">Admin UI</span></div>
           <div class="project-actions">
             <span class="project-action">자세히 보기</span>
@@ -4001,6 +4165,10 @@
           <div class="project-highlights"><span>개인 제작</span><span>UX 개선</span><span>모달 UI</span><span>배포 완료</span></div>
           <h3>웹사이트 리뉴얼</h3>
           <p>온라인몰 화면을 참고해 홈 정보 구조와 픽업 주문 흐름을 더 빠르게 확인할 수 있도록 재구성한 UX/UI 리뉴얼 프로토타입입니다.</p>
+          <ul class="project-proof-list">
+            <li>상품 탐색과 픽업 가능 매장 확인 흐름을 메인 화면에 재배치</li>
+            <li>배너 전환, 로그인 모달, 상품/매장 카드 인터랙션 구현</li>
+          </ul>
           <div class="tag-list"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">UX/UI</span><span class="tag">Vercel</span></div>
           <div class="project-actions">
             <span class="project-action">자세히 보기</span>
@@ -4020,6 +4188,10 @@
           <div class="project-highlights"><span>개인 제작</span><span>상품 UI</span><span>반응형</span><span>배포 완료</span></div>
           <h3>쇼핑몰 페이지</h3>
           <p>상품 목록, 브랜드, 이벤트, 검색, 마이페이지 등 쇼핑몰 흐름을 구성한 웹 프로젝트입니다.</p>
+          <ul class="project-proof-list">
+            <li>상품, 브랜드, 이벤트, 검색, 마이페이지로 이어지는 페이지 흐름 구성</li>
+            <li>상품 카드와 배너 중심의 반응형 쇼핑몰 UI 구현</li>
+          </ul>
           <div class="tag-list"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Responsive</span><span class="tag">Vercel</span></div>
           <div class="project-actions">
             <span class="project-action">자세히 보기</span>
@@ -4039,6 +4211,10 @@
           <div class="project-highlights"><span>팀 프로젝트</span><span>전시 홍보</span><span>영상 연계</span><span>반응형</span></div>
           <h3>AI 미래전시 홍보 사이트</h3>
           <p>AI 전시 홍보를 위한 웹 페이지로, 전시 정보와 콘텐츠를 한눈에 볼 수 있게 구성한 프로젝트입니다.</p>
+          <ul class="project-proof-list">
+            <li>전시 소개, 기술 콘텐츠, 관람 정보를 섹션 단위로 정리</li>
+            <li>웹 화면과 직접 제작한 홍보 영상을 연결해 콘텐츠 전달력 강화</li>
+          </ul>
           <div class="tag-list"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Responsive</span><span class="tag">Vercel</span></div>
           <div class="project-actions">
             <span class="project-action">자세히 보기</span>
@@ -4065,6 +4241,10 @@
           <div class="project-highlights"><span>팀 프로젝트</span><span>객체 인식</span><span>OpenCV</span><span>하드웨어</span></div>
           <h3>자동 인식 컵 수거기</h3>
           <p>카메라로 컵을 인식하고 재질에 따라 분류하는 라즈베리파이 기반 프로젝트입니다.</p>
+          <ul class="project-proof-list">
+            <li>카메라 입력을 받아 컵 감지와 분류 흐름을 구성</li>
+            <li>인식 결과가 실제 분류 동작으로 이어지는 프로토타입 시연</li>
+          </ul>
           <div class="tag-list"><span class="tag">Raspberry Pi</span><span class="tag">Python</span><span
               class="tag">Machine Learning</span><span class="tag">OpenCV</span></div>
           <div class="project-actions">
@@ -4096,6 +4276,10 @@
           <div class="project-highlights"><span>팀 프로젝트</span><span>Arduino</span><span>NFC</span><span>센서 제어</span></div>
           <h3>스마트 무선 주차 시스템</h3>
           <p>아두이노와 NFC를 활용해 주차 상태 확인 흐름을 구현한 프로젝트입니다.</p>
+          <ul class="project-proof-list">
+            <li>초음파 센서 입력으로 주차 공간 상태를 감지하는 제어 흐름 구성</li>
+            <li>NFC와 무선 연결을 활용한 사용자 확인 시나리오 시연</li>
+          </ul>
           <div class="tag-list"><span class="tag">Arduino</span><span class="tag">IoT</span><span
               class="tag">C++</span><span class="tag">Bluetooth</span><span class="tag">NFC</span></div>
           <div class="project-actions">
@@ -4110,10 +4294,10 @@
 
   <section class="section" id="design">
     <span class="section-label">Creative</span>
-    <h2 class="reveal">Creative Works</h2>
+    <h2 class="reveal">Additional Creative Works</h2>
     <div class="creative-intro reveal">
-      <h3>그래픽 디자인</h3>
-      <p>웹 개발 외에도 화면과 콘텐츠를 더 명확하게 전달하기 위한 그래픽, 3D, 영상 작업을 함께 정리했습니다.</p>
+      <h3>디자인 · 3D · 영상 보조 역량</h3>
+      <p>개발 프로젝트의 화면 완성도와 콘텐츠 전달력을 높이기 위해 함께 익힌 그래픽, 3D, 영상 작업입니다.</p>
     </div>
     <div class="gallery-grid reveal-stagger">
       <div class="gallery-item design-product" data-src="images/milk-banner.jpg" data-note="바나나우유와 메론우유를 한눈에 보여주는 홍보 포스터로, 제품 이미지와 색감을 중심으로 구성했습니다.">
@@ -4633,7 +4817,7 @@
     document.addEventListener('mouseover', e => { if (e.target.closest('a,button,.project-card,.gallery-item,.video-card,.skill-card,.experience-card,.contact-link,.stat-box')) document.body.classList.add('cursor-hover') });
     document.addEventListener('mouseout', e => { if (e.target.closest('a,button,.project-card,.gallery-item,.video-card,.skill-card,.experience-card,.contact-link,.stat-box')) document.body.classList.remove('cursor-hover') });
 
-    const TEXTS = ['Web Developer', 'API Integration', 'Data Dashboard', 'Creative Production'];
+    const TEXTS = ['Web Development', 'API Integration', 'Data Dashboard', 'Creative Production'];
     let tIdx = 0, cIdx = 0, isDel = false; const typingEl = document.getElementById('typing-text');
     (function type() { const cur = TEXTS[tIdx]; typingEl.textContent = isDel ? cur.slice(0, cIdx--) : cur.slice(0, cIdx++); let spd = isDel ? 55 : 105; if (!isDel && cIdx > cur.length) { spd = 1800; isDel = true } else if (isDel && cIdx < 0) { isDel = false; cIdx = 0; tIdx = (tIdx + 1) % TEXTS.length; spd = 280 } setTimeout(type, spd) })();
 
@@ -4685,7 +4869,7 @@
     let scrollTicking = false;
     window.addEventListener('scroll', () => { if (scrollTicking) return; scrollTicking = true; requestAnimationFrame(() => { const y = window.scrollY; mainHeader.classList.toggle('scrolled', y > 60); progressBar.style.width = (y / scrollMax() * 100) + '%'; backTop.classList.toggle('show', y > 400); scrollTicking = false }) }, { passive: true });
 
-    let countersRun = false; const revealObs = new IntersectionObserver(entries => { for (const entry of entries) { if (!entry.isIntersecting) continue; const el = entry.target; el.classList.add('visible'); if (!countersRun && el.closest('#about')) { countersRun = true; document.querySelectorAll('.stat-box .num[data-target]').forEach(n => { const target = +n.dataset.target, suffix = n.dataset.suffix || '', sym = n.dataset.symbol; if (sym) { setTimeout(() => n.textContent = sym, 600); return } const dur = 1100, t0 = performance.now(); (function tick(now) { const p = Math.min((now - t0) / dur, 1); n.textContent = Math.floor(p * target) + (p < 1 ? '' : suffix || '+'); if (p < 1) requestAnimationFrame(tick); else n.textContent = target + suffix + (suffix ? '' : '+') })(t0) }) } revealObs.unobserve(el) } }, { threshold: 0.12 });
+    let countersRun = false; const revealObs = new IntersectionObserver(entries => { for (const entry of entries) { if (!entry.isIntersecting) continue; const el = entry.target; el.classList.add('visible'); if (!countersRun && el.closest('#about')) { countersRun = true; document.querySelectorAll('.stat-box .num[data-target]').forEach(n => { const target = +n.dataset.target, suffix = n.dataset.suffix || '', sym = n.dataset.symbol; if (sym) { n.textContent = sym; return } const dur = 900, t0 = performance.now(); (function tick(now) { const p = Math.min((now - t0) / dur, 1); const value = Math.max(1, Math.floor(p * target)); n.textContent = value + (p < 1 ? '' : suffix || '+'); if (p < 1) requestAnimationFrame(tick); else n.textContent = target + suffix + (suffix ? '' : '+') })(t0) }) } revealObs.unobserve(el) } }, { threshold: 0.12 });
     document.querySelectorAll('.reveal,.reveal-stagger').forEach(el => revealObs.observe(el));
 
     const navLinks = document.querySelectorAll('nav a[data-section]'); const navObs = new IntersectionObserver(entries => { for (const entry of entries) { if (!entry.isIntersecting) continue; const activeSection = ['three-d', 'video'].includes(entry.target.id) ? 'design' : entry.target.id; navLinks.forEach(a => a.classList.remove('active')); document.querySelector(`nav a[data-section="${activeSection}"]`)?.classList.add('active') } }, { rootMargin: '-40% 0px -55% 0px' });
