@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="웹 개발, UI/UX, 디자인, 영상, 3D 작업을 함께 정리한 유종안 포트폴리오입니다.">
+  <meta name="description" content="웹 개발 프로젝트와 디자인, 영상, 3D 작업을 함께 정리한 유종안 포트폴리오입니다.">
   <meta property="og:title" content="유종안 포트폴리오">
-  <meta property="og:description" content="웹 개발 · UI/UX · 디자인 · 영상 · 3D 포트폴리오">
+  <meta property="og:description" content="웹 개발 프로젝트 · 디자인 · 영상 · 3D 포트폴리오">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://portfolio-mauve-theta-54.vercel.app/">
   <meta property="og:image" content="https://portfolio-mauve-theta-54.vercel.app/images/og-portfolio.png">
@@ -15,7 +15,7 @@
   <meta property="og:image:alt" content="유종안 포트폴리오 미리보기 이미지">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="유종안 포트폴리오">
-  <meta name="twitter:description" content="웹 개발 · UI/UX · 디자인 · 영상 · 3D 포트폴리오">
+  <meta name="twitter:description" content="웹 개발 프로젝트 · 디자인 · 영상 · 3D 포트폴리오">
   <meta name="twitter:image" content="https://portfolio-mauve-theta-54.vercel.app/images/og-portfolio.png">
   <title>유종안 포트폴리오</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -157,60 +157,6 @@
       z-index: 0;
       opacity: 0.6;
       will-change: contents
-    }
-
-    .blob {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(60px);
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.13;
-      will-change: transform;
-      animation: blobFloat 10s ease-in-out infinite
-    }
-
-    .blob-1 {
-      width: 420px;
-      height: 420px;
-      background: var(--accent);
-      top: -80px;
-      left: -120px;
-      animation-delay: 0s
-    }
-
-    .blob-2 {
-      width: 340px;
-      height: 340px;
-      background: var(--accent2);
-      bottom: 0;
-      right: -80px;
-      animation-delay: -4s
-    }
-
-    .blob-3 {
-      width: 260px;
-      height: 260px;
-      background: var(--accent3);
-      top: 50%;
-      left: 50%;
-      animation-delay: -8s
-    }
-
-    @keyframes blobFloat {
-
-      0%,
-      100% {
-        transform: translate3d(0, 0, 0) scale(1)
-      }
-
-      33% {
-        transform: translate3d(24px, -16px, 0) scale(1.04)
-      }
-
-      66% {
-        transform: translate3d(-16px, 24px, 0) scale(0.97)
-      }
     }
 
     /* ── HEADER ── */
@@ -441,6 +387,11 @@
       background-clip: text;
       animation: gradientShift 3s ease infinite;
       filter: brightness(1.2)
+    }
+
+    .hero-line {
+      display: inline-block;
+      white-space: nowrap
     }
 
     @keyframes gradientShift {
@@ -1330,7 +1281,7 @@
 
     .project-section-head p {
       max-width: 620px;
-      color: var(--muted);
+      color: var(--text-sub);
       font-size: 14px;
       line-height: 1.7;
     }
@@ -1339,7 +1290,7 @@
       padding: 7px 10px;
       border: 1px solid var(--border);
       border-radius: 8px;
-      color: var(--muted);
+      color: var(--text-sub);
       background: rgba(255, 255, 255, .48);
       font-size: 11px;
       font-weight: 800;
@@ -1567,7 +1518,7 @@
       box-shadow: 0 0 0 4px rgba(59, 130, 246, .14);
     }
 
-    .dark .project-status {
+    body:not(.light) .project-status {
       border-color: rgba(96, 165, 250, .28);
       background: rgba(15, 23, 42, .82);
       color: #bfdbfe;
@@ -3080,8 +3031,7 @@
     }
 
     #cursor-dot,
-    #cursor-ring,
-    .blob {
+    #cursor-ring {
       display: none
     }
 
@@ -3491,6 +3441,10 @@
     }
 
     @media(max-width:600px) {
+      body {
+        line-height: 1.65
+      }
+
       nav {
         position: absolute;
         top: calc(100% + 10px);
@@ -3526,7 +3480,8 @@
       }
 
       .hero h1 {
-        letter-spacing: -.04em;
+        font-size: clamp(40px, 10.8vw, 46px);
+        letter-spacing: 0;
         line-height: 1.12
       }
 
@@ -3577,17 +3532,38 @@
         grid-template-columns: 1fr
       }
 
+      .about-card {
+        padding: 24px 22px
+      }
+
       .about-head {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        align-items: start
+        grid-template-columns: 104px 1fr;
+        gap: 16px;
+        align-items: center
+      }
+
+      .about-avatar {
+        width: 104px;
+        height: 134px;
+        border-radius: 22px
+      }
+
+      .about-avatar img {
+        border-radius: 17px
+      }
+
+      .about-card h3 {
+        font-size: 22px
       }
 
       .about-role {
         max-width: 100%;
         flex-wrap: wrap;
         gap: 4px;
-        line-height: 1.4
+        line-height: 1.4;
+        font-size: 11px;
+        padding: 6px 10px;
+        white-space: nowrap
       }
 
       .about-card .about-intro {
@@ -3598,6 +3574,24 @@
       .certificate-link {
         width: fit-content;
         justify-content: flex-start
+      }
+
+      .filter-bar {
+        flex-wrap: nowrap;
+        gap: 8px;
+        margin: 0 -24px 28px;
+        padding: 0 24px 8px;
+        overflow-x: auto;
+        scrollbar-width: none
+      }
+
+      .filter-bar::-webkit-scrollbar {
+        display: none
+      }
+
+      .filter-btn {
+        flex: 0 0 auto;
+        padding: 8px 15px
       }
 
       .more-projects summary {
@@ -3645,7 +3639,7 @@
       .project-highlights span,
       .tag,
       .project-proof-list li {
-        font-size: 10px
+        font-size: 11px
       }
 
       .project-actions {
@@ -3678,8 +3672,11 @@
       }
 
       #backTop {
-        bottom: 20px;
-        right: 20px
+        bottom: 18px;
+        right: 18px;
+        width: 46px;
+        height: 46px;
+        font-size: 18px
       }
 
       .modal {
@@ -3691,6 +3688,34 @@
 
       .logo img {
         height: 48px
+      }
+    }
+
+    @media(max-width:360px) {
+      header {
+        width: calc(100% - 20px);
+        padding: 10px
+      }
+
+      .hero {
+        padding-left: 18px;
+        padding-right: 18px
+      }
+
+      .hero h1 {
+        font-size: 36px
+      }
+
+      .section {
+        padding-left: 18px;
+        padding-right: 18px
+      }
+
+      .filter-bar {
+        margin-left: -18px;
+        margin-right: -18px;
+        padding-left: 18px;
+        padding-right: 18px
       }
     }
 
@@ -3708,9 +3733,6 @@
 
 <body>
   <div id="scroll-progress"></div>
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
   <canvas id="star-canvas"></canvas>
   <div id="cursor-dot"></div>
   <div id="cursor-ring"></div>
@@ -3736,9 +3758,9 @@
 
   <section class="hero" id="home">
     <div class="hero-tag"><span class="dot"></span>개발을 중심으로 디자인과 영상까지 다룹니다</div>
-    <h1>웹을 만들고<br><span class="name-highlight">경험을</span> 설계합니다</h1>
+    <h1><span class="hero-line">웹을 만들고</span><br><span class="hero-line"><span class="name-highlight">경험을</span> 설계합니다</span></h1>
     <p class="hero-sub"><span id="typing-text"></span><span id="typing-cursor"></span></p>
-    <p class="hero-lead">API 연동, 데이터 처리, 반응형 UI를 중심으로 실제 동작하는 웹 서비스를 구현합니다. 디자인과 영상 경험을 함께 활용해 결과물을 더 명확하게 전달합니다.</p>
+    <p class="hero-lead">API 연동, 데이터 처리, 반응형 UI를 중심으로 실제 동작하는 웹&nbsp;서비스를 구현합니다. 디자인과 영상 경험을 함께 활용해 결과물을 더 명확하게 전달합니다.</p>
     <div class="hero-btns">
       <a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-primary" aria-label="새 창에서 이력서 PDF 보기">📄 이력서 보기</a>
       <a href="https://github.com/ajttk369" target="_blank" class="btn btn-outline">🐙 GitHub</a>
@@ -3763,9 +3785,9 @@
             <div class="about-head-text">
               <h3>유종안</h3>
               <div class="about-role">Web · Design · Video · 3D</div>
-              <p class="about-intro">API 연동, 데이터 처리, 반응형 UI를 중심으로 웹 서비스를 구현합니다.</p>
             </div>
           </div>
+          <p class="about-intro">API 연동, 데이터 처리, 반응형 UI를 중심으로 웹&nbsp;서비스를 구현합니다.</p>
           <p>기능 구현과 화면 완성도를 함께 보며, 사용자가 필요한 정보를 빠르게 이해하고 사용할 수 있는 결과물을 만드는 데 집중합니다.</p>
           <div class="profile-info">
             <div class="profile-row"><strong>Name</strong><span>유종안</span></div>
@@ -3961,10 +3983,10 @@
     </div>
     <div class="project-section-head reveal">
       <div>
-        <h3>Featured Projects</h3>
-        <p>API 연동, 데이터 분석, 대시보드, 지도 서비스처럼 실제 사용 흐름을 구현한 대표 프로젝트입니다.</p>
+        <h3>대표 프로젝트</h3>
+        <p>API 연동, 데이터 분석, 대시보드, 지도 서비스처럼 실제 사용 흐름을 구현한 프로젝트입니다.</p>
       </div>
-      <span class="project-section-badge">Live Projects</span>
+      <span class="project-section-badge">구현 중심</span>
     </div>
     <div class="projects-grid featured-grid reveal-stagger">
       <div class="project-card" onclick="openModal('riftRecord')" onkeydown="handleCardKey(event,'riftRecord')" tabindex="0" role="button" aria-label="Rift Record 전적 분석 서비스 자세히 보기" data-tags="Web,Riot API,TFT API,JavaScript,Supabase,Vercel">
@@ -3978,7 +4000,7 @@
           <div class="project-meta"><span>2026</span><span>Web</span><span>Riot API</span><span>Live</span></div>
           <div class="project-highlights"><span>개인 제작</span><span>LoL/TFT API</span><span>반응형 UI</span><span>배포 완료</span></div>
           <h3>Rift Record 전적 분석 서비스</h3>
-          <p>LoL과 TFT 전적을 분리 조회하고 최근 경기 요약, 상세 분석, 자체 챔피언 티어를 제공하는 Riot API 기반 서비스입니다.</p>
+          <p>LoL과 TFT 전적을 분리 조회하고 최근 경기 요약, 상세 분석, 자체 챔피언&nbsp;티어를 제공하는 Riot API 기반 서비스입니다.</p>
           <ul class="project-proof-list">
             <li>Riot/TFT API 라우팅과 Data Dragon 한글 데이터 매핑</li>
             <li>검색, 게임 탭, 매치 상세, Demo Mode까지 직접 구현</li>
@@ -4001,7 +4023,7 @@
           <div class="project-meta"><span>2026</span><span>Next.js</span><span>OpenAI</span><span>Live</span></div>
           <div class="project-highlights"><span>개인 제작</span><span>AI 분석</span><span>DB 저장</span><span>공유 리포트</span></div>
           <h3>CareerLens AI 포트폴리오 분석</h3>
-          <p>포트폴리오와 자기소개서 내용을 입력하면 점수, 개선 우선순위, 면접 질문과 답변을 정리해주는 리뷰 도구입니다.</p>
+          <p>포트폴리오와 자기소개서 내용을 입력하면 점수, 개선 우선순위, 면접&nbsp;질문과&nbsp;답변을 정리해주는 리뷰 도구입니다.</p>
           <ul class="project-proof-list">
             <li>OpenAI 분석 API와 Supabase 저장/공유 리포트 구현</li>
             <li>분석 결과를 점수, 강점, 보완점, 면접 질문 카드로 구조화</li>
@@ -4048,7 +4070,7 @@
           <div class="project-meta"><span>2026</span><span>Next.js</span><span>Map API</span><span>업데이트중</span></div>
           <div class="project-highlights"><span>개인 제작</span><span>지도 API</span><span>길찾기</span><span>즐겨찾기</span></div>
           <h3>지도로 지도 서비스</h3>
-          <p>장소·주소 검색, 지도 마커, 즐겨찾기, 길찾기, 대중교통 정보를 한 화면에서 확인할 수 있게 만든 지도 기반 웹 서비스입니다.</p>
+          <p>장소·주소 검색, 지도 마커, 즐겨찾기, 길찾기, 대중교통 정보를 한 화면에서 확인할 수 있게 만든 지도 기반 웹&nbsp;서비스입니다.</p>
           <ul class="project-proof-list">
             <li>Naver 지도/검색/길찾기와 TAGO 교통 API를 서버 라우트로 분리</li>
             <li>검색 패널, 지도 마커, 상세 패널, 모바일 하단 시트 구성</li>
@@ -4062,7 +4084,7 @@
       </div>
     </div>
     <details class="more-projects reveal">
-      <summary>더 많은 프로젝트 보기<span>CRUD, UI 리뉴얼, 홍보 사이트, IoT 프로젝트까지 함께 확인할 수 있습니다.</span></summary>
+      <summary>기타 프로젝트 보기<span>CRUD, UI 리뉴얼, 홍보 사이트, IoT 작업을 함께 정리했습니다.</span></summary>
       <div class="projects-grid project-archive">
       <div class="project-card" onclick="openModal('studentLms')" onkeydown="handleCardKey(event,'studentLms')" tabindex="0" role="button" aria-label="학생 관리 시스템 자세히 보기" data-tags="Web,Python,Flask,SQLite,Database,Backend">
         <div class="project-media project-thumb">
@@ -4227,11 +4249,11 @@
   </section>
 
   <section class="section" id="design">
-    <span class="section-label">Creative</span>
-    <h2 class="reveal">Creative Works</h2>
+    <span class="section-label">Design</span>
+    <h2 class="reveal">디자인/영상 작업</h2>
     <div class="creative-intro reveal">
-      <h3>디자인 · 3D · 영상 작업</h3>
-      <p>웹 작업과 함께 화면의 완성도와 콘텐츠 전달력을 높이기 위해 제작한 그래픽, 3D, 영상 작업입니다.</p>
+      <h3>화면 완성도를 높인 시각 작업</h3>
+      <p>웹 화면과 콘텐츠를 더 명확하게 전달하기 위해 제작한 그래픽, 3D, 영상 결과물입니다.</p>
     </div>
     <div class="gallery-grid reveal-stagger">
       <div class="gallery-item design-product" data-src="images/milk-banner.jpg" data-note="바나나우유와 메론우유를 한눈에 보여주는 홍보 포스터로, 제품 이미지와 색감을 중심으로 구성했습니다.">
@@ -4458,7 +4480,7 @@
     <div class="contact-wrapper reveal">
       <span class="section-label">Contact</span>
       <h2>감사합니다</h2>
-      <p>포트폴리오를 봐주셔서 감사합니다.<br>작은 기능도 끝까지 다듬고, 실제로 사용할 수 있는 결과물을 만드는 개발자가 되겠습니다.</p>
+      <p>포트폴리오를 봐주셔서 감사합니다.<br>작은 기능도 끝까지 다듬고, 실제로 사용할 수 있는 결과물을 만들겠습니다.</p>
       <div class="contact-links">
         <a href="resume.pdf" target="_blank" rel="noopener" class="contact-link">📄 이력서 보기</a>
         <a href="https://github.com/ajttk369" target="_blank" class="contact-link">🐙 GitHub</a>
