@@ -4520,16 +4520,16 @@
         year: '2026',
         roleLabel: '직접 구현한 내용',
         preview: 'images/careerlens-ai-detail.png',
-        description: '지원 직무, 포트폴리오 설명, 대표 프로젝트, 기술 스택을 입력하면 포트폴리오 내용을 점수와 카드형 피드백으로 정리해주는 웹 도구입니다. 분석 결과 저장, 공유 리포트, 삭제까지 이어지는 흐름을 구현했습니다.',
+        description: '지원 직무와 채용 공고에 맞춰 포트폴리오 설명을 다듬는 웹 도구입니다. 입력 근거와 개선 작업, 문구 비교, 면접 준비를 제공하며, 브라우저별 비공개 기록과 선택 공유까지 연결했습니다.',
         tags: ['Next.js', 'TypeScript', 'OpenAI', 'Supabase', 'Tailwind CSS', 'Vercel'],
-        facts: [['제작 범위', '기획 · UI · 서버 API · 배포'], ['핵심 기능', '포트폴리오 분석 · 결과 저장'], ['배포', 'Vercel Live']],
+        facts: [['제작 범위', '기획 · UI · 서버 API · 배포'], ['핵심 기능', '근거 기반 설명 리뷰 · 비공개 저장'], ['배포', 'Vercel Live']],
         problem: '포트폴리오 설명은 내용이 길어질수록 강점과 보완점을 빠르게 파악하기 어렵습니다. 입력 내용을 채용자가 확인하는 순서에 맞춰 정리하고, 개선 문구와 면접 준비 자료까지 한 화면에서 확인할 수 있게 만드는 것이 목표였습니다.',
-        role: '전체 화면 구조와 입력 폼, 결과 대시보드, OpenAI 분석 API route, Supabase 저장/조회/삭제 API를 직접 구현했습니다. API Key는 서버 환경변수로만 사용하고, 결과 데이터는 JSON 구조로 받아 카드 UI에 렌더링했습니다.',
-        features: ['지원 직무, 포트폴리오 URL, 자기소개서/설명, 대표 프로젝트, 기술 스택 입력 폼', '입력 품질 점검 카드와 샘플 데이터/데모 결과 확인', 'OpenAI Structured Outputs 기반 분석 결과 생성', '종합 점수, 세부 점수, 강점, 보완점, 개선 우선순위 카드 렌더링', '프로젝트 설명 개선 문구와 예상 면접 질문/답변 복사', 'Supabase 분석 결과 저장, 히스토리 조회, 공유 리포트, 삭제 기능', 'Mock Demo Mode와 Supabase 미설정 fallback 처리', '데스크톱과 모바일을 고려한 반응형 레이아웃'],
-        result: '입력부터 분석, 결과 저장, 공유까지 이어지는 포트폴리오 리뷰 도구로 완성했습니다. OpenAI와 Supabase를 서버 API에서 연결해 키 노출을 막고, README와 프리뷰 이미지까지 정리해 GitHub와 Vercel에 배포했습니다.',
+        role: '입력 폼, 결과 탭, OpenAI 분석 API와 Supabase 개인 기록 API를 직접 구현했습니다. Structured Outputs와 런타임 검사로 결과 형식을 관리하고, 소유권 검사, 분석 결과 서명, DB 기반 호출 제한을 추가했습니다.',
+        features: ['지원 직무, 경력 수준, 프로젝트 역할·설명, 기술 도구, 선택 채용 공고 입력', 'OpenAI Structured Outputs 기반 설명 리뷰와 입력 근거 인용', '근거가 부족한 항목의 평가 보류와 추가 질문', '요약·문구 개선·면접 준비 탭과 개선 작업 체크리스트', '원문·수정 문구 비교와 면접 질문 의도·답변 초안', '브라우저별 비공개 기록, 진행 저장, 개인 리포트, 삭제', '생성·해제 가능한 7일 유효 읽기 전용 공유 링크', '서버 결과 서명, DB 기반 요청 제한, 비용 없는 가상 데모와 전체 인쇄 리포트'],
+        result: 'AI 점수 제시에서 입력 근거와 실제 수정 작업을 연결하는 흐름으로 확장했습니다. 웹페이지를 직접 읽는 것으로 오해되지 않도록 텍스트 분석 범위를 명시하고, 개인 기록 보호와 선택 공유, 비용 제한을 코드에 반영했습니다.',
         github: 'https://github.com/ajttk369/CareerLens-AI',
         demo: 'https://careerlens-ai-kohl.vercel.app/',
-        techUse: [['Next.js', 'App Router 기반 화면과 서버 API route 구성'], ['TypeScript', '입력값과 분석 결과 데이터 타입 관리'], ['OpenAI', 'Structured Outputs로 점수와 피드백 JSON 생성'], ['Supabase', '분석 결과 저장, 히스토리, 공유 리포트, 삭제 기능 구현'], ['Tailwind CSS', '카드형 결과 화면과 반응형 UI 정리'], ['Vercel', '환경변수 기반 배포와 GitHub 연동']]
+        techUse: [['Next.js', 'App Router 기반 화면과 개인·공유 리포트, 서버 API 구성'], ['TypeScript', '입력·결과 타입과 런타임 검사 관리'], ['OpenAI', 'Structured Outputs 기반 설명 리뷰와 입력 근거 생성'], ['Supabase', '소유자별 기록, 진행 상태, 공유 토큰, 원자적 요청 제한 관리'], ['Tailwind CSS', '결과 탭, 작업 표, 원문 비교와 반응형 UI'], ['Vercel', '서버 전용 환경변수와 GitHub 연동 배포']]
       },
       insightBoard: {
         title: 'InsightBoard',
