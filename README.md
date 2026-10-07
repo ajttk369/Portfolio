@@ -11,9 +11,9 @@
 - About: 자기소개, 작업 방향, 경험 요약
 - Experience: LMS 개발 및 유지보수, 서버 관리, 데이터 관리 경험
 - Skills: 웹 구현, 프론트엔드, 데이터/API, 디자인·영상·3D 역량
-- Projects: 웹 서비스, AI 도구, 지도 서비스, 전적검색, 데이터 대시보드, IoT 프로젝트
+- Projects: 전적 분석, AI 리뷰, 매출 대시보드, 지도 서비스, 학생 운영 관리, 픽업 UX, 커머스, IoT 프로젝트
 - Creative: 그래픽 디자인, Blender 3D 렌더링, 영상 편집 작업
-- Contact: GitHub, 이메일, 이력서 연결
+- Contact: GitHub, 이력서 연결
 
 ## 주요 프로젝트
 
@@ -37,55 +37,61 @@ TFT 탭에서는 랭크, 최근 10게임 요약, 유닛/특성/증강체 중심�
 - GitHub: https://github.com/ajttk369/CareerLens-AI
 - 사용 기술: Next.js, TypeScript, OpenAI, Supabase, Tailwind CSS, Vercel
 
-### InsightBoard
+### InsightBoard 매출 분석 대시보드
 
 CSV 매출 데이터를 업로드해 KPI, 차트, 인사이트, 원본 테이블을 확인하는 데이터 대시보드입니다.
-브라우저에서 CSV를 파싱하고 필터 조건에 맞춰 지표와 차트가 함께 갱신되도록 구성했습니다.
+Papa Parse로 CSV를 브라우저에서 파싱하고 날짜·숫자·컬럼 형식을 검증합니다. 필터 조건에 맞춰 지표·차트·테이블을 함께 갱신하고, 업로드 오류가 발생하면 기존 데이터를 유지합니다.
 
 - 배포: https://insightboard-xi.vercel.app/
 - GitHub: https://github.com/ajttk369/InsightBoard
-- 사용 기술: Next.js, TypeScript, Tailwind CSS, Recharts
-- 구현 범위: CSV 업로드, KPI 계산, 차트 시각화, 필터링, 테이블, CSV 다운로드, 리포트 저장
+- 사용 기술: Next.js, TypeScript, Tailwind CSS, Recharts, Papa Parse
+- 구현 범위: CSV 입력 검증, KPI 계산, 차트·테이블 필터 연동, 모바일 정렬, 전체 필터 결과 CSV·인쇄 리포트
+- 지표 기준: 주문 수는 CSV 행 수, 재구매 비율은 재구매로 표시된 행의 비중입니다. 고객 단위 재구매율은 계산하지 않습니다.
 
 ### 지도로 지도 서비스
 
-장소명과 주소를 검색하고 지도 위에서 결과, 상세 정보, 즐겨찾기, 길찾기를 확인할 수 있는 지도 기반 웹 서비스입니다.
-Naver 지도/검색/좌표/길찾기 API와 TAGO 교통 API를 연결해 지도 중심의 검색 흐름을 구현했습니다.
-거리뷰와 일부 고급 기능은 현재 업데이트 중 상태로 표시했습니다.
+장소·주소 검색, 상세 정보, 즐겨찾기, 자동차 길찾기와 거리뷰를 지도 중심으로 연결한 웹 서비스입니다.
+Naver 지도·검색·좌표·자동차 경로 API와 TAGO 주변 교통 정보를 서버 라우트로 연결했습니다.
+대중교통은 주변 버스·지하철 이용 후보이며 환승 경로를 계산하지 않습니다. 도보·자전거는 실제 통행 경로가 아닌 직선 거리 참고 정보를 제공합니다.
 
 - 배포: https://jidoro-map.vercel.app/
 - GitHub: https://github.com/ajttk369/jidoro-map
 - 사용 기술: Next.js 14, React 18, TypeScript, Tailwind CSS, LocalStorage, Vercel
 - 사용 API: Naver Maps JavaScript API, Naver Local Search API, Naver Cloud Geocoding API, Naver Cloud Reverse Geocoding API, Naver Cloud Directions API, TAGO 교통 정보 API
-- 구현 범위: 장소/주소 검색, 지도 마커, 결과 목록, 상세 패널, 즐겨찾기, 자동차/대중교통/도보/자전거 길찾기, 모바일 하단 시트 UI
+- 구현 범위: 장소·주소 검색, 마커·상세·즐겨찾기, 자동차 실제 경로, 주변 교통 정보, 거리뷰, 모바일 하단 시트
 
 ### 학생 관리 시스템
 
-Python Flask와 SQLite를 사용해 학생 데이터를 등록, 조회, 수정, 삭제할 수 있는 관리자 페이지입니다.
-검색, 필터, 통계 카드, 수정 dialog 등 실제 관리 화면에서 필요한 흐름을 중심으로 구현했습니다.
+학생 정보와 수강 진도를 관리하고 과정별 운영 현황과 우선 관리 대상을 확인하는 Flask·SQLite 기반 시스템입니다.
+검색·필터·정렬·페이지 이동, 과정별 운영 요약, 학생 포털과 CSV 내보내기를 구현했습니다. 운영 메모와 학생 공개 안내를 구분하고 서버 입력 검증·CSRF 보호·요청 제한을 적용했습니다.
 
 - 배포: https://student-lms-manager.onrender.com/
 - GitHub: https://github.com/ajttk369/student-lms-manager
-- 사용 기술: Python, Flask, SQLite, HTML/CSS/JavaScript
+- 사용 기술: Python, Flask, SQLite, Flask-WTF, Flask-Limiter, HTML/CSS/JavaScript
+- 구현 범위: 학생 CRUD·진도 관리, 과정별 운영 요약, 우선 관리 대상 바로 수정, 학생 공개 안내, 전체 필터 결과 CSV 내보내기
+- 관리자·학생 화면의 표시 정보를 구분한 구조이며 실제 회원 인증이나 접근 권한 분리를 제공하지 않습니다.
 
-### 웹사이트 리뉴얼
+### 올리브영 픽업 UX 리뉴얼
 
-온라인몰 화면을 참고해 홈 화면 정보 구조와 픽업 주문 흐름을 개선한 UX/UI 리뉴얼 프로토타입입니다.
-상품 탐색, 매장 재고 확인, 픽업 가능 매장 추천, 로그인 모달 흐름을 한 페이지 안에서 자연스럽게 이어지도록 구성했습니다.
+상품 검색부터 선택 목록 관리, 수량 기반 매장 재고 확인까지 연결한 온라인몰 UX 리뉴얼 프로젝트입니다.
+선택 상품·수량 기준으로 전체 가능 매장과 부족한 상품을 계산하고, 매장 선택과 상단 요약을 연결했습니다. 찜·쿠폰·선택 정보 저장과 모바일·모달 사용성을 함께 구현했습니다.
 
 - 배포: https://website-renewal-navy.vercel.app/
-- GitHub: https://github.com/ajttk369/InsightBoard
-- 사용 기술: HTML5, CSS3, JavaScript, Vercel
-- 구현 범위: 홈 화면 정보 구조 재배치, 상품/매장 카드, 픽업 가능 정보, 로그인 모달, 반응형 UI
+- GitHub: https://github.com/ajttk369/Website-Renewal
+- 사용 기술: HTML5, CSS3, JavaScript, localStorage, Vercel
+- 구현 범위: 검색·필터·상품 상세, 선택 목록·수량 변경, 매장 재고 충족 계산, 매장 선택, 쿠폰 조건, 상태 저장·다른 탭 반영
+- 매장 정보는 예시 데이터이며 실제 예약과 회원 인증은 제공하지 않습니다. 사용성 개선은 설계 목표이며 사용자 실험으로 검증한 성과는 아닙니다.
 
-### Shopping Mall Page
+### BLACK FIT 패션 커머스
 
-쇼핑몰 서비스를 가정해 제작한 웹 페이지입니다.
-상품 목록, 브랜드, 이벤트, 검색, 마이페이지 흐름을 중심으로 화면을 구성했습니다.
+상품 탐색, 옵션 선택, 장바구니와 주문 내역, 관리자 상품 관리를 연결한 패션 커머스 프로젝트입니다.
+프론트엔드는 공통 상품 카탈로그와 localStorage로 동작합니다. 별도 FastAPI 백엔드에는 서버 가격·재고 검증, 요청 제한, JSON 파일 잠금과 원자적 저장을 구현했습니다.
 
 - 배포: https://shopping-mall-rosy.vercel.app/
 - GitHub: https://github.com/ajttk369/Shopping-mall
-- 사용 기술: HTML, CSS, JavaScript, Python
+- 사용 기술: HTML, CSS, JavaScript, localStorage, Python, FastAPI, JSON
+- 구현 범위: 상품 검색·필터, 사이즈·재고·수량 선택, 장바구니 옵션 변경, 쿠폰·배송비 계산, 모의 주문·주문 내역·관리자 상품 CRUD
+- 배포 프론트엔드는 별도 FastAPI API와 자동 연동되지 않습니다. 실제 결제·배송은 제공하지 않습니다.
 
 ### AI Future Expo
 
