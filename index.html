@@ -1180,62 +1180,15 @@
     }
 
     /* ── PROJECTS ── */
+    #project-heading {
+      scroll-margin-top: 100px;
+    }
+
     .filter-bar {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 40px
-    }
-
-    .contents-board {
-      margin-bottom: 30px
-    }
-
-    .contents-title {
-      font-family: var(--font-display);
-      font-size: clamp(24px, 3.2vw, 38px);
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: 0;
-      margin-bottom: 18px
-    }
-
-    .contents-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px
-    }
-
-    .contents-item {
-      display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 14px;
-      min-height: 150px;
-      padding: 20px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--card)
-    }
-
-    .contents-item .idx {
-      font-family: var(--font-display);
-      font-size: 24px;
-      font-weight: 800;
-      color: var(--accent3);
-      line-height: 1
-    }
-
-    .contents-item h3 {
-      font-family: var(--font-display);
-      font-size: 20px;
-      line-height: 1.2;
-      margin-bottom: 8px
-    }
-
-    .contents-item p {
-      color: var(--text-sub);
-      font-size: 13px;
-      line-height: 1.65
+      margin-bottom: 24px
     }
 
     .filter-btn {
@@ -1264,38 +1217,15 @@
       box-shadow: 0 4px 18px rgba(37, 99, 235, 0.4)
     }
 
-    .project-section-head {
-      margin: 34px 0 18px;
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .project-section-head h3 {
-      margin-bottom: 6px;
-      color: var(--text);
-      font-size: 22px;
-      font-weight: 900;
-    }
-
-    .project-section-head p {
-      max-width: 620px;
+    .project-filter-status {
+      margin: 0 0 16px;
       color: var(--text-sub);
       font-size: 14px;
-      line-height: 1.7;
+      font-weight: 700;
     }
 
-    .project-section-badge {
-      padding: 7px 10px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--text-sub);
-      background: rgba(255, 255, 255, .48);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .02em;
-      white-space: nowrap;
+    .project-filter-status:empty {
+      margin: 0;
     }
 
     .projects-grid {
@@ -1923,7 +1853,8 @@
       border-color: var(--border-hover)
     }
 
-    .project-card.hidden {
+    .project-card[hidden],
+    .more-projects[hidden] {
       display: none
     }
 
@@ -2827,6 +2758,32 @@
       object-fit: contain
     }
 
+    .modal-preview a {
+      display: block;
+    }
+
+    .modal-preview a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -3px;
+    }
+
+    .modal-preview figcaption {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      color: var(--text-sub);
+      font-size: 14px;
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+
+    .modal-preview figcaption a {
+      width: fit-content;
+      margin-top: 6px;
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
     .light .three-d-preview {
       background: #edf4ff
     }
@@ -3113,8 +3070,6 @@
     .section h2,
     .experience-summary h3,
     .experience-card h3,
-    .contents-title,
-    .contents-item h3,
     .project-card h3,
     .gallery-caption h3,
     .video-caption h3,
@@ -3397,14 +3352,6 @@
         gap: 18px
       }
 
-      .contents-board {
-        margin-bottom: 28px
-      }
-
-      .contents-list {
-        grid-template-columns: 1fr
-      }
-
       .experience-grid {
         grid-template-columns: 1fr
       }
@@ -3415,15 +3362,6 @@
 
       .projects-grid {
         grid-template-columns: 1fr
-      }
-
-      .project-section-head {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .project-section-badge {
-        white-space: normal;
       }
 
       .project-archive {
@@ -3621,11 +3559,6 @@
         grid-template-columns: 1fr
       }
 
-      .contents-item {
-        grid-template-columns: 40px 1fr;
-        min-height: auto
-      }
-
       .video-caption,
       .video-info {
         padding: 24px
@@ -3772,7 +3705,7 @@
     <div class="hero-btns">
       <a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-primary" aria-label="새 창에서 이력서 PDF 보기">📄 이력서 보기</a>
       <a href="https://github.com/ajttk369" target="_blank" class="btn btn-outline">🐙 GitHub</a>
-      <a href="#projects" class="btn btn-preview">대표 프로젝트 보기</a>
+      <a href="#project-heading" class="btn btn-preview">대표 프로젝트 보기</a>
     </div>
     <div class="capability-strip">
       <div class="capability-pill">Web Development</div>
@@ -3811,17 +3744,11 @@
             <span><strong>3D</strong>Blender 작업</span>
           </div>
           <div class="about-stats">
-            <div class="stat-box"><span class="num" data-target="4">4+</span>
-              <div class="label">대표 웹 프로젝트</div>
+            <div class="stat-box"><span class="num">4개</span>
+              <div class="label">대표 프로젝트</div>
             </div>
-            <div class="stat-box"><span class="num" data-target="6">6+</span>
-              <div class="label">배포 서비스</div>
-            </div>
-            <div class="stat-box"><span class="num" data-target="1" data-suffix="년">1년</span>
+            <div class="stat-box"><span class="num">1년</span>
               <div class="label">실무 경험</div>
-            </div>
-            <div class="stat-box"><span class="num" data-target="0" data-symbol="진행">진행</span>
-              <div class="label">역량 확장</div>
             </div>
           </div>
         </div>
@@ -3950,52 +3877,18 @@
 
   <section class="section" id="projects">
     <span class="section-label">Projects</span>
-    <h2 class="reveal">프로젝트</h2>
-    <div class="contents-board reveal">
-      <div class="contents-title">CONTENTS</div>
-      <div class="contents-list">
-        <div class="contents-item">
-          <div class="idx">01</div>
-          <div>
-            <h3>Service UI</h3>
-            <p>검색, 필터, 상세보기, 테마 전환처럼 실제 사용 흐름이 있는 웹 화면을 구현합니다.</p>
-          </div>
-        </div>
-        <div class="contents-item">
-          <div class="idx">02</div>
-          <div>
-            <h3>API & Data</h3>
-            <p>Riot, OpenAI, 지도 API, Supabase, CSV 데이터를 화면에 맞게 연결하고 가공합니다.</p>
-          </div>
-        </div>
-        <div class="contents-item">
-          <div class="idx">03</div>
-          <div>
-            <h3>Readable Result</h3>
-            <p>정보가 많아도 핵심 지표와 대표 기능이 먼저 보이도록 카드와 대시보드로 정리합니다.</p>
-          </div>
-        </div>
-      </div>
+    <h2 id="project-heading">대표 프로젝트</h2>
+    <div class="filter-bar" role="group" aria-label="프로젝트 필터">
+      <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">전체</button>
+      <button type="button" class="filter-btn" data-filter="Web" aria-pressed="false">Web</button>
+      <button type="button" class="filter-btn" data-filter="Next.js" aria-pressed="false">Next.js</button>
+      <button type="button" class="filter-btn" data-filter="API" aria-pressed="false">API</button>
+      <button type="button" class="filter-btn" data-filter="CSV" aria-pressed="false">CSV</button>
+      <button type="button" class="filter-btn" data-filter="Python" aria-pressed="false">Python</button>
+      <button type="button" class="filter-btn" data-filter="AI" aria-pressed="false">AI</button>
+      <button type="button" class="filter-btn" data-filter="Desktop" aria-pressed="false">Desktop</button>
     </div>
-    <div class="filter-bar reveal">
-      <button class="filter-btn active" data-filter="all">전체</button>
-      <button class="filter-btn" data-filter="Web">Web</button>
-      <button class="filter-btn" data-filter="Next.js">Next.js</button>
-      <button class="filter-btn" data-filter="API">API</button>
-      <button class="filter-btn" data-filter="CSV">Data</button>
-      <button class="filter-btn" data-filter="Python">Python</button>
-      <button class="filter-btn" data-filter="AI">AI</button>
-      <button class="filter-btn" data-jump="design">디자인</button>
-      <button class="filter-btn" data-jump="three-d">3D</button>
-      <button class="filter-btn" data-jump="video">영상</button>
-    </div>
-    <div class="project-section-head reveal">
-      <div>
-        <h3>대표 프로젝트</h3>
-        <p>공동 편집, AI 리뷰, 외부 데이터 분석과 데스크톱 앱까지 실제 사용 흐름을 구현한 프로젝트입니다.</p>
-      </div>
-      <span class="project-section-badge">구현 중심</span>
-    </div>
+    <p class="project-filter-status" role="status"></p>
     <div class="projects-grid featured-grid reveal-stagger">
       <div class="project-card" onclick="openModal('betweenTrips')" onkeydown="handleCardKey(event,'betweenTrips')" tabindex="0" role="button" aria-label="여행의 사이 여행 플래너 자세히 보기" data-tags="Web,AI,API,JavaScript,Node.js,Supabase,OpenAI,Vercel">
         <div class="project-media project-thumb">
@@ -4043,7 +3936,7 @@
           </div>
         </div>
       </div>
-      <div class="project-card" onclick="openModal('riftRecord')" onkeydown="handleCardKey(event,'riftRecord')" tabindex="0" role="button" aria-label="Rift Record 전적 분석 서비스 자세히 보기" data-tags="Web,Riot API,TFT API,JavaScript,Supabase,Vercel">
+      <div class="project-card" onclick="openModal('riftRecord')" onkeydown="handleCardKey(event,'riftRecord')" tabindex="0" role="button" aria-label="Rift Record 전적 분석 서비스 자세히 보기" data-tags="Web,API,Riot API,TFT API,JavaScript,Supabase,Vercel">
         <div class="project-media project-thumb">
           <img class="project-thumb-rift" src="images/rift-record-card.png" alt="Rift Record 전적 분석 서비스 메인 화면" loading="lazy">
           <span class="visual-label">LOL · TFT ANALYTICS</span>
@@ -4066,7 +3959,7 @@
           </div>
         </div>
       </div>
-      <div class="project-card" onclick="openModal('meonjakkwi')" onkeydown="handleCardKey(event,'meonjakkwi')" tabindex="0" role="button" aria-label="먼작귀 업무시간 위젯 자세히 보기" data-tags="Web,JavaScript,Electron,Desktop,Vercel">
+      <div class="project-card" onclick="openModal('meonjakkwi')" onkeydown="handleCardKey(event,'meonjakkwi')" tabindex="0" role="button" aria-label="먼작귀 업무시간 위젯 자세히 보기" data-tags="JavaScript,Electron,Desktop,Vercel">
         <div class="project-media project-thumb">
           <img class="project-thumb-widget" src="images/meonjakkwi-card.png" alt="먼작귀 업무시간 위젯 메인 화면" loading="lazy">
           <span class="visual-label">DESKTOP WIDGET</span>
@@ -4091,7 +3984,7 @@
       </div>
     </div>
     <details class="more-projects reveal">
-      <summary>추가 프로젝트 보기<span>데이터 대시보드, 지도, 운영 관리, 커머스와 IoT 작업을 정리했습니다.</span></summary>
+      <summary>추가 프로젝트 8개 보기<span>데이터 대시보드, 지도, 학생 관리, 커머스와 IoT</span></summary>
       <div class="projects-grid project-archive">
       <div class="project-card" onclick="openModal('insightBoard')" onkeydown="handleCardKey(event,'insightBoard')" tabindex="0" role="button" aria-label="InsightBoard CSV 매출 분석 대시보드 자세히 보기" data-tags="Web,CSV,Next.js,TypeScript,Recharts,Papa Parse,Tailwind CSS,Vercel">
         <div class="project-media project-thumb">
@@ -4557,6 +4450,8 @@
         year: '2026',
         roleLabel: '직접 구현한 내용',
         preview: 'images/between-trips-detail.png',
+        previewAlt: '여행의 사이 일정 목록과 지도 화면',
+        previewCaption: '두 사람이 같은 일정을 수정할 때 이전 버전이 최신 내용을 덮어쓰지 않도록 저장 전 문서 버전을 확인합니다.',
         description: '장소를 저장하는 것부터 일정, 숙소, 준비물과 여행 경비까지 두 사람이 함께 관리하는 여행 플래너입니다. 각자 로그인한 뒤 초대 코드로 같은 여행을 편집하고, AI가 제안한 일정 변경안을 확인한 뒤 선택한 항목만 반영할 수 있게 구성했습니다.',
         tags: ['JavaScript', 'Node.js', 'Supabase', 'OpenAI', 'Google Maps', 'Offline', 'Vercel'],
         facts: [['제작 범위', '기획 · UI · 서버 API · 데이터베이스 · 배포'], ['핵심 기능', '2인 공동 편집 · 여행 일정 · AI 변경안'], ['데이터', 'Supabase Auth · PostgreSQL · 버전 충돌 검사']],
@@ -4753,7 +4648,13 @@
       const nextKey = PROJECT_KEYS[(currentIndex + 1) % PROJECT_KEYS.length];
       const bd = document.createElement('div');
       bd.className = 'modal-backdrop';
-      bd.innerHTML = `<div class="modal"><button class="modal-close" onclick="this.closest('.modal-backdrop').remove()">✕</button><p class="modal-meta">${p.year} · Side Project</p><h3>${p.title}</h3><div class="tag-list" style="margin-bottom:22px">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>${p.preview ? `<div class="modal-preview"><img src="${p.preview}" alt="${p.title} 메인 화면 프리뷰"></div>` : ''}<p>${p.description}</p>${p.video ? `<div class="modal-video"><video controls preload="metadata" playsinline><source src="${p.video}" type="video/mp4">브라우저가 video 태그를 지원하지 않습니다.</video></div>` : ''}${p.gallery ? `<div class="modal-gallery">${p.gallery.map(src => `<img src="${src}" alt="${p.title} 예상도 자료">`).join('')}</div>` : ''}<div class="modal-facts">${p.facts.map(([label, value]) => `<div class="modal-fact"><strong>${label}</strong><span>${value}</span></div>`).join('')}</div><div class="modal-detail"><div class="modal-detail-block"><h4>문제</h4><p>${p.problem}</p></div><div class="modal-detail-block"><h4>${p.roleLabel || '내 역할'}</h4><p>${p.role}</p></div><div class="modal-detail-block"><h4>구현 기능</h4><ul>${p.features.map(item => `<li>${item}</li>`).join('')}</ul></div>${p.techUse ? `<div class="modal-detail-block"><h4>사용 기술</h4><ul class="modal-tech">${p.techUse.map(([tech, use]) => `<li><strong>${tech}</strong> · ${use}</li>`).join('')}</ul></div>` : ''}<div class="modal-detail-block"><h4>결과</h4><p>${p.result}</p></div></div><div class="modal-nav"><button type="button" onclick="event.stopPropagation();openModal('${prevKey}')">이전 프로젝트</button><button type="button" onclick="event.stopPropagation();openModal('${nextKey}')">다음 프로젝트</button></div><div class="modal-links">${p.demo ? `<a href="${p.demo}" target="_blank" class="btn btn-primary" style="font-size:14px;padding:12px 24px">사이트 보기 ↗</a>` : ''}<a href="${p.github}" target="_blank" class="btn ${p.demo ? 'btn-outline' : 'btn-primary'}" style="font-size:14px;padding:12px 24px">GitHub 보기</a>${p.release ? `<a href="${p.release}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">Windows 배포 파일</a>` : ''}${p.video ? `<a href="${p.video}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">영상 새 창으로 보기</a>` : ''}${p.docs ? `<a href="${p.docs}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">기획서 보기</a>` : ''}</div></div>`;
+      const preview = p.preview ? `<figure class="modal-preview">
+        <img src="${p.preview}" alt="${p.previewAlt || p.title + ' 화면 미리보기'}">
+        ${p.previewCaption ? `<figcaption>${p.previewCaption}
+          <a href="${p.preview}" target="_blank" rel="noopener">일정·지도 이미지 크게 보기 ↗</a>
+        </figcaption>` : ''}
+      </figure>` : '';
+      bd.innerHTML = `<div class="modal"><button class="modal-close" onclick="this.closest('.modal-backdrop').remove()">✕</button><p class="modal-meta">${p.year} · Side Project</p><h3>${p.title}</h3><div class="tag-list" style="margin-bottom:22px">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>${preview}<p>${p.description}</p>${p.video ? `<div class="modal-video"><video controls preload="metadata" playsinline><source src="${p.video}" type="video/mp4">브라우저가 video 태그를 지원하지 않습니다.</video></div>` : ''}${p.gallery ? `<div class="modal-gallery">${p.gallery.map(src => `<img src="${src}" alt="${p.title} 예상도 자료">`).join('')}</div>` : ''}<div class="modal-facts">${p.facts.map(([label, value]) => `<div class="modal-fact"><strong>${label}</strong><span>${value}</span></div>`).join('')}</div><div class="modal-detail"><div class="modal-detail-block"><h4>문제</h4><p>${p.problem}</p></div><div class="modal-detail-block"><h4>${p.roleLabel || '내 역할'}</h4><p>${p.role}</p></div><div class="modal-detail-block"><h4>구현 기능</h4><ul>${p.features.map(item => `<li>${item}</li>`).join('')}</ul></div>${p.techUse ? `<div class="modal-detail-block"><h4>사용 기술</h4><ul class="modal-tech">${p.techUse.map(([tech, use]) => `<li><strong>${tech}</strong> · ${use}</li>`).join('')}</ul></div>` : ''}<div class="modal-detail-block"><h4>결과</h4><p>${p.result}</p></div></div><div class="modal-nav"><button type="button" onclick="event.stopPropagation();openModal('${prevKey}')">이전 프로젝트</button><button type="button" onclick="event.stopPropagation();openModal('${nextKey}')">다음 프로젝트</button></div><div class="modal-links">${p.demo ? `<a href="${p.demo}" target="_blank" class="btn btn-primary" style="font-size:14px;padding:12px 24px">사이트 보기 ↗</a>` : ''}<a href="${p.github}" target="_blank" class="btn ${p.demo ? 'btn-outline' : 'btn-primary'}" style="font-size:14px;padding:12px 24px">GitHub 보기</a>${p.release ? `<a href="${p.release}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">Windows 배포 파일</a>` : ''}${p.video ? `<a href="${p.video}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">영상 새 창으로 보기</a>` : ''}${p.docs ? `<a href="${p.docs}" target="_blank" class="btn btn-outline" style="font-size:14px;padding:12px 24px">기획서 보기</a>` : ''}</div></div>`;
       bd.addEventListener('click', e => { if (e.target === bd) bd.remove() });
       document.body.appendChild(bd)
     }
@@ -4911,13 +4812,53 @@
     let scrollTicking = false;
     window.addEventListener('scroll', () => { if (scrollTicking) return; scrollTicking = true; requestAnimationFrame(() => { const y = window.scrollY; mainHeader.classList.toggle('scrolled', y > 60); progressBar.style.width = (y / scrollMax() * 100) + '%'; backTop.classList.toggle('show', y > 400); scrollTicking = false }) }, { passive: true });
 
-    let countersRun = false; const revealObs = new IntersectionObserver(entries => { for (const entry of entries) { if (!entry.isIntersecting) continue; const el = entry.target; el.classList.add('visible'); if (!countersRun && el.closest('#about')) { countersRun = true; document.querySelectorAll('.stat-box .num[data-target]').forEach(n => { const target = +n.dataset.target, suffix = n.dataset.suffix || '', sym = n.dataset.symbol; if (sym) { n.textContent = sym; return } const dur = 900, t0 = performance.now(); (function tick(now) { const p = Math.min((now - t0) / dur, 1); const value = Math.max(1, Math.floor(p * target)); n.textContent = value + (p < 1 ? '' : suffix || '+'); if (p < 1) requestAnimationFrame(tick); else n.textContent = target + suffix + (suffix ? '' : '+') })(t0) }) } revealObs.unobserve(el) } }, { threshold: 0.12 });
+    const revealObs = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add('visible');
+        revealObs.unobserve(entry.target);
+      }
+    }, { threshold: 0.12 });
     document.querySelectorAll('.reveal,.reveal-stagger').forEach(el => revealObs.observe(el));
 
     const navLinks = document.querySelectorAll('nav a[data-section]'); const navObs = new IntersectionObserver(entries => { for (const entry of entries) { if (!entry.isIntersecting) continue; const activeSection = ['three-d', 'video'].includes(entry.target.id) ? 'design' : entry.target.id; navLinks.forEach(a => a.classList.remove('active')); document.querySelector(`nav a[data-section="${activeSection}"]`)?.classList.add('active') } }, { rootMargin: '-40% 0px -55% 0px' });
     document.querySelectorAll('section[id]').forEach(s => navObs.observe(s));
 
-    document.querySelectorAll('.filter-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); if (btn.dataset.jump) { document.getElementById(btn.dataset.jump)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return } const f = btn.dataset.filter; const moreProjects = document.querySelector('.more-projects'); if (moreProjects) moreProjects.open = f !== 'all' ? true : moreProjects.open; document.querySelectorAll('.project-card').forEach(card => { card.classList.toggle('hidden', f !== 'all' && !card.dataset.tags.includes(f)) }) }) });
+    const projectFilters = Array.from(document.querySelectorAll('.filter-btn[data-filter]'));
+    const featuredGrid = document.querySelector('.featured-grid');
+    const archiveGrid = document.querySelector('.project-archive');
+    const moreProjects = archiveGrid.closest('details');
+    const featuredCards = Array.from(featuredGrid.children);
+    const archiveCards = Array.from(archiveGrid.children);
+    const projectHeading = document.getElementById('project-heading');
+    const projectStatus = document.querySelector('.project-filter-status');
+
+    function filterProjects(button) {
+      const filter = button.dataset.filter;
+      const showAll = filter === 'all';
+      const matchesFilter = card => card.dataset.tags.split(',').includes(filter);
+      const matchingArchiveCards = showAll ? [] : archiveCards.filter(matchesFilter);
+
+      archiveGrid.append(...archiveCards);
+      featuredGrid.append(...matchingArchiveCards);
+      featuredCards.forEach(card => { card.hidden = !showAll && !matchesFilter(card); });
+      moreProjects.hidden = !showAll;
+
+      const count = featuredCards.filter(card => !card.hidden).length + matchingArchiveCards.length;
+      projectHeading.textContent = showAll ? '대표 프로젝트' : '프로젝트 검색 결과';
+      projectStatus.textContent = showAll ? '' : `${button.textContent} 프로젝트 ${count}개`;
+      projectFilters.forEach(item => {
+        item.classList.toggle('active', item === button);
+        item.setAttribute('aria-pressed', String(item === button));
+      });
+    }
+
+    projectFilters.forEach(button => {
+      button.addEventListener('click', () => filterProjects(button));
+    });
+    document.querySelector('.btn-preview').addEventListener('click', () => {
+      if (!projectFilters[0].classList.contains('active')) filterProjects(projectFilters[0]);
+    });
 
     const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
     function openDesignLightbox(index) {
