@@ -1,147 +1,82 @@
 # 유종안 포트폴리오
 
-웹 구현, 데이터 기반 서비스, 지도 API, AI 도구, IoT/임베디드 프로젝트와 디자인/영상/3D 작업을 한 페이지에서 볼 수 있도록 정리한 개인 포트폴리오입니다.
+웹 서비스, Windows 데스크톱 앱, IoT 프로젝트와 디자인·영상·3D 작업을 정리한 개인 포트폴리오입니다. 각 프로젝트의 상세 화면에서 제작 배경, 담당 역할, 구현 기능과 사용 기술을 확인할 수 있습니다.
 
-정적인 소개 페이지가 아니라 프로젝트 카드, 상세 모달, 이미지 프리뷰, 영상 섹션, 배포 링크까지 포함한 반응형 웹사이트로 구성했습니다.
+[포트폴리오 사이트](https://portfolio-mauve-theta-54.vercel.app/) · [GitHub 프로필](https://github.com/ajttk369) · [이력서](resume.pdf)
 
 ![포트폴리오 메인 화면](images/preview-desktop-home.png)
 
-## 구성
+## 사이트 구성
 
-- About: 자기소개, 작업 방향, 경험 요약
-- Experience: LMS 개발 및 유지보수, 서버 관리, 데이터 관리 경험
-- Skills: 웹 구현, 프론트엔드, 데이터/API, 디자인·영상·3D 역량
-- Projects: 전적 분석, AI 리뷰, 매출 대시보드, 지도 서비스, 학생 운영 관리, 픽업 UX, 커머스, IoT 프로젝트
-- Creative: 그래픽 디자인, Blender 3D 렌더링, 영상 편집 작업
-- Contact: GitHub, 이력서 연결
+- **소개·실무 경험** · LMS 기능 개선과 유지보수, 서버 운영 지원, 학생 데이터 관리 경험
+- **기술 스택** · 웹 화면 구현, 서버 API, 데이터베이스, 외부 API 연동
+- **프로젝트** · 대표 프로젝트 4개와 추가 프로젝트 8개. 상세 모달, 기술 필터, 배포·저장소 링크 제공
+- **크리에이티브** · 그래픽 디자인, Blender 3D 작업, 영상 편집과 모션그래픽
 
-## 주요 프로젝트
+## 대표 프로젝트
 
-### Rift Record
+### 01. 여행의 사이 | 공동 여행 플래너
 
-Riot Games API를 사용해 League of Legends와 Teamfight Tactics 전적을 분리 조회하고 분석하는 서비스입니다.
-검색 직후 프로필, 티어, 최근 15게임 요약, 최근 게임 목록을 먼저 볼 수 있도록 정보 구조를 정리했고, 분석 영역은 접힘 구조로 분리했습니다.
-TFT 탭에서는 랭크, 최근 10게임 요약, 유닛/특성/증강체 중심의 카드형 UI를 제공합니다.
+두 사람이 장소, 일정, 숙소와 경비를 함께 관리하는 여행 플래너입니다. 이메일 로그인과 초대 코드로 같은 여행을 편집하고, 참여 권한과 문서 버전을 확인해 이전 데이터로 덮어쓰는 문제를 방지합니다. Google Places로 장소를 검색하고, AI가 제안한 일정 변경안은 비교한 뒤 필요한 항목만 반영할 수 있습니다. 일정과 주소는 기기에 저장해 오프라인에서 읽을 수 있습니다.
 
-- 배포: https://rift-record.vercel.app/
-- GitHub: https://github.com/ajttk369/rift-record
-- 사용 기술: HTML, CSS, Vanilla JavaScript, Node.js, Riot API, TFT API, Data Dragon, Supabase, Vercel
-- 구현 범위: Riot ID 검색, LoL/TFT 탭 분리, 게임 유형 필터, 상세보기 참여자 재검색, 라이트/다크 테마, TFT 한글 데이터 매핑, Supabase 매치 저장
+**기술** · JavaScript, Node.js, Supabase Auth, PostgreSQL, OpenAI Responses API, Google Maps·Places, IndexedDB, Service Worker, Vercel  
+[사이트 보기](https://between-trips.vercel.app/) · [GitHub](https://github.com/ajttk369/between-trips)
 
-### CareerLens AI 포트폴리오 분석
+### 02. CareerLens AI | 포트폴리오 분석 도구
 
-지원 직무와 선택 채용 공고에 맞춰 포트폴리오 설명의 근거, 개선 작업, 문구 제안과 면접 준비를 정리하는 AI 리뷰 도구입니다. 실제 웹페이지나 디자인 화면을 자동 분석하지 않습니다.
-브라우저별 비공개 기록, 진행 저장, 선택 공유와 삭제를 구현하고, 분석 결과 서명과 DB 기반 요청 제한을 코드에 반영했습니다.
+사용자가 입력한 프로젝트 설명과 지원 직무를 바탕으로 개선 문구와 면접 질문을 제공하는 AI 리뷰 도구입니다. Structured Outputs로 입력 근거와 수정 제안을 구조화하고, 브라우저별 비공개 기록과 만료·해제가 가능한 공유 링크를 구현했습니다. 비용 없이 체험할 수 있는 데모도 제공합니다.
 
-- 배포: https://careerlens-ai-kohl.vercel.app/
-- GitHub: https://github.com/ajttk369/CareerLens-AI
-- 사용 기술: Next.js, TypeScript, OpenAI, Supabase, Tailwind CSS, Vercel
+**기술** · Next.js, React, TypeScript, OpenAI Responses API, Supabase, Tailwind CSS, Vercel  
+[사이트 보기](https://careerlens-ai-kohl.vercel.app/) · [GitHub](https://github.com/ajttk369/CareerLens-AI)
 
-### InsightBoard 매출 분석 대시보드
+### 03. Rift Record | LoL·TFT 전적 분석 서비스
 
-CSV 매출 데이터를 업로드해 KPI, 차트, 인사이트, 원본 테이블을 확인하는 데이터 대시보드입니다.
-Papa Parse로 CSV를 브라우저에서 파싱하고 날짜·숫자·컬럼 형식을 검증합니다. 필터 조건에 맞춰 지표·차트·테이블을 함께 갱신하고, 업로드 오류가 발생하면 기존 데이터를 유지합니다.
+Riot ID로 LoL과 TFT 전적을 각각 조회하는 반응형 웹 서비스입니다. 최근 경기 요약, 유형별 필터, 경기 상세와 참여자 재검색을 제공합니다. LoL·TFT API 라우팅을 분리하고, Data Dragon 한국어 데이터 매핑과 Supabase 매치 저장을 구현했습니다.
 
-- 배포: https://insightboard-xi.vercel.app/
-- GitHub: https://github.com/ajttk369/InsightBoard
-- 사용 기술: Next.js, TypeScript, Tailwind CSS, Recharts, Papa Parse
-- 구현 범위: CSV 입력 검증, KPI 계산, 차트·테이블 필터 연동, 모바일 정렬, 전체 필터 결과 CSV·인쇄 리포트
-- 지표 기준: 주문 수는 CSV 행 수, 재구매 비율은 재구매로 표시된 행의 비중입니다. 고객 단위 재구매율은 계산하지 않습니다.
+**기술** · HTML, CSS, JavaScript, Node.js, Riot Games API, Data Dragon, Supabase, Vercel  
+[사이트 보기](https://rift-record.vercel.app/) · [GitHub](https://github.com/ajttk369/rift-record)
 
-### 지도로 지도 서비스
+### 04. 먼작귀 업무시간 위젯 | Windows 데스크톱 앱
 
-장소·주소 검색, 상세 정보, 즐겨찾기, 자동차 길찾기와 거리뷰를 지도 중심으로 연결한 웹 서비스입니다.
-Naver 지도·검색·좌표·자동차 경로 API와 TAGO 주변 교통 정보를 서버 라우트로 연결했습니다.
-대중교통은 주변 버스·지하철 이용 후보이며 환승 경로를 계산하지 않습니다. 도보·자전거는 실제 통행 경로가 아닌 직선 거리 참고 정보를 제공합니다.
+업무 상태와 퇴근까지 남은 시간을 표시하고, 일정에 따라 캐릭터가 움직이는 Windows 위젯입니다. Electron으로 창 고정, 클릭 통과, 트레이와 로컬 설정 저장을 구현했습니다. 일정 계산과 화면 코드를 웹 미리보기에서도 재사용하고, GitHub Releases를 통해 Windows 설치 파일과 업데이트를 배포합니다.
 
-- 배포: https://jidoro-map.vercel.app/
-- GitHub: https://github.com/ajttk369/jidoro-map
-- 사용 기술: Next.js 14, React 18, TypeScript, Tailwind CSS, LocalStorage, Vercel
-- 사용 API: Naver Maps JavaScript API, Naver Local Search API, Naver Cloud Geocoding API, Naver Cloud Reverse Geocoding API, Naver Cloud Directions API, TAGO 교통 정보 API
-- 구현 범위: 장소·주소 검색, 마커·상세·즐겨찾기, 자동차 실제 경로, 주변 교통 정보, 거리뷰, 모바일 하단 시트
+**기술** · JavaScript, Electron, Canvas 2D, IPC, electron-builder, electron-updater, GitHub Releases, Vercel  
+[웹 미리보기](https://chiikawa-work-widget.vercel.app/) · [Windows 배포 파일](https://github.com/ajttk369/chiikawa-work-widget/releases) · [GitHub](https://github.com/ajttk369/chiikawa-work-widget)
 
-### 학생 관리 시스템
+> 비공식 개인 팬 프로젝트입니다.
 
-학생 정보와 수강 진도를 관리하고 과정별 운영 현황과 우선 관리 대상을 확인하는 Flask·SQLite 기반 시스템입니다.
-검색·필터·정렬·페이지 이동, 과정별 운영 요약, 학생 포털과 CSV 내보내기를 구현했습니다. 운영 메모와 학생 공개 안내를 구분하고 서버 입력 검증·CSRF 보호·요청 제한을 적용했습니다.
+## 추가 프로젝트
 
-- 배포: https://student-lms-manager.onrender.com/
-- GitHub: https://github.com/ajttk369/student-lms-manager
-- 사용 기술: Python, Flask, SQLite, Flask-WTF, Flask-Limiter, HTML/CSS/JavaScript
-- 구현 범위: 학생 CRUD·진도 관리, 과정별 운영 요약, 우선 관리 대상 바로 수정, 학생 공개 안내, 전체 필터 결과 CSV 내보내기
-- 관리자·학생 화면의 표시 정보를 구분한 구조이며 실제 회원 인증이나 접근 권한 분리를 제공하지 않습니다.
+<details>
+<summary>추가 프로젝트 8개 보기</summary>
 
-### 올리브영 픽업 UX 리뉴얼
+| 프로젝트 | 주요 구현 | 링크 |
+| --- | --- | --- |
+| **05. InsightBoard** | 브라우저에서 CSV를 검증하고 필터에 따라 KPI·차트·테이블을 함께 갱신합니다. 전체 필터 결과의 CSV 내보내기와 인쇄 리포트를 지원합니다. | [사이트](https://insightboard-xi.vercel.app/) · [코드](https://github.com/ajttk369/InsightBoard) |
+| **06. 지도로 JIDORO** | Naver API로 장소 검색·거리뷰·자동차 경로를 연결하고, TAGO로 주변 버스·지하철 정보를 표시합니다. | [사이트](https://jidoro-map.vercel.app/) · [코드](https://github.com/ajttk369/jidoro-map) |
+| **07. 학생 관리 시스템** | Flask와 SQLite로 학생 CRUD, 수강 진도, 과정별 운영 요약, 학생용 공개 안내와 CSV 내보내기를 구현했습니다. | [사이트](https://student-lms-manager.onrender.com/) · [코드](https://github.com/ajttk369/student-lms-manager) |
+| **08. 올리브영 픽업 UX 리뉴얼** | 선택한 상품과 수량을 예시 재고와 비교해 한 매장에서 모두 수령할 수 있는지 확인하는 픽업 프로토타입입니다. | [사이트](https://website-renewal-navy.vercel.app/) · [코드](https://github.com/ajttk369/Website-Renewal) |
+| **09. BLACK FIT** | 상품 탐색, 옵션 선택, 장바구니, 모의 주문과 관리자 상품 관리를 구현했습니다. 배포 화면은 localStorage를 사용하며 FastAPI는 별도로 구성했습니다. | [사이트](https://shopping-mall-rosy.vercel.app/) · [코드](https://github.com/ajttk369/Shopping-mall) |
+| **10. AI Future Expo** | 전시 홍보 팀 프로젝트입니다. 페이지 구조, 반응형 화면, 홍보 영상 제작과 웹 페이지 연동을 담당했습니다. | [사이트](https://ai-expo-sooty.vercel.app/) · [코드](https://github.com/ajttk369/AI-Expo) |
+| **11. 자동 인식 컵 수거기** | Raspberry Pi, Python, OpenCV를 활용해 카메라로 컵을 인식하고 분류 동작으로 연결한 프로토타입입니다. | [기획 자료](cup-collector-plan.pdf) |
+| **12. 스마트 무선 주차 시스템** | Arduino, 초음파 센서, NFC와 Bluetooth를 활용한 주차 상태 확인 프로젝트입니다. 교내 대회에서 금상을 수상했습니다. | [포트폴리오](https://portfolio-mauve-theta-54.vercel.app/#projects) |
 
-상품 검색부터 선택 목록 관리, 수량 기반 매장 재고 확인까지 연결한 온라인몰 UX 리뉴얼 프로젝트입니다.
-선택 상품·수량 기준으로 전체 가능 매장과 부족한 상품을 계산하고, 매장 선택과 상단 요약을 연결했습니다. 찜·쿠폰·선택 정보 저장과 모바일·모달 사용성을 함께 구현했습니다.
+</details>
 
-- 배포: https://website-renewal-navy.vercel.app/
-- GitHub: https://github.com/ajttk369/Website-Renewal
-- 사용 기술: HTML5, CSS3, JavaScript, localStorage, Vercel
-- 구현 범위: 검색·필터·상품 상세, 선택 목록·수량 변경, 매장 재고 충족 계산, 매장 선택, 쿠폰 조건, 상태 저장·다른 탭 반영
-- 매장 정보는 예시 데이터이며 실제 예약과 회원 인증은 제공하지 않습니다. 사용성 개선은 설계 목표이며 사용자 실험으로 검증한 성과는 아닙니다.
+## 기술 및 작업 도구
 
-### BLACK FIT 패션 커머스
-
-상품 탐색, 옵션 선택, 장바구니와 주문 내역, 관리자 상품 관리를 연결한 패션 커머스 프로젝트입니다.
-프론트엔드는 공통 상품 카탈로그와 localStorage로 동작합니다. 별도 FastAPI 백엔드에는 서버 가격·재고 검증, 요청 제한, JSON 파일 잠금과 원자적 저장을 구현했습니다.
-
-- 배포: https://shopping-mall-rosy.vercel.app/
-- GitHub: https://github.com/ajttk369/Shopping-mall
-- 사용 기술: HTML, CSS, JavaScript, localStorage, Python, FastAPI, JSON
-- 구현 범위: 상품 검색·필터, 사이즈·재고·수량 선택, 장바구니 옵션 변경, 쿠폰·배송비 계산, 모의 주문·주문 내역·관리자 상품 CRUD
-- 배포 프론트엔드는 별도 FastAPI API와 자동 연동되지 않습니다. 실제 결제·배송은 제공하지 않습니다.
-
-### AI Future Expo
-
-AI 전시 홍보를 위한 반응형 웹사이트입니다.
-전시 정보, 프로그램, 홍보 콘텐츠를 한 화면에서 볼 수 있도록 구성하고 Vercel에 배포했습니다.
-
-- 배포: https://ai-expo-sooty.vercel.app/
-- GitHub: https://github.com/ajttk369/AI-Expo
-- 사용 기술: HTML, CSS, JavaScript, Premiere Pro, After Effects
-
-### Automatic Cup Collector
-
-Raspberry Pi와 Python을 사용해 컵을 인식하고 분류하는 자동 수거기 프로젝트입니다.
-카메라 인식, 분류 흐름, 시연 영상과 기획 자료를 포트폴리오에 함께 정리했습니다.
-
-- 사용 기술: Raspberry Pi, Python, Machine Learning, OpenCV
-
-### Smart Parking System
-
-Arduino, NFC, Bluetooth를 사용한 무선 주차 시스템 프로젝트입니다.
-주차 상태 확인과 사용자 인증 흐름을 중심으로 구현했습니다.
-
-- 사용 기술: Arduino, C++, NFC, Bluetooth, IoT
-
-## 기술 스택
-
-- HTML / CSS: 반응형 레이아웃과 화면 스타일 구현
-- JavaScript: 검색, 필터, 탭, 상세보기 등 브라우저 인터랙션 구현
-- TypeScript / React / Next.js: 타입 기반 화면 구성과 서버 API 라우트 연동
-- Python: 관리자 페이지, CRUD, SQLite 기반 데이터 처리
-- SQL / Database: 테이블 설계, 조회, 필터링, 운영 데이터 관리
-- API Integration: Riot, OpenAI, 지도 API, Supabase 데이터 연동
-- UI / UX: 화면 흐름과 사용성 중심의 UI 구성
-- Design Tools: Photoshop, Illustrator 기반 그래픽 콘텐츠 제작
-- Video Tools: 영상 컷 편집, 자막, 모션 그래픽, 화면 전환 효과 작업
-- Blender: 모델링, 조명, 재질 설정, 렌더링 작업
-- IoT: Arduino, Raspberry Pi 기반 하드웨어 프로젝트 경험
-
-## Creative 작업
-
-- 그래픽 디자인: 배너, 쿠폰, 포스터, 상품 홍보 이미지
-- 3D: Blender 렌더링, 재질/조명 설정, 2D+3D 모션 구성
-- 영상: Premiere Pro, After Effects 기반 편집, 자막, 화면 전환, 모션 그래픽
+- **이 포트폴리오 사이트** · HTML, CSS, JavaScript, Vercel
+- **웹 프로젝트** · JavaScript, TypeScript, React, Next.js, Node.js, Flask, FastAPI
+- **데이터·API** · Supabase, PostgreSQL, SQLite, OpenAI, Riot Games, Google Maps, Naver Maps, TAGO
+- **데스크톱·임베디드** · Electron, Canvas 2D, Raspberry Pi, Arduino
+- **디자인·영상·3D** · Photoshop, Illustrator, Premiere Pro, After Effects, Blender
 
 ## 로컬 실행
 
-별도 빌드 과정 없이 `index.html`을 브라우저에서 열어 확인할 수 있습니다.
+별도 빌드나 패키지 설치 없이 `index.html`을 브라우저에서 열 수 있습니다. PowerShell에서는 저장소 폴더에서 다음 명령을 실행합니다.
 
-```bash
-start index.html
+```powershell
+Start-Process .\index.html
 ```
 
 ## 폴더 구조
@@ -151,6 +86,7 @@ start index.html
 ├─ index.html
 ├─ README.md
 ├─ resume.pdf
+├─ ai-exhibition-web-video-certificate.pdf
 ├─ cup-collector-plan.pdf
 ├─ images/
 └─ videos/
